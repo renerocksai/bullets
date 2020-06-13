@@ -1,0 +1,283 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Bullets/fonts/BootsplashFontBold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Bullets/Slides/bootmenu.gd" type="Script" id=2]
+[ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Light.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Bullets/components/matrix.gd" type="Script" id=4]
+[ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Bold.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://Bullets/components/coolanim.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://Bullets/img/GitHub-Mark-64px.png" type="Texture" id=7]
+[ext_resource path="res://Bullets/img/bglb.jpg" type="Texture" id=8]
+
+[sub_resource type="RichTextEffect" id=1]
+script = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 75
+extra_spacing_top = 10
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 42
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 42
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+extra_spacing_top = 10
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 140.0
+margin_right = 1920.0
+margin_bottom = 839.0
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center][wave][color=#cd0f2d]> [/color]Bûllets[/wave][/center]"
+text = "> Bûllets"
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 874.0
+margin_top = 402.0
+margin_right = 1699.0
+margin_bottom = 542.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[color=red]^
+^[/color] the power of the point[color=red] <  <  <[/color]"
+text = "^
+^ the power of the point <  <  <"
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 920.0
+margin_right = 1920.0
+margin_bottom = 1020.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Press [color=#cd0f2d]<SPACE>[/color] to begin[/center]"
+text = "Press <SPACE> to begin"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 1318.0
+margin_top = 949.0
+margin_right = 1866.0
+margin_bottom = 995.0
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 0.988235, 0.992157, 0.992157, 1 )
+bbcode_enabled = true
+bbcode_text = "[color=red] <<< [/color]click in browser window first "
+text = " <<< click in browser window first "
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 793.0
+margin_top = 1003.0
+margin_right = 1039.0
+margin_bottom = 1049.0
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 0.988235, 0.992157, 0.992157, 1 )
+bbcode_enabled = true
+bbcode_text = "[center][color=grey](or just click it)[/color][/center]"
+text = "(or just click it)"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 920.0
+margin_right = 1920.0
+margin_bottom = 1020.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.537255, 0.564706, 0.564706, 1 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#cd0f2d]> > >   LOADING THE BÛLLETS[/color] "
+text = "> > >   LOADING THE BÛLLETS "
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 691.0
+margin_top = 552.0
+margin_right = 1389.0
+margin_bottom = 868.0
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 0.6, 0.2, 0.4, 1 )
+bbcode_enabled = true
+bbcode_text = "[b][color=#cd0f2d]<SPACE>[/color][color=grey] ,[/color][color=#cd0f2d]  --> [/color][/b]
+[b]                 [color=#cd0f2d] <-- [/color][/b]
+[b]                 [color=#cd0f2d] <F>[/color][/b]
+[b]                 [color=#cd0f2d] <L>[/color][/b]
+[b]                 [color=#cd0f2d] <H>[/color][/b]
+[b]                 [color=#cd0f2d] <P>[/color][/b]
+[b][color=#cd0f2d]<ESC>[/color][color=grey]     , [/color][color=#cd0f2d]<Q>[/color][/b]
+"
+text = "<SPACE> ,  --> 
+                  <-- 
+                  <F>
+                  <L>
+                  <H>
+                  <P>
+<ESC>     , <Q>
+"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 979.0
+margin_top = 552.0
+margin_right = 1677.0
+margin_bottom = 868.0
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "next slide
+previous slide
+toggle fullscreen
+toggle laserpointer
+back to this screen
+PNG export
+QUIT
+"
+text = "next slide
+previous slide
+toggle fullscreen
+toggle laserpointer
+back to this screen
+PNG export
+QUIT
+"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 943.113, -55.6927 )
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Node2D"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 420.0
+margin_top = 99.0
+margin_right = 1109.0
+margin_bottom = 199.0
+custom_fonts/normal_font = SubResource( 7 )
+custom_colors/default_color = Color( 0.537255, 0.564706, 0.564706, 1 )
+bbcode_enabled = true
+bbcode_text = "[color=blue][url=https://renerocksai.github.com/bullets]https://renerocksai.github.com/bullets[/url][/color]"
+text = "https://renerocksai.github.com/bullets"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GitHub-Mark-64px" type="Sprite" parent="Node2D"]
+position = Vector2( 377.026, 126.278 )
+texture = ExtResource( 7 )
+
+[node name="LaserPointer" type="AnimatedSprite" parent="."]
+position = Vector2( 555.297, 966.449 )
+frames = ExtResource( 6 )
+animation = "coolanim"
+frame = 14
+playing = true

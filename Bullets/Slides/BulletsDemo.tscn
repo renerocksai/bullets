@@ -1,0 +1,628 @@
+[gd_scene load_steps=47 format=2]
+
+[ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
+[ext_resource path="res://Bullets/Slides/BTitle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Bullets/Slides/BulletsDemo.gd" type="Script" id=3]
+[ext_resource path="res://Bullets/components/AnimSpriteFollowMouse.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Bullets/Slides/BChapter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Bullets/Slides/BOneContent.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Bullets/img/GitHub-Mark-64px.png" type="Texture" id=7]
+[ext_resource path="res://Bullets/img/share.png" type="Texture" id=8]
+[ext_resource path="res://Bullets/img/edittext.png" type="Texture" id=9]
+[ext_resource path="res://icon.png" type="Texture" id=10]
+[ext_resource path="res://Bullets/img/controller.png" type="Texture" id=11]
+[ext_resource path="res://Bullets/img/smiley.png" type="Texture" id=12]
+[ext_resource path="res://Bullets/img/pptpx8.png" type="Texture" id=13]
+[ext_resource path="res://Bullets/img/burning_loop_1.png" type="Texture" id=14]
+[ext_resource path="res://Bullets/fonts/ChapterNumberFont.tres" type="DynamicFont" id=15]
+[ext_resource path="res://Bullets/fonts/ChapterTitleFont.tres" type="DynamicFont" id=16]
+[ext_resource path="res://Bullets/fonts/ChapterSubTitleFont.tres" type="DynamicFont" id=17]
+[ext_resource path="res://Bullets/Slides/BChapter.gd" type="Script" id=18]
+[ext_resource path="res://Bullets/img/godotscr1.png" type="Texture" id=19]
+[ext_resource path="res://Bullets/img/bgwater.jpg" type="Texture" id=20]
+[ext_resource path="res://Bullets/img/diff.png" type="Texture" id=21]
+[ext_resource path="res://Bullets/img/bulletsscreen.png" type="Texture" id=22]
+[ext_resource path="res://Bullets/Slides/BThankyou.tscn" type="PackedScene" id=23]
+[ext_resource path="res://src/Main/Game.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Bullets/Slides/GameContainer.gd" type="Script" id=25]
+[ext_resource path="res://Bullets/Slides/BOneContent.gd" type="Script" id=26]
+[ext_resource path="res://Bullets/fonts/calibril.ttf" type="DynamicFontData" id=27]
+[ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Regular.ttf" type="DynamicFontData" id=28]
+[ext_resource path="res://Bullets/fonts/SlideTitleFont.tres" type="DynamicFont" id=29]
+[ext_resource path="res://Bullets/components/matrix.gd" type="Script" id=30]
+[ext_resource path="res://Bullets/fonts/contentfont_regular.tres" type="DynamicFont" id=31]
+[ext_resource path="res://Bullets/fonts/ContentBoldFont.tres" type="DynamicFont" id=32]
+[ext_resource path="res://Bullets/fonts/contentfont_italic.tres" type="DynamicFont" id=33]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 24, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 48, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 72, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 96, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 120, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 144, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 168, 0, 24, 32 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=10]
+size = 20
+font_data = ExtResource( 27 )
+
+[sub_resource type="RichTextEffect" id=11]
+script = ExtResource( 30 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 20
+font_data = ExtResource( 28 )
+
+[sub_resource type="Animation" id=13]
+resource_name = "credits_up"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ContentLabel:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1380, -0.25, 0, 0.25, 0, 1380, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("ContentLabel:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1080, -0.25, 0, 0.25, 0, 180, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+
+[node name="BulletsDemoPresentation" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Slides" type="Node2D" parent="."]
+script = ExtResource( 1 )
+skip_animation = false
+animation_speed = 1.0
+slide_number_start = 1
+
+[node name="Title" parent="Slides" instance=ExtResource( 2 )]
+visible = false
+z_index = 1
+Title = "[color=#cd0f2d]BÛLLETS[/color] - Slide Show meets Game Engine"
+Subtitle = "A short introduction"
+Authors = "Rene Schallner"
+
+[node name="Chapter1" parent="Slides" instance=ExtResource( 5 )]
+visible = false
+z_index = 1
+ChapterNum = "1"
+Title = "What is a ... Bûllets?"
+Subtitle = ""
+
+[node name="Whatis" parent="Slides" instance=ExtResource( 6 )]
+visible = false
+z_index = 1
+title = "What is Bûllets?"
+text = "- Bûllets is a slide show software powered by the 
+    [b]Godot game engine[/b]
+
+- It helps you create beautiful presentations on all 
+    platforms (Windows, Mac, Linux) that are 100% 
+    self-contained  and will look and feel the same on all 
+    platforms
+
+- Using plain text with optional easy markup for 
+    content makes slide creation a breeze
+
+- If you know how to code, you can create the most 
+    complex, interactive animations, with sound effects -
+    or even embed Tetris into your slides.
+   "
+sources = ""
+
+[node name="icon" type="Sprite" parent="Slides/Whatis"]
+position = Vector2( 1664.63, 231.003 )
+scale = Vector2( 1.50237, 1.50237 )
+texture = ExtResource( 10 )
+
+[node name="edittext" type="Sprite" parent="Slides/Whatis"]
+position = Vector2( 1427.56, 618.966 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 700, 450 )
+
+[node name="Whatis2" parent="Slides" instance=ExtResource( 6 )]
+visible = false
+z_index = 1
+title = "What is Bûllets?"
+text = "- You can share Bûllets presentations either as native 
+    programs or publish them to the web
+
+- PNG export is supported, too if you need a PDF
+     version
+
+- Bûllets presentations are version control friendly and 
+    allow for GitHub collaboration
+
+- And yes, it works with your favorite wireless clicker!
+	- Even if that happens to be your  XBOX controller     
+	- It [b]even comes with a laser pointer![/b]
+	- Try it out,  [wave][b][color=#cd0f2d]press <L> for Laser![/color][/b][/wave]
+
+- It is a proof-of-concept and a work in progress
+
+- It is also a hack
+"
+sources = ""
+
+[node name="GitHub-Mark-64px" type="Sprite" parent="Slides/Whatis2"]
+position = Vector2( 1695.78, 456.493 )
+scale = Vector2( 2.88891, 2.88891 )
+texture = ExtResource( 7 )
+
+[node name="share" type="Sprite" parent="Slides/Whatis2"]
+position = Vector2( 1693.78, 224.144 )
+scale = Vector2( 0.372039, 0.372039 )
+texture = ExtResource( 8 )
+
+[node name="smiley" type="Sprite" parent="Slides/Whatis2"]
+position = Vector2( 923.566, 655.688 )
+scale = Vector2( 0.0522766, 0.0522767 )
+texture = ExtResource( 12 )
+
+[node name="controller" type="Sprite" parent="Slides/Whatis2"]
+position = Vector2( 1693.16, 691.383 )
+scale = Vector2( 0.461913, 0.461913 )
+texture = ExtResource( 11 )
+
+[node name="Chapter2" parent="Slides" instance=ExtResource( 5 )]
+visible = false
+z_index = 1
+ChapterNum = "2"
+Title = "Why ... Bûllets?"
+Subtitle = "... and what is the point?"
+
+[node name="Why" parent="Slides" instance=ExtResource( 6 )]
+visible = false
+z_index = 1
+title = "Why Bûllets? Motivation from frustration."
+text = "- [b]Because![/b] Exploring the idea space where game engines meet PowerPoint is fun!
+- While it probably deserves to be the gold standard, PowerPoint is not one of my favorites:
+	- Working primarily on Linux, it becomes apparent what a mess office suite style presentations can be:
+		- PowerPoint and LibreOffice are just not compatible enough. 
+		- Every Non-Windows PowerPoint version offers only its own subset of features: e.g. web vs. Android. 
+	- Many PowerPoint masters are a mess. They don't work with PowerPoint on the web. Only sort-of. 
+	    They tend to lose custom bullet symbols. They encourage inconsistent formatting by inconsistent defaults. 
+	    Sometimes, they randomly mess up the indentation levels, ...
+	- Pasting plain text bullet lists like: [i][color=grey]
+		* first
+			* level 2
+		* second...[/color][/i]
+	    should just work! Like it does in Outlook. But it doesn't. Because it's PowerPoint.
+	- Animations in PowerPoint pale - in contrast to what modern  graphics engines can do.
+	- There is no \"laser pointer\" when presenting from a browser.
+	- Office formats cannot really be \"diffed\", and are not suitable for version control, e.g. on GitHub.
+	- More often than not, editing a presentation ends up in a  fiddling-with-formatting nightmare."
+sources = ""
+
+[node name="ppt" type="Sprite" parent="Slides/Why"]
+position = Vector2( 1758.75, 124.95 )
+texture = ExtResource( 13 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Slides/Why"]
+position = Vector2( 1771.63, 139.675 )
+scale = Vector2( 7.37292, 5.72032 )
+frames = SubResource( 9 )
+frame = 6
+playing = true
+
+[node name="smiley2" type="Sprite" parent="Slides/Why"]
+position = Vector2( 1337.81, 193.608 )
+scale = Vector2( 0.0522766, 0.0522767 )
+texture = ExtResource( 12 )
+
+[node name="Chapter3" type="Node2D" parent="Slides"]
+visible = false
+z_index = 1
+script = ExtResource( 18 )
+ChapterNum = "3"
+Title = "How is Bûllets different?"
+Subtitle = "Slideshows are code, slideshows are programs"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/Chapter3"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 20 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterTitle" type="RichTextLabel" parent="Slides/Chapter3"]
+margin_left = 757.0
+margin_top = 673.0
+margin_right = 1706.0
+margin_bottom = 787.0
+custom_fonts/normal_font = ExtResource( 16 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[color=black]How is Bûllets different?[/color]"
+text = "How is Bûllets different?"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterSubtitle" type="RichTextLabel" parent="Slides/Chapter3"]
+margin_left = 757.0
+margin_top = 794.0
+margin_right = 1644.0
+margin_bottom = 1005.0
+custom_fonts/normal_font = ExtResource( 17 )
+bbcode_enabled = true
+bbcode_text = "[color=#993366]SLIDESHOWS ARE CODE, SLIDESHOWS ARE PROGRAMS[/color]"
+text = "SLIDESHOWS ARE CODE, SLIDESHOWS ARE PROGRAMS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterNumber" type="RichTextLabel" parent="Slides/Chapter3"]
+margin_left = 201.0
+margin_top = 509.0
+margin_right = 461.0
+margin_bottom = 931.0
+custom_fonts/normal_font = ExtResource( 15 )
+bbcode_enabled = true
+bbcode_text = "[color=#cd0f2d]3[/color]"
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlideshowsRcode" parent="Slides" instance=ExtResource( 6 )]
+visible = false
+z_index = 1
+title = "Slideshows are code, slideshows are programs"
+text = "- You create your presentations in the powerful 
+    editor of the Godot game engine
+	- Bûllets is coder-friendly.
+	- Bûllets is GitHub-friendly, slideshow contents 
+	    can be diffed
+	- [b]Simple slideshows like this one can be created 
+	    without writing any extra code![/b]
+	- More sophisticated ones can be coded
+
+- Bûllets is a set of pre-programmed components that 
+    you can re-use, modify and extend to your liking
+
+- When done, you just export to all platforms like the
+     web, or executables for Windows, Mac, and Linux.
+
+- If you need a PDF, you run the presentation and hit
+    <P>. A series of PNG files is generated that you can 
+    turn into a PDF with your favorite tool, e.g.[i] pypdf[/i]."
+sources = ""
+
+[node name="godotscr1" type="Sprite" parent="Slides/SlideshowsRcode"]
+position = Vector2( 1454.52, 425.111 )
+scale = Vector2( 0.415694, 0.447352 )
+texture = ExtResource( 19 )
+
+[node name="diff" type="Sprite" parent="Slides/SlideshowsRcode/godotscr1"]
+position = Vector2( -24.6328, 962.287 )
+scale = Vector2( 1.67248, 1.67248 )
+texture = ExtResource( 21 )
+
+[node name="Chapter4" type="Node2D" parent="Slides"]
+visible = false
+z_index = 1
+script = ExtResource( 18 )
+ChapterNum = "4"
+Title = "Presenting with Bûllets"
+Subtitle = "Slideshows are programs!"
+
+[node name="TextureRect" type="TextureRect" parent="Slides/Chapter4"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 20 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterTitle" type="RichTextLabel" parent="Slides/Chapter4"]
+margin_left = 757.0
+margin_top = 673.0
+margin_right = 1706.0
+margin_bottom = 787.0
+custom_fonts/normal_font = ExtResource( 16 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[color=black]Presenting with Bûllets[/color]"
+text = "Presenting with Bûllets"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterSubtitle" type="RichTextLabel" parent="Slides/Chapter4"]
+margin_left = 757.0
+margin_top = 794.0
+margin_right = 1644.0
+margin_bottom = 1005.0
+custom_fonts/normal_font = ExtResource( 17 )
+bbcode_enabled = true
+bbcode_text = "[color=#993366]SLIDESHOWS ARE PROGRAMS![/color]"
+text = "SLIDESHOWS ARE PROGRAMS!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterNumber" type="RichTextLabel" parent="Slides/Chapter4"]
+margin_left = 201.0
+margin_top = 509.0
+margin_right = 461.0
+margin_bottom = 931.0
+custom_fonts/normal_font = ExtResource( 15 )
+bbcode_enabled = true
+bbcode_text = "[color=#cd0f2d]4[/color]"
+text = "4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Presenting" parent="Slides" instance=ExtResource( 6 )]
+visible = false
+z_index = 1
+title = "Presenting with Bûllets"
+text = "- You don't need PowerPoint
+
+- You don't need LibreOffice
+	- or any other software than just your presentation
+
+- If you can't bring your own .EXE, you can use the web 
+    version in a browser and go <F>ullscreen
+
+- Your clicker is supported
+
+- Animations are smooth
+
+- And you get a laserpointer :-)
+
+- There is only one mode: presentation mode
+    - no presenter mode with notes and timers (yet)
+    - we give presentations from the heart anyway"
+sources = ""
+
+[node name="bulletsscreen" type="Sprite" parent="Slides/Presenting"]
+position = Vector2( 1428.38, 420.487 )
+scale = Vector2( 0.644902, 0.644902 )
+texture = ExtResource( 22 )
+
+[node name="Chapter5Game" parent="Slides" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 0, -1 )
+z_index = 1
+ChapterNum = "5"
+Title = "Capability Demo"
+Subtitle = "Game Time!"
+
+[node name="GameInstructions" parent="Slides" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 0, -1 )
+z_index = 1
+title = "Game controls"
+text = "
+- To control the player:
+	- LEFT:     <A> or <,> (comma)
+	- RIGHT:  <D> or <.> (dot)
+	- JUMP:   <W>
+	- SHOOT: <R>
+
+- To control the game:
+	-PAUSE: <Y>
+
+- To LEAVE the game:
+	- just go to the next or previous slide
+	- you can resume the game by returning to the game slide
+	
+- No worries, you cannot die!"
+sources = ""
+
+[node name="GameSlide" type="Node2D" parent="Slides"]
+script = ExtResource( 26 )
+title = ""
+text = " 
+"
+sources = ""
+
+[node name="TextureRect" type="TextureRect" parent="Slides/GameSlide"]
+visible = false
+margin_right = 1920.0
+margin_bottom = 1080.0
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Slides/GameSlide"]
+visible = false
+margin_left = 1788.94
+margin_top = 1009.57
+margin_right = 1828.94
+margin_bottom = 1049.57
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/GameSlide"]
+visible = false
+margin_left = 110.0
+margin_top = 960.0
+margin_right = 1868.0
+margin_bottom = 1089.0
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="Slides/GameSlide"]
+visible = false
+margin_left = 110.0
+margin_top = 71.0
+margin_right = 1822.0
+margin_bottom = 144.0
+custom_fonts/normal_font = ExtResource( 29 )
+bbcode_enabled = true
+bbcode_text = "[color=black][/color]"
+custom_effects = [ SubResource( 11 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" type="RichTextLabel" parent="Slides/GameSlide"]
+visible = false
+margin_left = 110.0
+margin_top = 181.0
+margin_right = 1810.0
+margin_bottom = 1020.0
+custom_fonts/italics_font = ExtResource( 33 )
+custom_fonts/bold_font = ExtResource( 32 )
+custom_fonts/normal_font = ExtResource( 31 )
+custom_constants/line_separation = 10
+bbcode_enabled = true
+bbcode_text = "[color=black] 
+[/color]"
+tab_size = 6
+text = " 
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageNumber" type="RichTextLabel" parent="Slides/GameSlide"]
+visible = false
+margin_left = 1802.92
+margin_top = 1021.27
+margin_right = 1842.92
+margin_bottom = 1061.27
+custom_fonts/normal_font = SubResource( 12 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameContainer" type="Node2D" parent="Slides/GameSlide"]
+script = ExtResource( 25 )
+
+[node name="Game" parent="Slides/GameSlide/GameContainer" instance=ExtResource( 24 )]
+
+[node name="Thankyou" parent="Slides" instance=ExtResource( 23 )]
+visible = false
+z_index = 1
+Title = "[b]BÛLLETS[/b] - Slide Show meets Game Engine"
+Subtitle = "A Short Introduction"
+Authors = "Rene Schallner"
+
+[node name="ContentLabel" type="RichTextLabel" parent="Slides/Thankyou"]
+margin_left = 1380.0
+margin_top = 180.0
+margin_right = 1851.0
+margin_bottom = 1019.0
+custom_fonts/italics_font = ExtResource( 33 )
+custom_fonts/bold_font = ExtResource( 32 )
+custom_fonts/normal_font = ExtResource( 31 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_constants/line_separation = 10
+bbcode_enabled = true
+bbcode_text = "[center]
+[color=#cd0f2d][b][u]Credits:[/u][/b][/color]
+
+
+
+
+[b][u]GodotEngine.org[/u][/b] 
+for their awesome game 
+engine and the
+2D platformer demo 
+game.
+
+[b][u]GDQuest[/u][/b]
+for inspiring us with
+their Godot Presentations"
+tab_size = 6
+text = "
+Credits:
+
+
+
+
+GodotEngine.org 
+for their awesome game 
+engine and the
+2D platformer demo 
+game.
+
+GDQuest
+for inspiring us with
+their Godot Presentations"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Thankyou"]
+autoplay = "credits_up"
+playback_speed = 0.4
+anims/credits_up = SubResource( 13 )
+
+[node name="LaserPointer" parent="Slides" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 935.903, 577.104 )
+z_index = 11
+frame = 11
