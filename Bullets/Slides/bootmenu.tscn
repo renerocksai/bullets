@@ -279,5 +279,5 @@ texture = ExtResource( 7 )
 position = Vector2( 555.297, 966.449 )
 frames = ExtResource( 6 )
 animation = "coolanim"
-frame = 14
+frame = 2
 playing = true

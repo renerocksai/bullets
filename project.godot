@@ -9,48 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "Actor",
-"language": "GDScript",
-"path": "res://src/Actors/Actor.gd"
-}, {
-"base": "RigidBody2D",
-"class": "Bullet",
-"language": "GDScript",
-"path": "res://src/Objects/Bullet.gd"
-}, {
-"base": "Area2D",
-"class": "Coin",
-"language": "GDScript",
-"path": "res://src/Objects/Coin.gd"
-}, {
-"base": "Actor",
-"class": "Enemy",
-"language": "GDScript",
-"path": "res://src/Actors/Enemy.gd"
-}, {
-"base": "Position2D",
-"class": "Gun",
-"language": "GDScript",
-"path": "res://src/Actors/Gun.gd"
-}, {
-"base": "Actor",
-"class": "Player",
-"language": "GDScript",
-"path": "res://src/Actors/Player.gd"
-}, {
 "base": "RichTextEffect",
 "class": "RichTextMatrix",
 "language": "GDScript",
 "path": "res://Bullets/components/matrix.gd"
 } ]
 _global_script_class_icons={
-"Actor": "",
-"Bullet": "",
-"Coin": "",
-"Enemy": "",
-"Gun": "",
-"Player": "",
 "RichTextMatrix": ""
 }
 

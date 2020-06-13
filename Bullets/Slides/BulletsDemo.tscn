@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/Slides/BTitle.tscn" type="PackedScene" id=2]
@@ -23,13 +23,6 @@
 [ext_resource path="res://Bullets/img/diff.png" type="Texture" id=21]
 [ext_resource path="res://Bullets/img/bulletsscreen.png" type="Texture" id=22]
 [ext_resource path="res://Bullets/Slides/BThankyou.tscn" type="PackedScene" id=23]
-[ext_resource path="res://src/Main/Game.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Bullets/Slides/GameContainer.gd" type="Script" id=25]
-[ext_resource path="res://Bullets/Slides/BOneContent.gd" type="Script" id=26]
-[ext_resource path="res://Bullets/fonts/calibril.ttf" type="DynamicFontData" id=27]
-[ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Regular.ttf" type="DynamicFontData" id=28]
-[ext_resource path="res://Bullets/fonts/SlideTitleFont.tres" type="DynamicFont" id=29]
-[ext_resource path="res://Bullets/components/matrix.gd" type="Script" id=30]
 [ext_resource path="res://Bullets/fonts/contentfont_regular.tres" type="DynamicFont" id=31]
 [ext_resource path="res://Bullets/fonts/ContentBoldFont.tres" type="DynamicFont" id=32]
 [ext_resource path="res://Bullets/fonts/contentfont_italic.tres" type="DynamicFont" id=33]
@@ -82,18 +75,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=10]
-size = 20
-font_data = ExtResource( 27 )
-
-[sub_resource type="RichTextEffect" id=11]
-script = ExtResource( 30 )
-
-[sub_resource type="DynamicFont" id=12]
-size = 20
-font_data = ExtResource( 28 )
-
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=10]
 resource_name = "credits_up"
 length = 3.0
 tracks/0/type = "bezier"
@@ -254,7 +236,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 6
+frame = 7
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -442,129 +424,7 @@ position = Vector2( 1428.38, 420.487 )
 scale = Vector2( 0.644902, 0.644902 )
 texture = ExtResource( 22 )
 
-[node name="Chapter5Game" parent="Slides" instance=ExtResource( 5 )]
-visible = false
-position = Vector2( 0, -1 )
-z_index = 1
-ChapterNum = "5"
-Title = "Capability Demo"
-Subtitle = "Game Time!"
-
-[node name="GameInstructions" parent="Slides" instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 0, -1 )
-z_index = 1
-title = "Game controls"
-text = "
-- To control the player:
-	- LEFT:     <A> or <,> (comma)
-	- RIGHT:  <D> or <.> (dot)
-	- JUMP:   <W>
-	- SHOOT: <R>
-
-- To control the game:
-	-PAUSE: <Y>
-
-- To LEAVE the game:
-	- just go to the next or previous slide
-	- you can resume the game by returning to the game slide
-	
-- No worries, you cannot die!"
-sources = ""
-
-[node name="GameSlide" type="Node2D" parent="Slides"]
-script = ExtResource( 26 )
-title = ""
-text = " 
-"
-sources = ""
-
-[node name="TextureRect" type="TextureRect" parent="Slides/GameSlide"]
-visible = false
-margin_right = 1920.0
-margin_bottom = 1080.0
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="Slides/GameSlide"]
-visible = false
-margin_left = 1788.94
-margin_top = 1009.57
-margin_right = 1828.94
-margin_bottom = 1049.57
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SourceInfoLabel" type="RichTextLabel" parent="Slides/GameSlide"]
-visible = false
-margin_left = 110.0
-margin_top = 960.0
-margin_right = 1868.0
-margin_bottom = 1089.0
-custom_fonts/normal_font = SubResource( 10 )
-bbcode_enabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TitleLabel" type="RichTextLabel" parent="Slides/GameSlide"]
-visible = false
-margin_left = 110.0
-margin_top = 71.0
-margin_right = 1822.0
-margin_bottom = 144.0
-custom_fonts/normal_font = ExtResource( 29 )
-bbcode_enabled = true
-bbcode_text = "[color=black][/color]"
-custom_effects = [ SubResource( 11 ) ]
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ContentLabel" type="RichTextLabel" parent="Slides/GameSlide"]
-visible = false
-margin_left = 110.0
-margin_top = 181.0
-margin_right = 1810.0
-margin_bottom = 1020.0
-custom_fonts/italics_font = ExtResource( 33 )
-custom_fonts/bold_font = ExtResource( 32 )
-custom_fonts/normal_font = ExtResource( 31 )
-custom_constants/line_separation = 10
-bbcode_enabled = true
-bbcode_text = "[color=black] 
-[/color]"
-tab_size = 6
-text = " 
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PageNumber" type="RichTextLabel" parent="Slides/GameSlide"]
-visible = false
-margin_left = 1802.92
-margin_top = 1021.27
-margin_right = 1842.92
-margin_bottom = 1061.27
-custom_fonts/normal_font = SubResource( 12 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GameContainer" type="Node2D" parent="Slides/GameSlide"]
-script = ExtResource( 25 )
-
-[node name="Game" parent="Slides/GameSlide/GameContainer" instance=ExtResource( 24 )]
-
 [node name="Thankyou" parent="Slides" instance=ExtResource( 23 )]
-visible = false
 z_index = 1
 Title = "[b]BÛLLETS[/b] - Slide Show meets Game Engine"
 Subtitle = "A Short Introduction"
@@ -589,9 +449,10 @@ bbcode_text = "[center]
 
 [b][u]GodotEngine.org[/u][/b] 
 for their awesome game 
-engine and the
-2D platformer demo 
-game.
+engine
+
+
+
 
 [b][u]GDQuest[/u][/b]
 for inspiring us with
@@ -605,9 +466,10 @@ Credits:
 
 GodotEngine.org 
 for their awesome game 
-engine and the
-2D platformer demo 
-game.
+engine
+
+
+
 
 GDQuest
 for inspiring us with
@@ -619,10 +481,10 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Thankyou"]
 autoplay = "credits_up"
 playback_speed = 0.4
-anims/credits_up = SubResource( 13 )
+anims/credits_up = SubResource( 10 )
 
 [node name="LaserPointer" parent="Slides" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 11
+frame = 20
