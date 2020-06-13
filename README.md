@@ -2,4 +2,4 @@
 
 ## Who needs PowerPoint?
 
-![](bullets.png)
+![](docs/bullets-start.png)
