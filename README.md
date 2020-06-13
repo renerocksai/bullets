@@ -6,7 +6,7 @@
 
 ### Check out the [demo presentation](https://renerocksai.github.io/bullets/bullets.html)!
 
-This software is so *fresh*, it's currently in alpha!
+This software is so **fresh**, it's currently in usable alpha!
 
 #### What is Bûllets? 
 
