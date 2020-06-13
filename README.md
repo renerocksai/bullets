@@ -1,5 +1,5 @@
 # Bûllets
 
-## Who needs PowerPoint?
+## Slide Show meets Game Engine
 
-![](bullets.png)
+![](docs/bullets-start.png)
