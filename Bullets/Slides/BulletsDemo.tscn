@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/Slides/BTitle.tscn" type="PackedScene" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Bullets/fonts/contentfont_regular.tres" type="DynamicFont" id=31]
 [ext_resource path="res://Bullets/fonts/ContentBoldFont.tres" type="DynamicFont" id=32]
 [ext_resource path="res://Bullets/fonts/contentfont_italic.tres" type="DynamicFont" id=33]
+[ext_resource path="res://Bullets/img/2dplatformer-shoot.png" type="Texture" id=34]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -158,7 +159,6 @@ text = "- Bûllets is a slide show software powered by the
     complex, interactive animations, with sound effects -
     or even embed Tetris into your slides.
    "
-sources = ""
 
 [node name="icon" type="Sprite" parent="Slides/Whatis"]
 position = Vector2( 1664.63, 231.003 )
@@ -193,7 +193,6 @@ text = "- You can share Bûllets presentations either as native
 
 - It is also a hack
 "
-sources = ""
 
 [node name="GitHub-Mark-64px" type="Sprite" parent="Slides/Whatis2"]
 position = Vector2( 1695.78, 456.493 )
@@ -223,7 +222,6 @@ Title = "Why ... Bûllets?"
 Subtitle = "... and what is the point?"
 
 [node name="Why" parent="Slides" instance=ExtResource( 6 )]
-visible = false
 z_index = 1
 title = "Why Bûllets? Motivation from frustration."
 text = "- [b]Because![/b] Exploring the idea space where game engines meet PowerPoint is fun!
@@ -239,11 +237,10 @@ text = "- [b]Because![/b] Exploring the idea space where game engines meet Power
 			* level 2
 		* second...[/color][/i]
 	    should just work! Like it does in Outlook. But it doesn't. Because it's PowerPoint.
-	- Animations in PowerPoint pale - in contrast to what modern  graphics engines can do.
+	- Animations in PowerPoint pale - in contrast to what modern graphics engines can do.
 	- There is no \"laser pointer\" when presenting from a browser.
 	- Office formats cannot really be \"diffed\", and are not suitable for version control, e.g. on GitHub.
 	- More often than not, editing a presentation ends up in a  fiddling-with-formatting nightmare."
-sources = ""
 
 [node name="ppt" type="Sprite" parent="Slides/Why"]
 position = Vector2( 1758.75, 124.95 )
@@ -253,7 +250,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 5
+frame = 1
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -321,28 +318,26 @@ __meta__ = {
 }
 
 [node name="SlideshowsRcode" parent="Slides" instance=ExtResource( 6 )]
-visible = false
 z_index = 1
 title = "Slideshows are code, slideshows are programs"
 text = "- You create your presentations in the powerful 
     editor of the Godot game engine
-	- Bûllets is coder-friendly.
+	- Bûllets is coder-friendly
 	- Bûllets is GitHub-friendly, slideshow contents 
-	    can be diffed
+	    can be diffed and merged
 	- [b]Simple slideshows like this one can be created 
 	    without writing any extra code![/b]
 	- More sophisticated ones can be coded
 
-- Bûllets is a set of pre-programmed components that 
-    you can re-use, modify and extend to your liking
+- Bûllets comes with a set of pre-programmed components 
+    that you can re-use, modify and extend to your liking
 
 - When done, you just export to all platforms like the
-     web, or executables for Windows, Mac, and Linux.
+     web, or executables for Windows, Mac, and Linux
 
 - If you need a PDF, you run the presentation and hit
     <P>. A series of PNG files is generated that you can 
-    turn into a PDF with your favorite tool, e.g.[i] pypdf[/i]."
-sources = ""
+    turn into a PDF with the provided script"
 
 [node name="godotscr1" type="Sprite" parent="Slides/SlideshowsRcode"]
 position = Vector2( 1454.52, 425.111 )
@@ -414,6 +409,7 @@ __meta__ = {
 }
 
 [node name="Presenting" parent="Slides" instance=ExtResource( 6 )]
+visible = false
 z_index = 1
 title = "Presenting with Bûllets"
 text = "- You don't need PowerPoint
@@ -433,7 +429,6 @@ text = "- You don't need PowerPoint
 - There is only one mode: presentation mode
     - no presenter mode with notes and timers (yet)
     - we give presentations from the heart anyway"
-sources = ""
 
 [node name="bulletsscreen" type="Sprite" parent="Slides/Presenting"]
 position = Vector2( 1428.87, 389.582 )
@@ -453,30 +448,34 @@ visible = false
 position = Vector2( 0, -1 )
 z_index = 1
 title = "Game controls"
-text = "
-- To control the player:
-	- LEFT:     <A> or <,> (comma)
-	- RIGHT:  <D> or <.> (dot)
-	- JUMP:   <W>
-	- SHOOT: <R>
+text = "- To control the player:
+	- use the on-screen touch controls if you have
+	    a touch-screen
+	- on the keyboard:
+		- LEFT:     <A> or <,> (comma)
+		- RIGHT:  <D> or <.> (dot)
+		- JUMP:   <W>
+		- SHOOT: <R>
 
 - To control the game:
 	-PAUSE: <Y>
 
 - To LEAVE the game:
 	- just go to the next or previous slide
+	- tap the center of the screen if you don't have a keyboard
 	- you can resume the game by returning to the game slide
 	
-- No worries, you cannot die!"
-sources = ""
+- No worries, you are indestructible!"
+
+[node name="2dplatformer-shoot" type="Sprite" parent="Slides/GameInstructions"]
+position = Vector2( 1439.75, 386.317 )
+texture = ExtResource( 34 )
 
 [node name="GameSlide" type="Node2D" parent="Slides"]
 visible = false
 script = ExtResource( 26 )
-title = ""
 text = " 
 "
-sources = ""
 
 [node name="TextureRect" type="TextureRect" parent="Slides/GameSlide"]
 visible = false
@@ -624,4 +623,4 @@ anims/credits_up = SubResource( 13 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 14
+frame = 26
