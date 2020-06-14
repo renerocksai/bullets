@@ -242,7 +242,7 @@ margin_bottom = 199.0
 custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 0.537255, 0.564706, 0.564706, 1 )
 bbcode_enabled = true
-bbcode_text = "[color=#0000a0][url=https://renerocksai.github.com/bullets]github.com/renerocksai/bullets[/url][/color]"
+bbcode_text = "[color=#404040][url=https://renerocksai.github.com/bullets]github.com/renerocksai/bullets[/url][/color]"
 text = "github.com/renerocksai/bullets"
 scroll_active = false
 override_selected_font_color = true
@@ -260,5 +260,5 @@ visible = false
 position = Vector2( 1327.99, 984.132 )
 frames = ExtResource( 6 )
 animation = "coolanim"
-frame = 19
+frame = 2
 playing = true
