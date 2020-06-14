@@ -21,7 +21,7 @@
 [ext_resource path="res://Bullets/img/godotscr1.png" type="Texture" id=19]
 [ext_resource path="res://Bullets/img/bgwater.jpg" type="Texture" id=20]
 [ext_resource path="res://Bullets/img/diff.png" type="Texture" id=21]
-[ext_resource path="res://Bullets/img/bulletsscreen.png" type="Texture" id=22]
+[ext_resource path="res://Bullets/img/bullets-screen.png" type="Texture" id=22]
 [ext_resource path="res://Bullets/Slides/BThankyou.tscn" type="PackedScene" id=23]
 [ext_resource path="res://src/Main/Game.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Bullets/Slides/GameContainer.gd" type="Script" id=25]
@@ -138,7 +138,6 @@ visible = false
 z_index = 1
 ChapterNum = "1"
 Title = "What is a ... Bûllets?"
-Subtitle = ""
 
 [node name="Whatis" parent="Slides" instance=ExtResource( 6 )]
 visible = false
@@ -254,7 +253,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 6
+frame = 5
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -415,7 +414,6 @@ __meta__ = {
 }
 
 [node name="Presenting" parent="Slides" instance=ExtResource( 6 )]
-visible = false
 z_index = 1
 title = "Presenting with Bûllets"
 text = "- You don't need PowerPoint
@@ -438,8 +436,8 @@ text = "- You don't need PowerPoint
 sources = ""
 
 [node name="bulletsscreen" type="Sprite" parent="Slides/Presenting"]
-position = Vector2( 1428.38, 420.487 )
-scale = Vector2( 0.644902, 0.644902 )
+position = Vector2( 1428.87, 389.582 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 22 )
 
 [node name="Chapter5Game" parent="Slides" instance=ExtResource( 5 )]
@@ -473,6 +471,7 @@ text = "
 sources = ""
 
 [node name="GameSlide" type="Node2D" parent="Slides"]
+visible = false
 script = ExtResource( 26 )
 title = ""
 text = " 
@@ -625,4 +624,4 @@ anims/credits_up = SubResource( 13 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 11
+frame = 14
