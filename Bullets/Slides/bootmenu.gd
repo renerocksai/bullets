@@ -2,7 +2,6 @@ extends Node2D
 
 var will_launch_from_editor = false
 onready var statuslabel = $RichTextLabel3
-onready var browserLabel = $RichTextLabel6
 onready var laserpointer = $LaserPointer
 var timer
 
@@ -15,18 +14,14 @@ func _ready():
 	timer = Timer.new()
 	timer.connect("timeout", self, "goto_main")
 	add_child(timer)
-	if OS.has_feature('JavaScript'):
-		pass
-		browserLabel.set_visible(false)
-	else:
-		browserLabel.set_visible(false)
 
 func start():
-	statuslabel.bbcode_text = '[center][color=#cd0f2d]> > > [/color] [matrix clean=.6 dirty=.3 span=50]working on it ...[/matrix][/center]'
+	#statuslabel.bbcode_text = '[center][color=#cd0f2d]> > > [/color] [color=black][matrix clean=.6 dirty=.3 span=50]working on it ...[/matrix][/color][/center]'
+	laserpointer.show()
 	timer.set_wait_time(1)
 	timer.set_one_shot(true)
 	timer.start()
-	browserLabel.set_visible(false)
+
 	
 func _input(event):	
 	if event is InputEventMouseButton:

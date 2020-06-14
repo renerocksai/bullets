@@ -21,7 +21,7 @@
 [ext_resource path="res://Bullets/img/godotscr1.png" type="Texture" id=19]
 [ext_resource path="res://Bullets/img/bgwater.jpg" type="Texture" id=20]
 [ext_resource path="res://Bullets/img/diff.png" type="Texture" id=21]
-[ext_resource path="res://Bullets/img/bulletsscreen.png" type="Texture" id=22]
+[ext_resource path="res://Bullets/img/bullets-screen.png" type="Texture" id=22]
 [ext_resource path="res://Bullets/Slides/BThankyou.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Bullets/fonts/contentfont_regular.tres" type="DynamicFont" id=31]
 [ext_resource path="res://Bullets/fonts/ContentBoldFont.tres" type="DynamicFont" id=32]
@@ -397,7 +397,6 @@ __meta__ = {
 }
 
 [node name="Presenting" parent="Slides" instance=ExtResource( 6 )]
-visible = false
 z_index = 1
 title = "Presenting with Bûllets"
 text = "- You don't need PowerPoint
@@ -420,11 +419,12 @@ text = "- You don't need PowerPoint
 sources = ""
 
 [node name="bulletsscreen" type="Sprite" parent="Slides/Presenting"]
-position = Vector2( 1428.38, 420.487 )
-scale = Vector2( 0.644902, 0.644902 )
+position = Vector2( 1482.87, 389.582 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 22 )
 
 [node name="Thankyou" parent="Slides" instance=ExtResource( 23 )]
+visible = false
 z_index = 1
 Title = "[b]BÛLLETS[/b] - Slide Show meets Game Engine"
 Subtitle = "A Short Introduction"
@@ -449,10 +449,9 @@ bbcode_text = "[center]
 
 [b][u]GodotEngine.org[/u][/b] 
 for their awesome game 
-engine
-
-
-
+engine and the
+2D platformer demo 
+game.
 
 [b][u]GDQuest[/u][/b]
 for inspiring us with
@@ -466,10 +465,9 @@ Credits:
 
 GodotEngine.org 
 for their awesome game 
-engine
-
-
-
+engine and the
+2D platformer demo 
+game.
 
 GDQuest
 for inspiring us with
@@ -487,4 +485,4 @@ anims/credits_up = SubResource( 10 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 20
+frame = 21
