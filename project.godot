@@ -9,18 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "InputEvent",
-"class": "InputEventSwipe",
-"language": "GDScript",
-"path": "res://Bullets/TouchControls/SwipeDetector/InputEventSwipe.gd"
-}, {
 "base": "RichTextEffect",
 "class": "RichTextMatrix",
 "language": "GDScript",
 "path": "res://Bullets/components/matrix.gd"
 } ]
 _global_script_class_icons={
-"InputEventSwipe": "",
 "RichTextMatrix": ""
 }
 

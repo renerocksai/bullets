@@ -13,6 +13,8 @@ export var animation_speed: = 1.0
 export var slide_number_start := 1
 
 onready var laserpointer = $LaserPointer
+onready var touchcontrols = $"../TouchControls"
+onready var swipedetector = $"../SwipeDetector"
 
 var index_active: = 0 setget set_index_active
 
@@ -35,6 +37,9 @@ func _ready() -> void:
 	else:
 		for slide in slide_nodes:
 			remove_child(slide)
+	
+	# connect
+	swipedetector.connect("silly_tap_release", touchcontrols, "flash_controls")
 
 
 func _get_configuration_warning() -> String:
@@ -47,7 +52,7 @@ var presstime = 0
 func _input(event: InputEvent) -> void:
 	#print('SLIDES >>> ', event)
 	if event is InputEventMouseButton:
-		if event.position.x > 325 and event.position.x < 1920 - 325:
+		if event.position.x > 325 and event.position.x < 1920 - 325 and event.position.y > 150:
 			if event.pressed:
 				match event.button_index:
 					BUTTON_LEFT:
