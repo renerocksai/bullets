@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arrow.svg-9f4e7b7faef4d6e178b60cd51043cd48.stex"
+path="res://.import/right2.png-252d88909a7bd9816081451c30b81d99.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bullets/TouchControls/TouchControls/arrow.svg"
-dest_files=[ "res://.import/arrow.svg-9f4e7b7faef4d6e178b60cd51043cd48.stex" ]
+source_file="res://Bullets/TouchControls/TouchControls/right2.png"
+dest_files=[ "res://.import/right2.png-252d88909a7bd9816081451c30b81d99.stex" ]
 
 [params]
 
