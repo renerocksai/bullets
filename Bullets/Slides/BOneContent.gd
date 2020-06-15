@@ -20,7 +20,8 @@ func _ready():
 	updateTitle(title)
 	updateContent(text)
 	updateSources(sources)	
-			
+	$"../../TouchControls".show()
+				
 func updateTitle(s):
 	title = s
 	if ready:

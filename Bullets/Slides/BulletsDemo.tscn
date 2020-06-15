@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/Slides/BTitle.tscn" type="PackedScene" id=2]
@@ -34,6 +34,9 @@
 [ext_resource path="res://Bullets/fonts/ContentBoldFont.tres" type="DynamicFont" id=32]
 [ext_resource path="res://Bullets/fonts/contentfont_italic.tres" type="DynamicFont" id=33]
 [ext_resource path="res://Bullets/img/2dplatformer-shoot.png" type="Texture" id=34]
+[ext_resource path="res://Bullets/TouchControls/TouchControls/TouchControls.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Bullets/img/bglb.jpg" type="Texture" id=36]
+[ext_resource path="res://Bullets/Slides/ViewportContainer.gd" type="Script" id=37]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -123,26 +126,20 @@ script = ExtResource( 3 )
 
 [node name="Slides" type="Node2D" parent="."]
 script = ExtResource( 1 )
-skip_animation = false
-animation_speed = 1.0
-slide_number_start = 1
 
 [node name="Title" parent="Slides" instance=ExtResource( 2 )]
 visible = false
-z_index = 1
 Title = "[color=#cd0f2d]BÛLLETS[/color] - Slide Show meets Game Engine"
 Subtitle = "A short introduction"
 Authors = "Rene Schallner"
 
 [node name="Chapter1" parent="Slides" instance=ExtResource( 5 )]
 visible = false
-z_index = 1
 ChapterNum = "1"
 Title = "What is a ... Bûllets?"
 
 [node name="Whatis" parent="Slides" instance=ExtResource( 6 )]
 visible = false
-z_index = 1
 title = "What is Bûllets?"
 text = "- Bûllets is a slide show software powered by the 
     [b]Godot game engine[/b]
@@ -173,7 +170,6 @@ region_rect = Rect2( 0, 0, 700, 450 )
 
 [node name="Whatis2" parent="Slides" instance=ExtResource( 6 )]
 visible = false
-z_index = 1
 title = "What is Bûllets?"
 text = "- You can share Bûllets presentations either as native 
     programs or publish them to the web
@@ -216,13 +212,12 @@ texture = ExtResource( 11 )
 
 [node name="Chapter2" parent="Slides" instance=ExtResource( 5 )]
 visible = false
-z_index = 1
 ChapterNum = "2"
 Title = "Why ... Bûllets?"
 Subtitle = "... and what is the point?"
 
 [node name="Why" parent="Slides" instance=ExtResource( 6 )]
-z_index = 1
+visible = false
 title = "Why Bûllets? Motivation from frustration."
 text = "- [b]Because![/b] Exploring the idea space where game engines meet PowerPoint is fun!
 - While it probably deserves to be the gold standard, PowerPoint is not one of my favorites:
@@ -250,7 +245,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 1
+frame = 6
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -260,7 +255,6 @@ texture = ExtResource( 12 )
 
 [node name="Chapter3" type="Node2D" parent="Slides"]
 visible = false
-z_index = 1
 script = ExtResource( 18 )
 ChapterNum = "3"
 Title = "How is Bûllets different?"
@@ -318,7 +312,7 @@ __meta__ = {
 }
 
 [node name="SlideshowsRcode" parent="Slides" instance=ExtResource( 6 )]
-z_index = 1
+visible = false
 title = "Slideshows are code, slideshows are programs"
 text = "- You create your presentations in the powerful 
     editor of the Godot game engine
@@ -351,7 +345,6 @@ texture = ExtResource( 21 )
 
 [node name="Chapter4" type="Node2D" parent="Slides"]
 visible = false
-z_index = 1
 script = ExtResource( 18 )
 ChapterNum = "4"
 Title = "Presenting with Bûllets"
@@ -410,7 +403,6 @@ __meta__ = {
 
 [node name="Presenting" parent="Slides" instance=ExtResource( 6 )]
 visible = false
-z_index = 1
 title = "Presenting with Bûllets"
 text = "- You don't need PowerPoint
 
@@ -438,15 +430,12 @@ texture = ExtResource( 22 )
 [node name="Chapter5Game" parent="Slides" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 0, -1 )
-z_index = 1
 ChapterNum = "5"
 Title = "Capability Demo"
 Subtitle = "Game Time!"
 
 [node name="GameInstructions" parent="Slides" instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 0, -1 )
-z_index = 1
 title = "Game controls"
 text = "- To control the player:
 	- use the on-screen touch controls if you have
@@ -461,8 +450,9 @@ text = "- To control the player:
 	-PAUSE: <Y>
 
 - To LEAVE the game:
-	- just go to the next or previous slide
-	- tap the center of the screen if you don't have a keyboard
+	- just go to the next or previous slide 
+		- click or tap the left or right border of the screen
+		- click or tap the center of the screen 
 	- you can resume the game by returning to the game slide
 	
 - No worries, you are indestructible!"
@@ -474,25 +464,16 @@ texture = ExtResource( 34 )
 [node name="GameSlide" type="Node2D" parent="Slides"]
 visible = false
 script = ExtResource( 26 )
+title = "Game Time!"
 text = " 
 "
 
 [node name="TextureRect" type="TextureRect" parent="Slides/GameSlide"]
-visible = false
 margin_right = 1920.0
 margin_bottom = 1080.0
+texture = ExtResource( 36 )
 expand = true
 stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="Slides/GameSlide"]
-visible = false
-margin_left = 1788.94
-margin_top = 1009.57
-margin_right = 1828.94
-margin_bottom = 1049.57
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -510,14 +491,14 @@ __meta__ = {
 }
 
 [node name="TitleLabel" type="RichTextLabel" parent="Slides/GameSlide"]
-visible = false
 margin_left = 110.0
 margin_top = 71.0
 margin_right = 1822.0
 margin_bottom = 144.0
 custom_fonts/normal_font = ExtResource( 29 )
 bbcode_enabled = true
-bbcode_text = "[color=black][/color]"
+bbcode_text = "[color=black]Game Time![/color]"
+text = "Game Time!"
 custom_effects = [ SubResource( 11 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
@@ -559,11 +540,24 @@ __meta__ = {
 [node name="GameContainer" type="Node2D" parent="Slides/GameSlide"]
 script = ExtResource( 25 )
 
-[node name="Game" parent="Slides/GameSlide/GameContainer" instance=ExtResource( 24 )]
+[node name="ViewportContainer" type="ViewportContainer" parent="Slides/GameSlide"]
+margin_top = 150.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+script = ExtResource( 37 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="Slides/GameSlide/ViewportContainer"]
+size = Vector2( 1920, 930 )
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="Game" parent="Slides/GameSlide/ViewportContainer/Viewport" instance=ExtResource( 24 )]
 
 [node name="Thankyou" parent="Slides" instance=ExtResource( 23 )]
 visible = false
-z_index = 1
 Title = "[b]BÛLLETS[/b] - Slide Show meets Game Engine"
 Subtitle = "A Short Introduction"
 Authors = "Rene Schallner"
@@ -623,4 +617,8 @@ anims/credits_up = SubResource( 13 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 26
+frame = 8
+
+[node name="TouchControls" parent="." instance=ExtResource( 35 )]
+margin_right = 1920.0
+margin_bottom = 1080.0

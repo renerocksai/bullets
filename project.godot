@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/Gun.gd"
 }, {
+"base": "InputEvent",
+"class": "InputEventSwipe",
+"language": "GDScript",
+"path": "res://Bullets/TouchControls/SwipeDetector/InputEventSwipe.gd"
+}, {
 "base": "Actor",
 "class": "Player",
 "language": "GDScript",
@@ -50,6 +55,7 @@ _global_script_class_icons={
 "Coin": "",
 "Enemy": "",
 "Gun": "",
+"InputEventSwipe": "",
 "Player": "",
 "RichTextMatrix": ""
 }

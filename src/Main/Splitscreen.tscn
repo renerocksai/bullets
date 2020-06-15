@@ -21,10 +21,14 @@ anchor_bottom = 1.0
 margin_right = 6.10352e-05
 margin_bottom = 3.05176e-05
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SplitContainer" type="HSplitContainer" parent="Black"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -150.0
 dragger_visibility = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -32,7 +36,7 @@ __meta__ = {
 
 [node name="ViewportContainer1" type="ViewportContainer" parent="Black/SplitContainer"]
 margin_right = 954.0
-margin_bottom = 1080.0
+margin_bottom = 930.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
@@ -41,7 +45,7 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Viewport" parent="Black/SplitContainer/ViewportContainer1"]
-size = Vector2( 954, 1080 )
+size = Vector2( 954, 930 )
 size_override_stretch = true
 handle_input_locally = false
 usage = 0
@@ -61,7 +65,7 @@ action_suffix = "_p2"
 [node name="ViewportContainer2" type="ViewportContainer" parent="Black/SplitContainer"]
 margin_left = 966.0
 margin_right = 1920.0
-margin_bottom = 1080.0
+margin_bottom = 930.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
@@ -70,7 +74,7 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Viewport" parent="Black/SplitContainer/ViewportContainer2"]
-size = Vector2( 954, 1080 )
+size = Vector2( 954, 930 )
 size_override_stretch = true
 handle_input_locally = false
 usage = 0

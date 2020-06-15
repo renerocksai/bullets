@@ -28,7 +28,8 @@ func _input(event):
 		var epos = event.position
 		if epos.x < 450 + 150 \
 		  or epos.x > 1667.15 - 150:
-			get_tree().set_input_as_handled()
+			if epos.y > 500:
+				get_tree().set_input_as_handled()
 					
 func old_input(event):	
 	if event is InputEventScreenTouch or event is InputEventMouseButton:

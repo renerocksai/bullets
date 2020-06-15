@@ -250,25 +250,25 @@ stream = ExtResource( 3 )
 layer = 0
 
 [node name="Left" type="TouchScreenButton" parent="UI"]
-position = Vector2( 30, 850 )
+position = Vector2( 30, 745 )
 scale = Vector2( 3, 3 )
 normal = ExtResource( 5 )
 action = "move_left"
 
 [node name="Right" type="TouchScreenButton" parent="UI"]
-position = Vector2( 250, 850 )
+position = Vector2( 250, 745 )
 scale = Vector2( 3, 3 )
 normal = ExtResource( 6 )
 action = "move_right"
 
 [node name="Jump" type="TouchScreenButton" parent="UI"]
-position = Vector2( 1667.15, 850 )
+position = Vector2( 1667.15, 745 )
 scale = Vector2( 3, 3 )
 normal = ExtResource( 7 )
 action = "jump"
 
 [node name="Fire" type="TouchScreenButton" parent="UI"]
-position = Vector2( 1667.15, 650 )
+position = Vector2( 1667.15, 550 )
 scale = Vector2( 3, 3 )
 normal = ExtResource( 8 )
 action = "shoot"
