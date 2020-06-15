@@ -45,7 +45,7 @@ var click_direction = 0
 var presstime = 0
 	
 func _input(event: InputEvent) -> void:
-	print('SLIDES >>> ', event)
+	#print('SLIDES >>> ', event)
 	if event is InputEventMouseButton:
 		if event.position.x > 325 and event.position.x < 1920 - 325:
 			if event.pressed:

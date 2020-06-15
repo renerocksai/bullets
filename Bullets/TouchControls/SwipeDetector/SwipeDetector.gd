@@ -20,20 +20,22 @@ func set_ignore_y(y):
 	ignore_y = y
 	
 func _input(event: InputEvent) -> void:
-	print('>>> SWIPE ', ignore_y)
 	if not event is InputEventScreenTouch:
 		return
+	print('>>> SWIPE ', ignore_y, event.position, event.pressed)
 	if event.pressed:
-		if event.position.y < ignore_y and (event.position.x < 350 or event.position.x > 1920 - 350):
+		if (event.position.y < ignore_y) and (event.position.x < 350 or event.position.x > 1920 - 350):
+			print('Swiped at ', event.position)
 			var newEvent: = InputEventAction.new()
 			newEvent.pressed = true
 			newEvent.action = 'ui_left' if event.position.x < 350 else 'ui_right'
 			Input.parse_input_event(newEvent)
-
-			
-		_start_detection(event.position)
+		if event.position.y < ignore_y:			
+			_start_detection(event.position)
 	elif not timer.is_stopped():
-		_end_detection(event.position)
+		if event.position.y < ignore_y :
+			print('end swipe')
+			_end_detection(event.position)
 
 
 func _start_detection(position: Vector2) -> void:
