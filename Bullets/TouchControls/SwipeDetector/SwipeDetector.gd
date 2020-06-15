@@ -6,6 +6,7 @@ that are fed back into the engine.
 
 
 signal swipe_canceled(start_position)
+signal silly_tap_release(position)
 
 export(float, 1.0, 1.5) var max_diagonal_slope: = 1.3
 
@@ -22,9 +23,8 @@ func set_ignore_y(y):
 func _input(event: InputEvent) -> void:
 	if not event is InputEventScreenTouch:
 		return
-	print('>>> SWIPE ', ignore_y, event.position, event.pressed)
 	if event.pressed:
-		if (event.position.y < ignore_y) and (event.position.x < 350 or event.position.x > 1920 - 350):
+		if (event.position.y < ignore_y)  and (event.position.x < 350 or event.position.x > 1920 - 350):
 			print('Swiped at ', event.position)
 			var newEvent: = InputEventAction.new()
 			newEvent.pressed = true
@@ -32,11 +32,22 @@ func _input(event: InputEvent) -> void:
 			Input.parse_input_event(newEvent)
 		if event.position.y < ignore_y:			
 			_start_detection(event.position)
-	elif not timer.is_stopped():
-		if event.position.y < ignore_y :
-			print('end swipe')
-			_end_detection(event.position)
-
+	else:
+		
+		if not timer.is_stopped():
+			if event.position.y < ignore_y and event.position.y > 150:
+				print('end swipe')
+				_end_detection(event.position)
+		if event.position.x > 350 and event.position.x < 1920 - 350 and event.position.y > 150:
+			# show the touch controls
+			print('SHOULD FLASH')
+			emit_signal("silly_tap_release", event.position)
+		elif event.position.y < 150:
+			print('should fullscreen')
+			var newEvent: = InputEventAction.new()
+			newEvent.pressed = true
+			newEvent.action = 'toggle_fullscreen'
+			Input.parse_input_event(newEvent)
 
 func _start_detection(position: Vector2) -> void:
 	swipe_start_position = position

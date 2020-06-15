@@ -4,18 +4,50 @@ extends Control
 signal slide_change_requested(direction)
 
 onready var button_left: Button = $TouchButtonLeft
+onready var button_right: Button =$TouchButtonRight
+onready var button_fscreen: Button = $TouchButtonFullscreen
+onready var flashTimer : Timer = $FlashTimer
 
 enum Directions {PREVIOUS = -1, NEXT = 1}
 
+var flash_state = false
 
 func _ready() -> void:
 	for child in get_children():
-		child.connect("touched", self, "_on_touch_button_touched")
+		if child is Timer:
+			child.connect("timeout", self, "flash_end")
+		else:
+			child.connect("touched", self, "_on_touch_button_touched")
 
 
 func _on_touch_button_touched(button) -> void:
 	var event: = InputEventAction.new()
 	event.pressed = true
-	event.action = 'ui_left' if button == button_left else 'ui_right'
+	match button:
+		button_left:
+			event.action = 'ui_left' 
+		button_right:
+			event.action ='ui_right'
+		button_fscreen:
+			event.action = 'toggle_fullscreen'
 	print(event.action)
 	Input.parse_input_event(event)
+
+func flash_controls(position):
+	print('>>> FLASH <<<')
+	for child in get_children():
+		if child is Timer:
+			continue
+		if not flash_state:
+			child._on_mouse_entered()
+		else:
+			child._on_mouse_exited()
+	flash_state = not flash_state
+	flashTimer.start()
+
+func flash_end():
+	flash_state = false
+	for child in get_children():
+		if child is Timer:
+			continue
+		child._on_mouse_exited()

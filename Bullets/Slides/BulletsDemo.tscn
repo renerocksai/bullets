@@ -246,7 +246,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 6
+frame = 4
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -453,7 +453,6 @@ text = "- To control the player:
 - To LEAVE the game:
 	- just go to the next or previous slide 
 		- click or tap the left or right border of the screen
-		- click or tap the center of the screen 
 	- you can resume the game by returning to the game slide
 	
 - No worries, you are indestructible!"
@@ -618,7 +617,7 @@ anims/credits_up = SubResource( 13 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 17
+frame = 0
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 

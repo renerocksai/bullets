@@ -18,7 +18,6 @@ func _ready() -> void:
 func _on_mouse_entered() -> void:
 	tween.interpolate_property(self, 'modulate', modulate, COLOR_OPAQUE, transition_duration, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
-	print('ENTERED')
 
 
 func _on_mouse_exited() -> void:
