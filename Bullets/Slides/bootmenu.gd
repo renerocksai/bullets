@@ -1,5 +1,7 @@
 extends Node2D
 
+export(String, FILE, "*.tscn") var start_scene
+
 var will_launch_from_editor = false
 onready var statuslabel = $RichTextLabel3
 onready var laserpointer = $LaserPointer
@@ -70,6 +72,5 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		
 func goto_main():
-	var scene = preload("res://Bullets/Slides/BulletsDemo.tscn")
-	get_tree().change_scene_to(scene)
+	get_tree().change_scene(start_scene)
 

@@ -37,6 +37,7 @@ font_data = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
+start_scene = "res://Bullets/Slides/BulletsDemo.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 1920.0
@@ -260,5 +261,5 @@ visible = false
 position = Vector2( 1327.99, 984.132 )
 frames = ExtResource( 6 )
 animation = "coolanim"
-frame = 3
+frame = 12
 playing = true
