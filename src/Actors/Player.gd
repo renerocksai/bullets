@@ -25,10 +25,12 @@ func is_hit(button, tap_position):
 
 func _input(event):	
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
+		print('PLAYER')
 		var epos = event.position
 		if epos.x < 450 + 150 \
 		  or epos.x > 1667.15 - 150:
 			if epos.y > 500:
+				print('ignored by player')
 				get_tree().set_input_as_handled()
 					
 func old_input(event):	
