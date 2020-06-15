@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/Slides/BTitle.tscn" type="PackedScene" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Bullets/TouchControls/TouchControls/TouchControls.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Bullets/img/bglb.jpg" type="Texture" id=36]
 [ext_resource path="res://Bullets/Slides/ViewportContainer.gd" type="Script" id=37]
+[ext_resource path="res://Bullets/TouchControls/SwipeDetector/SwipeDetector.tscn" type="PackedScene" id=38]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -486,7 +487,9 @@ anims/credits_up = SubResource( 13 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 8
+frame = 17
+
+[node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
 [node name="TouchControls" parent="." instance=ExtResource( 35 )]
 margin_right = 1920.0

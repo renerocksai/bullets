@@ -24,11 +24,9 @@ func start():
 
 	
 func _input(event):	
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton or event is InputEventScreenTouch:
 		if event.pressed:
-			match event.button_index:
-				BUTTON_LEFT:
-					start()
+			start()
 	
 func _process(delta):
 	if laser_active:
