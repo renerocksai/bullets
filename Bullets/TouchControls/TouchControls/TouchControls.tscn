@@ -35,9 +35,8 @@ one_shot = true
 
 [node name="TouchButtonFullscreen" type="Button" parent="."]
 anchor_bottom = 1.0
-margin_left = 868.0
 margin_top = 14.661
-margin_right = 1788.0
+margin_right = 9600.0
 margin_bottom = -316.339
 rect_min_size = Vector2( 310, 249 )
 rect_scale = Vector2( 0.2, 0.2 )
