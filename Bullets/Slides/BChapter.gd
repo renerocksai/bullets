@@ -16,7 +16,8 @@ func _ready():
 	updateChapter(ChapterNum)
 	updateTitle(Title)
 	updateSubtitle(Subtitle)
-
+	$"../../TouchControls".show()
+	
 func updateChapter(s):
 	ChapterNum = s
 	if ready:

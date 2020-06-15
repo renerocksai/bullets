@@ -206,19 +206,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 1283.42
+margin_left = 1236.42
 margin_top = 573.0
-margin_right = 1981.42
+margin_right = 1934.42
 margin_bottom = 889.0
 custom_fonts/bold_font = SubResource( 4 )
 custom_fonts/normal_font = SubResource( 5 )
 custom_colors/default_color = Color( 0.6, 0.2, 0.4, 1 )
 bbcode_enabled = true
-bbcode_text = "[b][color=#993366]>  short tap    [/color] [/b]
-[b][color=#993366]>  long tap [/color] [/b]
+bbcode_text = "[b][color=#993366]>  tap left border[/color] [/b]
+[b][color=#993366]>  tap right border [/color] [/b]
 "
-text = ">  short tap     
->  long tap  
+text = ">  tap left border 
+>  tap right border  
 "
 scroll_active = false
 override_selected_font_color = true
@@ -260,5 +260,5 @@ visible = false
 position = Vector2( 1327.99, 984.132 )
 frames = ExtResource( 6 )
 animation = "coolanim"
-frame = 2
+frame = 14
 playing = true

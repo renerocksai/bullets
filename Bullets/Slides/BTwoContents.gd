@@ -23,7 +23,8 @@ func _ready():
 	updateLeft(textLeft)
 	updateRight(textRight)
 	updateSources(sources)
-
+	$"../../TouchControls".show()
+	
 func updateTitle(s):
 	title = s
 	if ready:

@@ -14,7 +14,8 @@ func _ready():
 	ready = true
 	updateTitle(Title)
 	updateAuthors(Authors)	
-	
+	$"../../TouchControls".show()
+		
 func updateTitle(s):
 	Title = s
 	if ready:
@@ -35,3 +36,5 @@ func updateSubtitle(s):
 func set_slide_number(n):
 	pass
 	
+func on_leave():
+	pass
