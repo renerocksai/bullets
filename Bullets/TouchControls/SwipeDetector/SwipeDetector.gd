@@ -20,7 +20,7 @@ func reset_ignore_y():
 func set_ignore_y(y):
 	ignore_y = y
 	
-func _input(event: InputEvent) -> void:
+func _input(event):
 	if not event is InputEventScreenTouch:
 		return
 	if event.pressed:
@@ -29,16 +29,23 @@ func _input(event: InputEvent) -> void:
 			var newEvent: = InputEventAction.new()
 			newEvent.pressed = true
 			newEvent.action = 'ui_left' if event.position.x < 350 else 'ui_right'
+			get_tree().set_input_as_handled()
 			Input.parse_input_event(newEvent)
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if not event is InputEventScreenTouch:
+		return
+
+	if event.pressed:
 		if event.position.y < ignore_y:			
 			_start_detection(event.position)
 	else:
-		
 		if not timer.is_stopped():
 			if event.position.y < ignore_y and event.position.y > 150:
 				print('end swipe')
-				_end_detection(event.position)
-		if event.position.x > 350 and event.position.x < 1920 - 350 and event.position.y > 150:
+				if not _end_detection(event.position):
+					emit_signal("silly_tap_release", event.position)
+		elif event.position.x > 350 and event.position.x < 1920 - 350 and event.position.y > 150:
 			# show the touch controls
 			print('SHOULD FLASH')
 			emit_signal("silly_tap_release", event.position)
@@ -54,23 +61,23 @@ func _start_detection(position: Vector2) -> void:
 	timer.start()
 
 
-func _end_detection(position: Vector2) -> void:
+func _end_detection(position: Vector2) -> bool:
 	timer.stop()
 	var direction: Vector2 = (position - swipe_start_position).normalized()
 	# sensitiivity:
 	var movement = position - swipe_start_position
 	if abs(movement.x) < 50:
-		return
+		return false
 	# Swipe angle is too steep
 	if abs(direction.x) + abs(direction.y) >= max_diagonal_slope:
-		return
+		return false
 
 	var event: = InputEventAction.new()
 	event.pressed = true
 	event.action = 'ui_left' if direction.x > 0 else 'ui_right'
 	print(event.action)
 	Input.parse_input_event(event)
-
+	return true
 
 func _on_Timer_timeout() -> void:
 	emit_signal('swipe_canceled', swipe_start_position)
