@@ -51,7 +51,7 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="TouchButtonFullscreen"]
 
-[node name="arrow" type="TextureRect" parent="TouchButtonFullscreen"]
+[node name="fullscreen" type="TextureRect" parent="TouchButtonFullscreen"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

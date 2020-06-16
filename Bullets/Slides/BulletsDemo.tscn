@@ -246,7 +246,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 4
+frame = 6
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -264,6 +264,7 @@ Subtitle = "Slideshows are code, slideshows are programs"
 [node name="TextureRect" type="TextureRect" parent="Slides/Chapter3"]
 margin_right = 1920.0
 margin_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource( 20 )
 expand = true
 stretch_mode = 1
@@ -276,6 +277,7 @@ margin_left = 757.0
 margin_top = 673.0
 margin_right = 1706.0
 margin_bottom = 787.0
+mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 16 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
@@ -291,6 +293,7 @@ margin_left = 757.0
 margin_top = 794.0
 margin_right = 1644.0
 margin_bottom = 1005.0
+mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 17 )
 bbcode_enabled = true
 bbcode_text = "[color=#993366]SLIDESHOWS ARE CODE, SLIDESHOWS ARE PROGRAMS[/color]"
@@ -304,6 +307,7 @@ margin_left = 201.0
 margin_top = 509.0
 margin_right = 461.0
 margin_bottom = 931.0
+mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 15 )
 bbcode_enabled = true
 bbcode_text = "[color=#cd0f2d]3[/color]"
@@ -436,6 +440,7 @@ Title = "Capability Demo"
 Subtitle = "Game Time!"
 
 [node name="GameInstructions" parent="Slides" instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 0, -1 )
 title = "Game controls"
 text = "- To control the player:
@@ -471,6 +476,7 @@ text = "
 [node name="TextureRect" type="TextureRect" parent="Slides/GameSlide"]
 margin_right = 1920.0
 margin_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource( 36 )
 expand = true
 stretch_mode = 1
@@ -484,6 +490,7 @@ margin_left = 110.0
 margin_top = 960.0
 margin_right = 1868.0
 margin_bottom = 1089.0
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 10 )
 bbcode_enabled = true
 __meta__ = {
@@ -495,6 +502,7 @@ margin_left = 110.0
 margin_top = 71.0
 margin_right = 1822.0
 margin_bottom = 144.0
+mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 29 )
 bbcode_enabled = true
 bbcode_text = "[color=black]Game Time![/color]"
@@ -510,6 +518,7 @@ margin_left = 110.0
 margin_top = 181.0
 margin_right = 1810.0
 margin_bottom = 1020.0
+mouse_filter = 2
 custom_fonts/italics_font = ExtResource( 33 )
 custom_fonts/bold_font = ExtResource( 32 )
 custom_fonts/normal_font = ExtResource( 31 )
@@ -530,6 +539,7 @@ margin_left = 1802.92
 margin_top = 1021.27
 margin_right = 1842.92
 margin_bottom = 1061.27
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 12 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "2"
@@ -567,6 +577,7 @@ margin_left = 1380.0
 margin_top = 180.0
 margin_right = 1851.0
 margin_bottom = 1019.0
+mouse_filter = 2
 custom_fonts/italics_font = ExtResource( 33 )
 custom_fonts/bold_font = ExtResource( 32 )
 custom_fonts/normal_font = ExtResource( 31 )
@@ -617,7 +628,7 @@ anims/credits_up = SubResource( 13 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 0
+frame = 2
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 

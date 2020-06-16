@@ -25,10 +25,6 @@ func start():
 	timer.start()
 
 	
-func _input(event):	
-	if event is InputEventMouseButton or event is InputEventScreenTouch:
-		if event.pressed:
-			start()
 	
 func _process(delta):
 	if laser_active:
@@ -37,7 +33,7 @@ func _process(delta):
 		
 func _unhandled_input(event: InputEvent) -> void:
 	var valid_event: bool = (
-		event is InputEventMouseButton 
+		event is InputEventMouseButton or event is InputEventScreenTouch
 		or event.is_action('ui_accept')
 		or event.is_action('ui_right')
 		or event.is_action('ui_page_down')
@@ -49,6 +45,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not valid_event:
 		return
 
+	if event is InputEventMouseButton or event is InputEventScreenTouch:
+		if event.pressed:
+			start()
 	if event.is_action('quit'):
 		get_tree().quit()
 	elif event.is_action_pressed('toggle_fullscreen'):

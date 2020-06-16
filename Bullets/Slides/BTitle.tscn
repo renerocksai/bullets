@@ -11,6 +11,7 @@ script = ExtResource( 4 )
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
@@ -23,12 +24,10 @@ margin_left = 219.0
 margin_top = 500.0
 margin_right = 1231.0
 margin_bottom = 723.0
+mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
-bbcode_text = "line1
-line2"
-text = "line1
-line2"
+bbcode_text = "[color=black][/color]"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -39,12 +38,13 @@ margin_left = 219.0
 margin_top = 760.0
 margin_right = 1055.0
 margin_bottom = 1006.0
+mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[color=#cd0f2d]SIXTH MILESTONE[/color]
-[color=black]DR. CAROLIN KAISER, RENE SCHALLNER[/color]"
-text = "SIXTH MILESTONE
-DR. CAROLIN KAISER, RENE SCHALLNER"
+bbcode_text = "[color=#cd0f2d][/color]
+[color=black][/color]"
+text = "
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
