@@ -39,6 +39,8 @@ func is_playing() -> bool:
 	return anim_player.is_playing()
 
 func cancel_animation():
+	if anim_player == null:
+		return
 	if anim_player.is_playing():
 		_jump_to_animation_end()
 
