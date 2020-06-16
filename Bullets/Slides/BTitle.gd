@@ -1,5 +1,6 @@
 tool
-extends Node2D
+#extends Node2D
+extends Slide
 
 onready var lblTitle = $RichTextLabel
 onready var lblSecond = $RichTextLabel2
@@ -35,5 +36,3 @@ func updateSubtitle(s):
 func set_slide_number(n):
 	pass
 	
-func on_leave():
-	pass

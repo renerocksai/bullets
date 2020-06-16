@@ -1,4 +1,4 @@
-extends Node2D
+extends Slide
 
 onready var slides: = $Slides
 

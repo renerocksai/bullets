@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Bullets/img/bglb.jpg" type="Texture" id=1]
 [ext_resource path="res://Bullets/fonts/calibril.ttf" type="DynamicFontData" id=2]
@@ -21,7 +21,40 @@ script = ExtResource( 6 )
 size = 20
 font_data = ExtResource( 9 )
 
+[sub_resource type="Animation" id=4]
+resource_name = "FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
 [node name="TwoContent" type="Node2D"]
+modulate = Color( 1, 1, 1, 0.588235 )
 script = ExtResource( 5 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -109,3 +142,7 @@ text = "2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 4 )
+anims/FadeOut = SubResource( 5 )

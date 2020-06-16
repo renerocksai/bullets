@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/Slides/BTitle.tscn" type="PackedScene" id=2]
@@ -86,6 +86,38 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="Animation" id=14]
+resource_name = "FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.588235 ) ]
+}
 
 [sub_resource type="DynamicFont" id=10]
 size = 20
@@ -246,7 +278,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 6
+frame = 4
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -316,6 +348,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Chapter3"]
+anims/FadeIn = SubResource( 14 )
+anims/FadeOut = SubResource( 15 )
+
 [node name="SlideshowsRcode" parent="Slides" instance=ExtResource( 6 )]
 visible = false
 title = "Slideshows are code, slideshows are programs"
@@ -350,6 +386,7 @@ texture = ExtResource( 21 )
 
 [node name="Chapter4" type="Node2D" parent="Slides"]
 visible = false
+modulate = Color( 1, 1, 1, 0.588235 )
 script = ExtResource( 18 )
 ChapterNum = "4"
 Title = "Presenting with Bûllets"
@@ -405,6 +442,10 @@ text = "4"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Chapter4"]
+anims/FadeIn = SubResource( 14 )
+anims/FadeOut = SubResource( 15 )
 
 [node name="Presenting" parent="Slides" instance=ExtResource( 6 )]
 visible = false
@@ -566,8 +607,13 @@ render_target_update_mode = 0
 
 [node name="Game" parent="Slides/GameSlide/ViewportContainer/Viewport" instance=ExtResource( 24 )]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/GameSlide"]
+anims/FadeIn = SubResource( 14 )
+anims/FadeOut = SubResource( 15 )
+
 [node name="Thankyou" parent="Slides" instance=ExtResource( 23 )]
 visible = false
+modulate = Color( 1, 1, 1, 1 )
 Title = "[b]BÛLLETS[/b] - Slide Show meets Game Engine"
 Subtitle = "A Short Introduction"
 Authors = "Rene Schallner"
@@ -628,7 +674,7 @@ anims/credits_up = SubResource( 13 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 18
+frame = 29
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
