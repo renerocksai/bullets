@@ -3,7 +3,7 @@ onready var music = $Viewport/Game/Level/Music
 
 func _ready():
 	music.play()
-	$"../../../TouchControls".hide()
+	#$"../../../TouchControls".hide()
 	$"../../../SwipeDetector".set_ignore_y(550)
 
 func _notification(what):

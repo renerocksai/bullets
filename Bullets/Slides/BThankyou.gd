@@ -15,7 +15,7 @@ func _ready():
 	ready = true
 	updateTitle(Title)
 	updateAuthors(Authors)	
-	$"../../TouchControls".show()	
+
 	
 func updateTitle(s):
 	Title = s

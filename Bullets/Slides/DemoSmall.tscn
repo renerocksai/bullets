@@ -1,8 +1,8 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/Slides/BTitle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Bullets/Slides/BulletsDemo.gd" type="Script" id=3]
+[ext_resource path="res://Bullets/Slides/DemoSmall.gd" type="Script" id=3]
 [ext_resource path="res://Bullets/components/AnimSpriteFollowMouse.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Bullets/Slides/BChapter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Bullets/Slides/BOneContent.tscn" type="PackedScene" id=6]
@@ -23,18 +23,10 @@
 [ext_resource path="res://Bullets/img/diff.png" type="Texture" id=21]
 [ext_resource path="res://Bullets/img/bullets-screen.png" type="Texture" id=22]
 [ext_resource path="res://Bullets/Slides/BThankyou.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Bullets/Slides/BOneContent.gd" type="Script" id=26]
-[ext_resource path="res://Bullets/fonts/calibril.ttf" type="DynamicFontData" id=27]
-[ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Regular.ttf" type="DynamicFontData" id=28]
-[ext_resource path="res://Bullets/fonts/SlideTitleFont.tres" type="DynamicFont" id=29]
-[ext_resource path="res://Bullets/components/matrix.gd" type="Script" id=30]
 [ext_resource path="res://Bullets/fonts/contentfont_regular.tres" type="DynamicFont" id=31]
 [ext_resource path="res://Bullets/fonts/ContentBoldFont.tres" type="DynamicFont" id=32]
 [ext_resource path="res://Bullets/fonts/contentfont_italic.tres" type="DynamicFont" id=33]
-[ext_resource path="res://Bullets/img/2dplatformer-shoot.png" type="Texture" id=34]
 [ext_resource path="res://Bullets/TouchControls/TouchControls/TouchControls.tscn" type="PackedScene" id=35]
-[ext_resource path="res://Bullets/img/bglb.jpg" type="Texture" id=36]
-[ext_resource path="res://Bullets/Slides/ViewportContainer.gd" type="Script" id=37]
 [ext_resource path="res://Bullets/TouchControls/SwipeDetector/SwipeDetector.tscn" type="PackedScene" id=38]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -85,18 +77,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=10]
-size = 20
-font_data = ExtResource( 27 )
-
-[sub_resource type="RichTextEffect" id=11]
-script = ExtResource( 30 )
-
-[sub_resource type="DynamicFont" id=12]
-size = 20
-font_data = ExtResource( 28 )
-
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=10]
 resource_name = "credits_up"
 length = 3.0
 tracks/0/type = "bezier"
@@ -136,6 +117,7 @@ Authors = "Rene Schallner"
 visible = false
 ChapterNum = "1"
 Title = "What is a ... Bûllets?"
+Subtitle = ""
 
 [node name="Whatis" parent="Slides" instance=ExtResource( 6 )]
 visible = false
@@ -155,6 +137,7 @@ text = "- Bûllets is a slide show software powered by the
     complex, interactive animations, with sound effects -
     or even embed Tetris into your slides.
    "
+sources = ""
 
 [node name="icon" type="Sprite" parent="Slides/Whatis"]
 position = Vector2( 1664.63, 231.003 )
@@ -188,6 +171,7 @@ text = "- You can share Bûllets presentations either as native
 
 - It is also a hack
 "
+sources = ""
 
 [node name="GitHub-Mark-64px" type="Sprite" parent="Slides/Whatis2"]
 position = Vector2( 1695.78, 456.493 )
@@ -235,6 +219,7 @@ text = "- [b]Because![/b] Exploring the idea space where game engines meet Power
 	- There is no \"laser pointer\" when presenting from a browser.
 	- Office formats cannot really be \"diffed\", and are not suitable for version control, e.g. on GitHub.
 	- More often than not, editing a presentation ends up in a  fiddling-with-formatting nightmare."
+sources = ""
 
 [node name="ppt" type="Sprite" parent="Slides/Why"]
 position = Vector2( 1758.75, 124.95 )
@@ -331,6 +316,7 @@ text = "- You create your presentations in the powerful
 - If you need a PDF, you run the presentation and hit
     <P>. A series of PNG files is generated that you can 
     turn into a PDF with the provided script"
+sources = ""
 
 [node name="godotscr1" type="Sprite" parent="Slides/SlideshowsRcode"]
 position = Vector2( 1454.52, 425.111 )
@@ -420,6 +406,7 @@ text = "- You don't need PowerPoint
 - There is only one mode: presentation mode
     - no presenter mode with notes and timers (yet)
     - we give presentations from the heart anyway"
+sources = ""
 
 [node name="bulletsscreen" type="Sprite" parent="Slides/Presenting"]
 position = Vector2( 1428.87, 389.582 )
@@ -481,16 +468,17 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Slides/Thankyou"]
 autoplay = "credits_up"
 playback_speed = 0.4
-anims/credits_up = SubResource( 13 )
+anims/credits_up = SubResource( 10 )
 
 [node name="LaserPointer" parent="Slides" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 17
+frame = 20
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
 [node name="TouchControls" parent="." instance=ExtResource( 35 )]
 margin_right = 1920.0
 margin_bottom = 1080.0
+mouse_filter = 2
