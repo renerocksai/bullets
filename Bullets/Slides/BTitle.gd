@@ -15,7 +15,6 @@ func _ready():
 	updateTitle(Title)
 	updateAuthors(Authors)	
 
-		
 func updateTitle(s):
 	Title = s
 	if ready:

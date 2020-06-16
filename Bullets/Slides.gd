@@ -48,7 +48,6 @@ func _get_configuration_warning() -> String:
 var click_direction = 0
 
 var presstime = 0
-	
 			
 func _unhandled_input(event: InputEvent) -> void:
 	var valid_event: bool = (
@@ -86,13 +85,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 	if event is InputEventMouseButton:
-		if event.position.x > 325 and event.position.x < 1920 - 325 and event.position.y > 150:
-			if event.pressed:
-				match event.button_index:
-					BUTTON_LEFT:
-						self.index_active += 1
-					BUTTON_RIGHT:
-						self.index_active -= 1
+		if event.pressed:
+			match event.button_index:
+				BUTTON_LEFT:
+					self.index_active += 1
+				BUTTON_RIGHT:
+					self.index_active -= 1
 
 
 func initialize() -> void:

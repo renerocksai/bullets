@@ -628,10 +628,11 @@ anims/credits_up = SubResource( 13 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 2
+frame = 18
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
 [node name="TouchControls" parent="." instance=ExtResource( 35 )]
 margin_right = 1920.0
 margin_bottom = 1080.0
+mouse_filter = 2
