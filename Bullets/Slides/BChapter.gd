@@ -1,5 +1,5 @@
 tool
-extends Node2D
+extends Slide
 
 onready var lblTitle = $ChapterTitle
 onready var lblSecond = $ChapterSubtitle

@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "RichTextMatrix",
 "language": "GDScript",
 "path": "res://Bullets/components/matrix.gd"
+}, {
+"base": "Node2D",
+"class": "Slide",
+"language": "GDScript",
+"path": "res://Bullets/Slide.gd"
 } ]
 _global_script_class_icons={
-"RichTextMatrix": ""
+"RichTextMatrix": "",
+"Slide": ""
 }
 
 [application]

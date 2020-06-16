@@ -1,5 +1,5 @@
 tool
-extends Node2D
+extends Slide
 
 onready var titleLabel: = $TitleLabel
 onready var content: = $ContentLabel

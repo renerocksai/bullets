@@ -5,11 +5,12 @@ Container for presentation Slide nodes.
 Controls the currently displayed Slide.
 """
 
+const animation_speed_in: = 0.4
+const animation_speed_out: = 50
 
 enum Directions {PREVIOUS = -1, CURRENT = 0, NEXT = 1}
 
 export var skip_animation: = false
-export var animation_speed: = 1.0
 export var slide_number_start := 1
 
 onready var laserpointer = $LaserPointer
@@ -25,7 +26,7 @@ var slide_nodes = []
 func _ready() -> void:
 	laserpointer.hide()
 	for slide in get_children():
-		if not slide is Node2D:
+		if not slide is Slide:
 			continue
 		if slide is AnimatedSprite:
 			continue
@@ -132,19 +133,20 @@ func _display(slide_index : int) -> void:
 	var previous_slide = slide_current
 	slide_current = slide_nodes[slide_index]
 
+	slide_current.cancel_animation()
+	
 	if previous_slide:
-		#previous_slide.play('Disappear', animation_speed, skip_animation)
-		#if not skip_animation:
-		#	yield(previous_slide, "animation_finished")
-		pass
+		if previous_slide.play('FadeOut', animation_speed_out, skip_animation):
+			if not skip_animation:
+				yield(previous_slide, "animation_finished")
 		
 	add_child(slide_current)
 	slide_current.visible = true
 	slide_current.set_slide_number(slide_index + slide_number_start)
 
-	#slide_current.play('Appear', animation_speed, skip_animation)
-	#if not skip_animation:
-	#	yield(slide_current, "animation_finished")
+	if slide_current.play('FadeIn', animation_speed_in, skip_animation):
+		if not skip_animation:
+			yield(slide_current, "animation_finished")
 
 	if previous_slide:
 		remove_child(previous_slide)

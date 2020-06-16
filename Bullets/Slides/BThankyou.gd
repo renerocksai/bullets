@@ -1,5 +1,5 @@
 tool
-extends Node2D
+extends Slide
 
 onready var lblTitle = $RichTextLabel
 onready var lblSecond = $RichTextLabel2
