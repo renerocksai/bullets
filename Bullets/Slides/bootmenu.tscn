@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Bullets/fonts/BootsplashFontBold.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Bullets/Slides/bootmenu.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Bullets/img/GitHub-Mark-64px.png" type="Texture" id=7]
 [ext_resource path="res://Bullets/img/bglb.jpg" type="Texture" id=8]
 [ext_resource path="res://Bullets/Slides/bootmenu.tres" type="StyleBox" id=9]
+[ext_resource path="res://Bullets/components/pulse_effect.gd" type="Script" id=10]
 
 [sub_resource type="RichTextEffect" id=1]
 script = ExtResource( 4 )
@@ -22,15 +23,18 @@ size = 75
 extra_spacing_top = 10
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 42
-font_data = ExtResource( 5 )
+[sub_resource type="RichTextEffect" id=4]
+script = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 42
-font_data = ExtResource( 3 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=6]
+size = 42
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
 size = 32
 extra_spacing_top = 10
 font_data = ExtResource( 3 )
@@ -101,16 +105,17 @@ anchor_bottom = 0.5
 margin_top = 934.0
 margin_right = 1919.0
 margin_bottom = 1025.0
+rect_clip_content = false
 mouse_filter = 2
 custom_styles/normal = ExtResource( 9 )
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
 bbcode_enabled = true
-bbcode_text = "[center][color=#cd0f2d]> > > [/color] [color=black]click to start"
+bbcode_text = "[center][color=#cd0f2d]> > > [/color] [pulse width=-10.0 freq=3.0]click to start[/pulse][/center]"
 text = "> > >  click to start"
 scroll_active = false
 override_selected_font_color = true
-custom_effects = [ SubResource( 1 ) ]
+custom_effects = [ SubResource( 1 ), SubResource( 4 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -147,8 +152,8 @@ margin_top = 573.0
 margin_right = 1389.0
 margin_bottom = 889.0
 mouse_filter = 2
-custom_fonts/bold_font = SubResource( 4 )
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 0.6, 0.2, 0.4, 1 )
 bbcode_enabled = true
 bbcode_text = "[b][color=#993366]<SPACE>[/color][color=grey],[/color][color=#993366]  --> [/color][/b]
@@ -184,8 +189,8 @@ margin_top = 573.0
 margin_right = 1661.0
 margin_bottom = 889.0
 mouse_filter = 2
-custom_fonts/bold_font = SubResource( 4 )
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "[b]next slide[/b]
@@ -219,8 +224,8 @@ margin_top = 573.0
 margin_right = 1964.42
 margin_bottom = 889.0
 mouse_filter = 2
-custom_fonts/bold_font = SubResource( 4 )
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 0.6, 0.2, 0.4, 1 )
 bbcode_enabled = true
 bbcode_text = "[b][color=#993366]>  tap left border[/color][/b] [color=grey]/[/color] swipe left
@@ -251,7 +256,7 @@ margin_top = 99.0
 margin_right = 1109.0
 margin_bottom = 199.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 7 )
 custom_colors/default_color = Color( 0.537255, 0.564706, 0.564706, 1 )
 bbcode_enabled = true
 bbcode_text = "[color=#404040][url=https://renerocksai.github.com/bullets]github.com/renerocksai/bullets[/url][/color]"
@@ -272,5 +277,5 @@ visible = false
 position = Vector2( 1327.99, 984.132 )
 frames = ExtResource( 6 )
 animation = "coolanim"
-frame = 5
+frame = 18
 playing = true
