@@ -5,17 +5,19 @@ Container for presentation Slide nodes.
 Controls the currently displayed Slide.
 """
 
-const animation_speed_in: = 0.4
+const animation_speed_in: = 0.5
 const animation_speed_out: = 50
 
 enum Directions {PREVIOUS = -1, CURRENT = 0, NEXT = 1}
 
 export var skip_animation: = false
 export var slide_number_start := 1
+export var mouse_hide_timeout := 1.5
 
 onready var laserpointer = $LaserPointer
 onready var touchcontrols = $"../TouchControls"
 onready var swipedetector = $"../SwipeDetector"
+onready var mousehidetimer = $CursorAutoHideTimer
 
 var index_active: = 0 setget set_index_active
 
@@ -41,7 +43,15 @@ func _ready() -> void:
 	
 	# connect
 	swipedetector.connect("silly_tap_release", touchcontrols, "flash_controls")
+	mousehidetimer.connect("timeout", self, "_on_mousehide_timeout")
+	mousehidetimer.wait_time = mouse_hide_timeout
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
+
+func _on_mousehide_timeout():
+	print("re-hiding mouse")
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 
 func _get_configuration_warning() -> String:
 	return "%s needs Slide nodes as its children to work" % name if not slide_nodes else ""
@@ -53,6 +63,7 @@ var presstime = 0
 func _unhandled_input(event: InputEvent) -> void:
 	var valid_event: bool = (
 		event is InputEventMouseButton 
+		or event is InputEventMouseMotion
 		or event.is_action('ui_accept')
 		or event.is_action('ui_right') 
 		or event.is_action('ui_left') 
@@ -92,6 +103,12 @@ func _unhandled_input(event: InputEvent) -> void:
 					self.index_active += 1
 				BUTTON_RIGHT:
 					self.index_active -= 1
+
+	# mouse pointer auto-hide
+	if event is InputEventMouseMotion:
+		mousehidetimer.start()
+		if not laserpointer.is_visible():
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func initialize() -> void:
@@ -135,7 +152,7 @@ func _display(slide_index : int) -> void:
 
 	slide_current.cancel_animation()
 	
-	if previous_slide:
+	if previous_slide and false:
 		if previous_slide.play('FadeOut', animation_speed_out, skip_animation):
 			if not skip_animation:
 				yield(previous_slide, "animation_finished")

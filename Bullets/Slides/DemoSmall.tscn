@@ -120,6 +120,7 @@ Title = "What is a ... Bûllets?"
 Subtitle = ""
 
 [node name="Whatis" parent="Slides" instance=ExtResource( 6 )]
+visible = false
 title = "What is Bûllets?"
 text = "- Bûllets is a slide show software powered by the 
     [b]Godot game engine[/b]
@@ -228,6 +229,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
+frame = 1
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -472,7 +474,10 @@ anims/credits_up = SubResource( 10 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 3
+frame = 0
+
+[node name="CursorAutoHideTimer" type="Timer" parent="Slides"]
+one_shot = true
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
