@@ -32,7 +32,8 @@ func _input(event):
 			if epos.y > 500:
 				print('ignored by player')
 				get_tree().set_input_as_handled()
-					
+	elif event.is_action('toggle_drawmode'):			
+		get_tree().set_input_as_handled()
 			
 func _ready():
 	# Static types are necessary here to avoid warnings.
