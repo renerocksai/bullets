@@ -24,6 +24,7 @@ var index_active: = 0 setget set_index_active
 var slide_current
 var slide_nodes = []
 
+var laserpointer_size = 1
 
 func _ready() -> void:
 	laserpointer.hide()
@@ -45,7 +46,8 @@ func _ready() -> void:
 	swipedetector.connect("silly_tap_release", touchcontrols, "flash_controls")
 	mousehidetimer.connect("timeout", self, "_on_mousehide_timeout")
 	mousehidetimer.wait_time = mouse_hide_timeout
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	if not Engine.editor_hint:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func _on_mousehide_timeout():
@@ -73,6 +75,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		or event.is_action('to_png')
 		or event.is_action('go_home')
 		or event.is_action('toggle_laserpointer')
+		or event.is_action('cycle_laserpointer_sizes')
 	)
 	print('SLIDES >>> ', event)
 	if not valid_event:
@@ -84,10 +87,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		self.index_active -= 1
 	elif event.is_action('quit'):
 		get_tree().quit()
-	elif event.is_action('to_png'):
+	elif event.is_action_pressed('to_png'):
 		save_as_png('.')
-	elif event.is_action('go_home'):
+	elif event.is_action_pressed('go_home'):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene("res://Bullets/Slides/bootmenu.tscn")
+	elif event.is_action_pressed('cycle_laserpointer_sizes'):
+		laserpointer_size -= .25
+		print(laserpointer.scale)
+		if laserpointer_size < .25:
+			laserpointer_size = 1.0
+		laserpointer.scale = Vector2(laserpointer_size, laserpointer_size)
+		print('size ', laserpointer_size)
 	elif event.is_action_pressed('toggle_laserpointer'):
 		if laserpointer.is_visible():
 			laserpointer.hide()
@@ -106,9 +117,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	# mouse pointer auto-hide
 	if event is InputEventMouseMotion:
-		mousehidetimer.start()
-		if not laserpointer.is_visible():
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		if not Engine.editor_hint:
+			mousehidetimer.start()
+			if not laserpointer.is_visible():
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func initialize() -> void:
@@ -125,6 +137,9 @@ func set_index_active(value : int) -> void:
 
 
 func save_as_png(output_folder: String) -> void:
+	if OS.has_feature('JavaScript'):
+		alert("This feature is not available in the web version.")
+		return
 	skip_animation = true
 	get_tree().paused = true
 	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
@@ -168,3 +183,11 @@ func _display(slide_index : int) -> void:
 	if previous_slide:
 		remove_child(previous_slide)
 	set_process_unhandled_input(true)
+	
+func alert(text: String, title: String='Message') -> void:
+	var dialog = AcceptDialog.new()
+	dialog.dialog_text = text
+	dialog.window_title = title
+	dialog.connect('modal_closed', dialog, 'queue_free')
+	add_child(dialog)
+	dialog.popup_centered()

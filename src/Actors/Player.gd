@@ -33,39 +33,6 @@ func _input(event):
 				print('ignored by player')
 				get_tree().set_input_as_handled()
 					
-func old_input(event):	
-	if event is InputEventScreenTouch or event is InputEventMouseButton:
-		var epos = event.position
-#		if is_hit(left, epos) or is_hit(right, epos) or is_hit(jump, epos) or is_hit(fire, epos) or is_hit(jump2, epos):
-		if is_hit(left, epos) or is_hit(right, epos) or is_hit(jump, epos) or is_hit(jump, epos) or false:
-			get_tree().set_input_as_handled()
-			if event is InputEventScreenTouch:
-				if event.pressed:
-					if is_hit(left, epos):
-						Input.action_press("move_left")
-					if is_hit(right, epos):
-						Input.action_press("move_right")
-					elif is_hit(fire, epos):
-						Input.action_press("shoot")
-					#elif is_hit(jump, epos):
-					#	Input.action_press("jump")
-					elif is_hit(jump, epos):
-						Input.action_press("jump")
-				else:
-					# if jumping, we release in the future
-					if is_hit(left, epos):
-						Input.action_release("move_left")
-					if is_hit(right, epos):
-						Input.action_release("move_right")
-					elif is_hit(fire, epos):
-						Input.action_release("shoot")
-					#elif is_hit(jump, epos):
-					#	Input.action_release("jump")
-					elif is_hit(jump, epos):
-						Input.action_release("jump")
-		elif epos.x < right.rect_position.x + right.rect_size.x * right.rect_scale.x + 150 \
-		  or epos.x > jump.rect_position.x - 150:
-			get_tree().set_input_as_handled()
 			
 func _ready():
 	# Static types are necessary here to avoid warnings.
@@ -76,6 +43,11 @@ func _ready():
 		var viewport: Viewport = $"../../../../ViewportContainer2/Viewport"
 		viewport.world_2d = ($"../.." as Viewport).world_2d
 		camera.custom_viewport = viewport
+	if not OS.has_touchscreen_ui_hint():
+		left.hide()
+		right.hide()
+		jump.hide()
+		fire.hide()
 
 
 # Physics process is a built-in loop in Godot.
