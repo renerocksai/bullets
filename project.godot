@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Button",
+"class": "BorderedImg",
+"language": "GDScript",
+"path": "res://Bullets/components/borderedimg.gd"
+}, {
 "base": "RichTextEffect",
 "class": "RichTextMatrix",
 "language": "GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://Bullets/Slide.gd"
 } ]
 _global_script_class_icons={
+"BorderedImg": "",
 "RichTextMatrix": "",
 "RichTextPulse": "",
 "Slide": ""
