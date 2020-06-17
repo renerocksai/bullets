@@ -1,5 +1,6 @@
 tool
-extends TextureRect
+extends Button
+class_name BorderedImg
 
 onready var trect:TextureRect = $TextureRect
 export var img :Texture setget updateImg
@@ -25,8 +26,6 @@ func updateImg(new):
 	if ready: 
 		if Engine.is_editor_hint():
 			var bordersize = img.get_size()
-			bordersize.x += 35
-			bordersize.y += 35
 			self.set_size(bordersize)
 			trect.set_size(img.get_size())
 			trect.texture = img
@@ -39,6 +38,4 @@ func updateImg(new):
 
 func sizeChanged():
 	var mysize = self.get_size()
-	mysize.x -= 35
-	mysize.y -= 35
 	trect.set_size(mysize)	
