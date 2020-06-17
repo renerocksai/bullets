@@ -18,7 +18,7 @@ func _ready():
 	add_child(timer)
 
 func start():
-	#statuslabel.bbcode_text = '[center][color=#cd0f2d]> > > [/color] [color=black][matrix clean=.6 dirty=.3 span=50]working on it ...[/matrix][/color][/center]'
+	# statuslabel.bbcode_text = '[center][color=#cd0f2d]> > > [/color] [color=black][matrix clean=.6 dirty=.3 span=50]working on it ...[/matrix][/color][/center]'
 	laserpointer.show()
 	timer.set_wait_time(1)
 	timer.set_one_shot(true)
