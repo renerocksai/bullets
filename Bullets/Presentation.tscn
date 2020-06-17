@@ -11,13 +11,15 @@ script = ExtResource( 3 )
 
 [node name="Slides" type="Node2D" parent="."]
 script = ExtResource( 1 )
+skip_animation = false
+slide_number_start = 1
 mouse_hide_timeout = 1.5
 
 [node name="LaserPointer" parent="Slides" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 15
+frame = 5
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
