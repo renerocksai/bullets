@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Bullets/Slide.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Bullets/Slides/BImportSlide.gd" type="Script" id=2]
+
+[node name="ImportSlide" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="." index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
