@@ -1,5 +1,5 @@
 tool
-extends Node
+extends Node2D
 """
 Container for presentation Slide nodes.
 Controls the currently displayed Slide.
@@ -18,6 +18,7 @@ onready var laserpointer = $LaserPointer
 onready var touchcontrols = $"../TouchControls"
 onready var swipedetector = $"../SwipeDetector"
 onready var mousehidetimer = $CursorAutoHideTimer
+onready var canvas = $"../DrawLayer"
 
 var index_active: = 0 setget set_index_active
 
@@ -25,17 +26,17 @@ var slide_current
 var slide_nodes = []
 
 var laserpointer_size = 1
+var drawmode = false
+var keep_drawing = false
+
 
 func _ready() -> void:
 	laserpointer.hide()
 	for slide in get_children():
 		if not slide is Slide:
 			continue
-		if slide is AnimatedSprite:
-			continue
 		slide.hide()
 		slide_nodes.append(slide)
-	
 	if Engine.editor_hint:
 		set_process_unhandled_input(false)
 	else:
@@ -51,10 +52,9 @@ func _ready() -> void:
 
 
 func _on_mousehide_timeout():
-	print("re-hiding mouse")
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	if not drawmode:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
-
 func _get_configuration_warning() -> String:
 	return "%s needs Slide nodes as its children to work" % name if not slide_nodes else ""
 
@@ -76,6 +76,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		or event.is_action('go_home')
 		or event.is_action('toggle_laserpointer')
 		or event.is_action('cycle_laserpointer_sizes')
+		or event.is_action('toggle_drawmode')
+		or event.is_action('clear_drawing')
 	)
 	print('SLIDES >>> ', event)
 	if not valid_event:
@@ -98,7 +100,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if laserpointer_size < .25:
 			laserpointer_size = 1.0
 		laserpointer.scale = Vector2(laserpointer_size, laserpointer_size)
-		print('size ', laserpointer_size)
 	elif event.is_action_pressed('toggle_laserpointer'):
 		if laserpointer.is_visible():
 			laserpointer.hide()
@@ -106,17 +107,37 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			laserpointer.set_visible(true)
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	elif event.is_action_pressed('toggle_drawmode'):
+		drawmode = not drawmode
+		if drawmode:
+			touchcontrols.hide()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)			
+		else:
+			mousehidetimer.start()
+			touchcontrols.show()
+	elif event.is_action_pressed("clear_drawing"):
+		canvas.clear()
 
 	if event is InputEventMouseButton:
 		if event.pressed:
 			match event.button_index:
 				BUTTON_LEFT:
-					self.index_active += 1
+					if drawmode:
+						keep_drawing = true
+						canvas.draw(event.position)
+					else:
+						self.index_active += 1
 				BUTTON_RIGHT:
 					self.index_active -= 1
+		else:
+			keep_drawing = false
+			if drawmode:
+				canvas.draw(Vector2.ZERO)
 
 	# mouse pointer auto-hide
 	if event is InputEventMouseMotion:
+		if drawmode and keep_drawing:
+			canvas.draw(event.position)
 		if not Engine.editor_hint:
 			mousehidetimer.start()
 			if not laserpointer.is_visible():

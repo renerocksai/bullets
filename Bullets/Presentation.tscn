@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
+[ext_resource path="res://Bullets/components/DrawLayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Bullets/Presentation.gd" type="Script" id=3]
 [ext_resource path="res://Bullets/components/AnimSpriteFollowMouse.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Bullets/TouchControls/TouchControls/TouchControls.tscn" type="PackedScene" id=35]
@@ -11,15 +12,12 @@ script = ExtResource( 3 )
 
 [node name="Slides" type="Node2D" parent="."]
 script = ExtResource( 1 )
-skip_animation = false
-slide_number_start = 1
-mouse_hide_timeout = 1.5
 
 [node name="LaserPointer" parent="Slides" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 5
+frame = 18
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
@@ -31,3 +29,5 @@ mouse_filter = 2
 
 [node name="CursorAutoHideTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DrawLayer" parent="." instance=ExtResource( 2 )]
