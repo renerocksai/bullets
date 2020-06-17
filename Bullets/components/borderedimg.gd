@@ -1,6 +1,5 @@
 tool
 extends Button
-class_name BorderedImg
 
 onready var trect:TextureRect = $TextureRect
 export var img :Texture setget updateImg
@@ -15,8 +14,9 @@ func _ready():
 	ready = true
 	self.connect("item_rect_changed", self, "sizeChanged")
 	if Engine.is_editor_hint():
-		trect.texture = img
-		sizeChanged()
+		if img != null:
+			trect.texture = img
+			sizeChanged()
 	else:
 		updateImg(img)	
 
