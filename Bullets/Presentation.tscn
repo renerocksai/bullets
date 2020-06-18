@@ -17,7 +17,10 @@ script = ExtResource( 1 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 21
+frame = 17
+
+[node name="CursorAutoHideTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
@@ -26,8 +29,5 @@ visible = false
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
-
-[node name="CursorAutoHideTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="DrawLayer" parent="." instance=ExtResource( 2 )]
