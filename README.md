@@ -10,6 +10,10 @@
 
 This software is so **fresh**, it's currently in usable alpha!
 
+1. [What is Bûllets?](#what-is-bûllets)
+2. [How To](#how-to)  
+2.1 [How to create your first presentation](#how-to-create-your-first-presentation)  
+2.2 [How to export to PDF](#how-to-export-to-pdf)
 
 #### What is Bûllets? 
 
@@ -51,3 +55,21 @@ This software is so **fresh**, it's currently in usable alpha!
 - It is a proof-of-concept and a work in progress
 
 - It is also a hack
+
+#### How to...
+
+##### How to create your first presentation
+It only takes 15 minutes, including downloadint Godot. Watch it on [youtube](https://www.youtube.com/watch?v=PSlo6nRRmZM)!
+
+##### How to export to PDF
+- Run your presentation from the Godot Editor (not the web version).
+- Press the `<P>` key
+- The slideshow will now iterate over all slides and create a .PNG image for each
+- Locate `pdfstuff/browser/index.hml` from your Bûllets folder and double-click it to open it in your browser
+- Click the _Choose Files_ button
+- Select all the generated PNG slides
+- Click _Open_
+- Done, the PDF will be "downloaded" as `result.pdf` instantly
+
+Note: The conversion will happen purely in your browser via JavaScript. Your slides will not be uploaded to any server for conversion.
+	
