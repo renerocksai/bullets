@@ -38,6 +38,7 @@ This software is so **fresh**, it's currently in usable alpha!
 - And yes, it works with your favorite wireless clicker!
 	- Even if that happens to be your  XBOX controller     
 	- It **even comes with a laser pointer!**
+	- You can **draw on slides**, too!
 
 - It is a proof-of-concept and a work in progress
 
