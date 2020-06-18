@@ -15,7 +15,7 @@ This software is so **fresh**, it's currently in usable alpha!
 2.1 [How to create your first presentation](#how-to-create-your-first-presentation)  
 2.2 [How to export to PDF](#how-to-export-to-pdf)
 
-#### What is Bûllets? 
+## What is Bûllets? 
 
 - Bûllets is a slide show software powered by the 
     **Godot game engine**
@@ -56,12 +56,12 @@ This software is so **fresh**, it's currently in usable alpha!
 
 - It is also a hack
 
-#### How to...
+## How to...
 
-##### How to create your first presentation
+### How to create your first presentation
 It only takes 15 minutes, including downloading Godot. Watch it on [youtube](https://www.youtube.com/watch?v=PSlo6nRRmZM)!
 
-##### How to export to PDF
+### How to export to PDF
 - Run your presentation from the Godot Editor (not the web version).
 - Press the `<P>` key
 - The slideshow will now iterate over all slides and create a .PNG image for each
