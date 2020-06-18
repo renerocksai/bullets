@@ -20,6 +20,7 @@ This software is so **fresh**, it's currently in usable alpha!
 
 - Using plain text with optional easy markup for 
     content makes slide creation a breeze
+    - ![](docs/edittext.png)
 
 - If you know how to code, you can create the most 
     complex, interactive animations, with sound effects -
