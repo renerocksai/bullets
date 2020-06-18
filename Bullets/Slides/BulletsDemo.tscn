@@ -205,19 +205,21 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 700, 450 )
 
 [node name="Whatis2" parent="Slides" instance=ExtResource( 6 )]
+visible = false
 title = "What is Bûllets?"
 text = "- You can share Bûllets presentations either as native 
     programs or publish them to the web
 
-- PNG export and conversion to PDF is supported, too
+- PNG export and conversion to PDF are supported, too
 
 - Bûllets presentations are version control friendly and 
     allow for GitHub collaboration
 
 - And yes, it works with your favorite wireless clicker!
-	- Even if that happens to be your  XBOX controller     
+	- Even if that happens to be your XBOX controller     
 	- It [b]even comes with a laser pointer![/b]
 	- Try it out,  [wave][b][color=#cd0f2d]press <L> for Laser![/color][/b][/wave]
+	- Press <SHIFT> + <L> to cycle through its  sizes
 
 - It is a proof-of-concept and a work in progress
 
@@ -235,7 +237,7 @@ scale = Vector2( 0.372039, 0.372039 )
 texture = ExtResource( 8 )
 
 [node name="smiley" type="Sprite" parent="Slides/Whatis2"]
-position = Vector2( 923.566, 655.688 )
+position = Vector2( 750, 655.688 )
 scale = Vector2( 0.0522766, 0.0522767 )
 texture = ExtResource( 12 )
 
@@ -279,7 +281,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 6
+frame = 4
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -373,7 +375,7 @@ text = "- You create your presentations in the powerful
 
 - If you need a PDF, you run the presentation and hit
     <P>. A series of PNG files is generated that you can 
-    turn into a PDF with the provided browser tool"
+    turn into a PDF with the provided in-browser tool"
 
 [node name="godotscr1" type="Sprite" parent="Slides/SlideshowsRcode"]
 position = Vector2( 1454.52, 425.111 )
@@ -481,7 +483,7 @@ textRight = "
 
 
 
-		-You can [b]draw[/b] on your slides while presenting.
+		-You can [b]draw[/b] on your slides while presenting
 			- Try it out,  [wave][b][color=#cd0f2d]press <D> for Drawing![/color][/b][/wave]
 			- Press [b]<C>[/b] to clear your scribbles"
 
@@ -503,7 +505,6 @@ Title = "Capability Demo"
 Subtitle = "Game Time!"
 
 [node name="GameInstructions" parent="Slides" instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 0, -1 )
 title = "Game controls"
 text = "- To control the player:
@@ -696,7 +697,7 @@ anims/credits_up = SubResource( 15 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 8
+frame = 20
 
 [node name="CursorAutoHideTimer" type="Timer" parent="Slides"]
 wait_time = 1.5

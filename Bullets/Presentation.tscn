@@ -13,14 +13,14 @@ script = ExtResource( 3 )
 [node name="Slides" type="Node2D" parent="."]
 script = ExtResource( 1 )
 
+[node name="CursorAutoHideTimer" type="Timer" parent="Slides"]
+one_shot = true
+
 [node name="LaserPointer" parent="Slides" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 17
-
-[node name="CursorAutoHideTimer" type="Timer" parent="."]
-one_shot = true
+frame = 11
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
