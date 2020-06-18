@@ -17,6 +17,8 @@ onready var right = $UI/Right
 onready var jump = $UI/Jump
 onready var fire = $UI/Fire
 
+var ever_touched = false
+
 func is_hit(button, tap_position):
 	var b = tap_position
 	var s = button.rect_position
@@ -25,13 +27,13 @@ func is_hit(button, tap_position):
 
 func _input(event):	
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
-		print('PLAYER')
 		var epos = event.position
 		if epos.x < 450 + 150 \
 		  or epos.x > 1667.15 - 150:
 			if epos.y > 500:
-				print('ignored by player')
 				get_tree().set_input_as_handled()
+	if event is InputEventScreenTouch and not ever_touched:
+		set_touch(true)
 	elif event.is_action('toggle_drawmode'):			
 		get_tree().set_input_as_handled()
 			
@@ -44,11 +46,19 @@ func _ready():
 		var viewport: Viewport = $"../../../../ViewportContainer2/Viewport"
 		viewport.world_2d = ($"../.." as Viewport).world_2d
 		camera.custom_viewport = viewport
-	if not OS.has_touchscreen_ui_hint():
+
+func set_touch(b):
+	if b:
+		left.show()
+		right.show()
+		jump.show()
+		fire.show()
+	else:
 		left.hide()
 		right.hide()
 		jump.hide()
 		fire.hide()
+	ever_touched = b
 
 
 # Physics process is a built-in loop in Godot.
