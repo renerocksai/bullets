@@ -1,5 +1,3 @@
-<!-- Copyright 2018 Google LLC.
-     SPDX-License-Identifier: Apache-2.0 -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +16,6 @@
         Convert Slides to PDF
     </h1>
     <input type="file" id="file-selector" multiple accept=".png">
-    <p id="status"></p>
     <script>
         const readImgAsync = (inputFile) => {
             const reader = new FileReader();
@@ -43,10 +40,8 @@
             reader.readAsDataURL(file);
         }
         async function main() {
-            const status = document.getElementById('status');
             if (window.FileList && window.File && window.FileReader) {
                 document.getElementById('file-selector').addEventListener('change', async (event) => {
-                    status.textContent = '';
                     var pdf = new jsPDF({
                         orientation: 'l',
                         unit: 'px',
