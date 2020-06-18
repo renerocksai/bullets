@@ -172,7 +172,6 @@ Authors = "Rene Schallner"
 visible = false
 ChapterNum = "1"
 Title = "What is a ... Bûllets?"
-Subtitle = ""
 
 [node name="Whatis" parent="Slides" instance=ExtResource( 6 )]
 visible = false
@@ -193,7 +192,6 @@ text = "
     complex, interactive animations, with sound effects -
     or even embed Tetris into your slides.
    "
-sources = ""
 
 [node name="icon" type="Sprite" parent="Slides/Whatis"]
 position = Vector2( 1713.63, 231.003 )
@@ -207,13 +205,11 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 700, 450 )
 
 [node name="Whatis2" parent="Slides" instance=ExtResource( 6 )]
-visible = false
 title = "What is Bûllets?"
 text = "- You can share Bûllets presentations either as native 
     programs or publish them to the web
 
-- PNG export is supported, too if you need a PDF
-     version
+- PNG export and conversion to PDF is supported, too
 
 - Bûllets presentations are version control friendly and 
     allow for GitHub collaboration
@@ -227,7 +223,6 @@ text = "- You can share Bûllets presentations either as native
 
 - It is also a hack
 "
-sources = ""
 
 [node name="GitHub-Mark-64px" type="Sprite" parent="Slides/Whatis2"]
 position = Vector2( 1695.78, 456.493 )
@@ -275,7 +270,6 @@ text = "- [b]Because![/b] Exploring the idea space where game engines meet Power
 	- There is no \"laser pointer\" when presenting from a browser.
 	- Office formats cannot really be \"diffed\", and are not suitable for version control, e.g. on GitHub.
 	- More often than not, editing a presentation ends up in a  fiddling-with-formatting nightmare."
-sources = ""
 
 [node name="ppt" type="Sprite" parent="Slides/Why"]
 position = Vector2( 1758.75, 124.95 )
@@ -380,7 +374,6 @@ text = "- You create your presentations in the powerful
 - If you need a PDF, you run the presentation and hit
     <P>. A series of PNG files is generated that you can 
     turn into a PDF with the provided browser tool"
-sources = ""
 
 [node name="godotscr1" type="Sprite" parent="Slides/SlideshowsRcode"]
 position = Vector2( 1454.52, 425.111 )
@@ -491,7 +484,6 @@ textRight = "
 		-You can [b]draw[/b] on your slides while presenting.
 			- Try it out,  [wave][b][color=#cd0f2d]press <D> for Drawing![/color][/b][/wave]
 			- Press [b]<C>[/b] to clear your scribbles"
-sources = ""
 
 [node name="bulletsscreen" type="Sprite" parent="Slides/Presenting"]
 position = Vector2( 1428.87, 390.582 )
@@ -532,7 +524,6 @@ text = "- To control the player:
 	- you can resume the game by returning to the game slide
 	
 - No worries, you are indestructible!"
-sources = ""
 
 [node name="2dplatformer-shoot" type="Sprite" parent="Slides/GameInstructions"]
 position = Vector2( 1439.75, 386.317 )
@@ -544,7 +535,6 @@ script = ExtResource( 26 )
 title = "Game Time!"
 text = " 
 "
-sources = ""
 
 [node name="TextureRect" type="TextureRect" parent="Slides/GameSlide"]
 margin_right = 1920.0
@@ -706,7 +696,7 @@ anims/credits_up = SubResource( 15 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 15
+frame = 8
 
 [node name="CursorAutoHideTimer" type="Timer" parent="Slides"]
 wait_time = 1.5
