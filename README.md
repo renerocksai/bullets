@@ -29,8 +29,10 @@ This software is so **fresh**, it's currently in usable alpha!
     programs or publish them to the web
     - Like this [first demo](https://renerocksai.github.io/bullets/bullets.html)!
 
-- PNG export is supported, too if you need a PDF
-     version
+- PDF export is supported, too
+    - Bûllets can create PNG images from your slides
+    - a small browser tool converts the PNG slides to PDF
+    - the conversion happens locally in the browser, no upload is required
 
 - Bûllets presentations are version control friendly and 
     allow for GitHub collaboration

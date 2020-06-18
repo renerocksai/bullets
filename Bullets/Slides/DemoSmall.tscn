@@ -264,7 +264,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 6
+frame = 2
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -358,7 +358,7 @@ text = "- You create your presentations in the powerful
 
 - If you need a PDF, you run the presentation and hit
     <P>. A series of PNG files is generated that you can 
-    turn into a PDF with the provided script"
+    turn into a PDF with the provided browser tool"
 sources = ""
 
 [node name="godotscr1" type="Sprite" parent="Slides/SlideshowsRcode"]
@@ -545,7 +545,7 @@ anims/credits_up = SubResource( 12 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 12
+frame = 25
 
 [node name="CursorAutoHideTimer" type="Timer" parent="Slides"]
 wait_time = 1.5
