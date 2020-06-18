@@ -379,7 +379,7 @@ text = "- You create your presentations in the powerful
 
 - If you need a PDF, you run the presentation and hit
     <P>. A series of PNG files is generated that you can 
-    turn into a PDF with the provided script"
+    turn into a PDF with the provided browser tool"
 sources = ""
 
 [node name="godotscr1" type="Sprite" parent="Slides/SlideshowsRcode"]
