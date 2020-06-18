@@ -14,6 +14,11 @@ onready var timer: Timer = $SwipeTimeout
 var swipe_start_position: = Vector2()
 var ignore_y = 1080
 
+var ever_touched = false
+
+func was_ever_touched():
+	return ever_touched
+	
 func reset_ignore_y():
 	ignore_y = 1080
 	
@@ -23,6 +28,7 @@ func set_ignore_y(y):
 func _input(event):
 	if not event is InputEventScreenTouch:
 		return
+	ever_touched = true
 	if event.pressed:
 		if (event.position.y < ignore_y)  and (event.position.x < 350 or event.position.x > 1920 - 350):
 			print('Swiped at ', event.position)
