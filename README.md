@@ -6,7 +6,10 @@
 
 ### Check out the [demo presentation](https://renerocksai.github.io/bullets/bullets.html)!
 
+### See how you can start playing with it on [youtube](https://www.youtube.com/watch?v=PSlo6nRRmZM)!
+
 This software is so **fresh**, it's currently in usable alpha!
+
 
 #### What is Bûllets? 
 
