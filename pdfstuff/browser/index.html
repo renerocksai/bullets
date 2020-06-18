@@ -1,0 +1,85 @@
+<!-- Copyright 2018 Google LLC.
+     SPDX-License-Identifier: Apache-2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Convert Slides to PDF</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="jspdf.min.js"></script>
+
+</head>
+
+<body>
+    <h1>
+        Convert Slides to PDF
+    </h1>
+    <input type="file" id="file-selector" multiple accept=".png">
+    <p id="status"></p>
+    <script>
+        const readImgAsync = (inputFile) => {
+            const reader = new FileReader();
+
+            return new Promise((resolve, reject) => {
+                reader.onerror = () => {
+                    reader.abort();
+                    reject(new DOMException("Problem loading image file."));
+                };
+
+                reader.onload = () => {
+                    resolve(reader.result);
+                };
+                reader.readAsDataURL(inputFile);
+            });
+        };
+        function readImage(file) {
+            const reader = new FileReader();
+            reader.addEventListener('load', (event) => {
+                console.log(event.target.result);
+            });
+            reader.readAsDataURL(file);
+        }
+        async function main() {
+            const status = document.getElementById('status');
+            if (window.FileList && window.File && window.FileReader) {
+                document.getElementById('file-selector').addEventListener('change', async (event) => {
+                    status.textContent = '';
+                    var pdf = new jsPDF({
+                        orientation: 'l',
+                        unit: 'px',
+                        format: [1920, 1080],
+                        putOnlyUsedFonts: true,
+                        floatPrecision: 16 // or "smart", default is 16
+                    });
+                    var width = pdf.internal.pageSize.getWidth();
+                    var height = pdf.internal.pageSize.getHeight();
+
+                    const fileList = event.target.files;
+                    const l = fileList.length;
+                    var i = 0;
+                    for (file of event.target.files) {
+                        i += 1;
+                        try {
+                            const img = await readImgAsync(file);
+                            pdf.addImage(img, 'PNG', 0, 0, width, height)
+                            if (i < l) {
+                                pdf.addPage();
+                            }
+
+                        } catch (e) {
+                            console.warn(e.message)
+                        }
+                    }
+                    pdf.save('result.pdf');
+                });
+            }
+        }
+
+        main();
+    </script>
+</body>
+
+</html>
