@@ -43,7 +43,7 @@ This software is so **fresh**, it's currently in usable alpha!
     allow for GitHub collaboration
 
 - And yes, it works with your favorite wireless clicker!
-	- Even if that happens to be your  XBOX controller     
+	- Even if that happens to be your  XBOX controller :sunglasses:
 	- It **even comes with a laser pointer!**
 	    - ![](docs/laserpoint.png)
 	- You can **draw on slides**, too!
