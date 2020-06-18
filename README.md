@@ -23,7 +23,8 @@ This software is so **fresh**, it's currently in usable alpha!
 
 - If you know how to code, you can create the most 
     complex, interactive animations, with sound effects -
-    or even embed Tetris into your slides.
+    or even embed a full game into your slides.
+    - ![](docs/gametime.png)
 
 - You can share Bûllets presentations either as native 
     programs or publish them to the web
@@ -40,8 +41,9 @@ This software is so **fresh**, it's currently in usable alpha!
 - And yes, it works with your favorite wireless clicker!
 	- Even if that happens to be your  XBOX controller     
 	- It **even comes with a laser pointer!**
+	    - ![](docs/laserpoint.png)
 	- You can **draw on slides**, too!
-
+	    - ![](docs/drawmode.png)
 - It is a proof-of-concept and a work in progress
 
 - It is also a hack
