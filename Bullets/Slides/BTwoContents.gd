@@ -1,17 +1,25 @@
 tool
 extends Slide
 
-onready var titleLabel: = $TitleLabel
-onready var content: = $ContentLabel
-onready var content2: = $ContentLabel2
-onready var sourceLabel: = $SourceInfoLabel
-onready var pagenumLabel: = $PageNumber
 
 export var title:String setget updateTitle
 export(String, MULTILINE) var textLeft setget updateLeft
 export(String, MULTILINE) var textRight setget updateRight
 export var sources:String setget updateSources
 
+export var title_color = Color.black setget updateTitleColor
+export var text_color = Color.black setget updateTextColor
+export var sources_color = Color.gray setget updateSourcesColor
+export var bullet_symbol = '>' setget updateBulletSymbol
+export var bullet_bold = false setget updateBulletBold
+export var bullet_italic = false setget updateBulletItalic
+export var bullet_color = Color("#cd0f2d") setget updateBulletColor
+
+onready var titleLabel: = $TitleLabel
+onready var content: = $ContentLabel
+onready var content2: = $ContentLabel2
+onready var sourceLabel: = $SourceInfoLabel
+onready var pagenumLabel: = $PageNumber
 
 var regex = RegEx.new()
 var ready = false
@@ -19,39 +27,95 @@ var ready = false
 func _ready():
 	regex.compile("(^|\n[ \t]*)(>|-)")
 	ready = true
+	updateAll()
+
+func updateAll():
 	updateTitle(title)
 	updateLeft(textLeft)
 	updateRight(textRight)
 	updateSources(sources)
 
-	
+
 func updateTitle(s):
 	title = s
 	if ready:
-		titleLabel.bbcode_text = '[color=black]$t[/color]'.replace('$t', title)
+		titleLabel.bbcode_text = '[color=#{title_color}]{title}[/color]'.format({
+			'title_color': title_color.to_html(),
+			'title': title,
+			})
 
 func updateLeft(s):
 	textLeft = s
 	if ready:
-		content.bbcode_text = '[color=black]' + format_content(textLeft) + '[/color]'
+		content.bbcode_text = '[color=#{text_color}]{text}[/color]'.format({
+			'text_color': text_color.to_html(),
+			'text': format_content(textLeft),
+			})
 
 func updateRight(s):
 	textRight = s
 	if ready:
-		content2.bbcode_text = '[color=black]' + format_content(textRight) + '[/color]'
+		content2.bbcode_text = '[color=#{text_color}]{text}[/color]'.format({
+			'text_color': text_color.to_html(),
+			'text': format_content(textRight),
+			})
 
 func updateSources(s):
 	sources = s
 	if ready:
 		if len(sources) > 0:
 			sourceLabel.bbcode_text = '[color=gray]$x[/color]'.replace('$x', sources)
+			sourceLabel.bbcode_text = '[color=#{sources_color}]{sources}[/color]'.format({
+				'sources_color': sources_color.to_html(),
+				'sources': sources,
+				})
 		else:
 			sourceLabel.bbcode_text = ''
 
 func format_content(s):
-	s = self.regex.sub(s, '$1[color=#cd0f2d]> [/color]', true)
+	var bold = ''
+	var boldoff=''
+	var italic=''
+	var italicoff=''
+	if bullet_bold:
+		bold ='[b]'
+		boldoff = '[/b]'
+	if bullet_italic:
+		italic = '[i]'
+		italicoff = '[/i]'
+	s = self.regex.sub(s, '$1[color=#{color}]{bold}{italic}{symbol} {italicoff}{boldoff}[/color]'.format({
+		'color': bullet_color.to_html(),
+		'symbol': bullet_symbol,
+		'bold': bold,
+		'boldoff': boldoff,
+		'italic': italic,
+		'italicoff': italicoff,
+		}), true)
 	return s
 
 func set_slide_number(n):
 	pagenumLabel.bbcode_text = str(n)
-	
+
+func updateBulletSymbol(symbol):
+	bullet_symbol = symbol
+	updateAll()
+
+func updateTitleColor(c):
+	title_color = c
+	updateAll()
+func updateTextColor(c):
+	text_color = c
+	updateAll()
+func updateSourcesColor(c):
+	sources_color = c
+	updateAll()
+func updateBulletColor(c):
+	bullet_color = c
+	updateAll()
+func updateBulletBold(f):
+	bullet_bold = f
+	updateAll()
+func updateBulletItalic(f):
+	bullet_italic = f
+	updateAll()
+

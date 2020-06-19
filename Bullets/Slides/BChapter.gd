@@ -9,31 +9,54 @@ export var ChapterNum :String setget updateChapter
 export var Title :String setget updateTitle
 export var Subtitle :String setget updateSubtitle
 
+export var chapter_num_color = Color('#cd0f2d') setget updateChapterNumColor
+export var title_color = Color.black setget updateTitleColor
+export var subtitle_color = Color('#993366') setget updateSubtitleColor
+
 var ready = false
 
 func _ready():
 	ready = true
+	updateAll()
+
+func updateAll():
 	updateChapter(ChapterNum)
 	updateTitle(Title)
 	updateSubtitle(Subtitle)
-	
+
 func updateChapter(s):
 	ChapterNum = s
 	if ready:
-		lblNumber.bbcode_text = '[color=#cd0f2d]$number[/color]'.replace('$number', ChapterNum)
-		
+		lblNumber.bbcode_text = '[color=#{chapter_num_color}]{chapter_num}[/color]'.format({
+			'chapter_num_color': chapter_num_color.to_html(),
+			'chapter_num': ChapterNum,
+		})
+
 func updateTitle(s):
 	Title = s
 	if ready:
-		lblTitle.bbcode_text = '[color=black]$t[/color]'.replace('$t', Title)
-		
+		lblTitle.bbcode_text = '[color=#{title_color}]{title}[/color]'.format({
+			'title_color': title_color.to_html(),
+			'title': Title,
+		})
+
 func updateSubtitle(s):
 	Subtitle = s
 	if ready:
-		var x: String = '[color=#993366]$subtitle[/color]'
-		s = x.replace('$subtitle', Subtitle.to_upper())
-		lblSecond.bbcode_text = s
-	
-func set_slide_number(n):
+		lblSecond.bbcode_text = '[color=#{subtitle_color}]{subtitle}[/color]'.format({
+			'subtitle_color': subtitle_color.to_html(),
+			'subtitle': Subtitle.to_upper(),
+		})
+
+func set_slide_number(_n):
 	pass
-	
+
+func updateTitleColor(c):
+	title_color = c
+	updateAll()
+func updateSubtitleColor(c):
+	subtitle_color = c
+	updateAll()
+func updateChapterNumColor(c):
+	chapter_num_color = c
+	updateAll()

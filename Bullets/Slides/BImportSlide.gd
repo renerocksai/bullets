@@ -16,13 +16,13 @@ func _ready():
 		if img != null:
 			trect.texture = img
 	else:
-		updateImg(img)	
+		updateImg(img)
 
 
 func updateImg(new):
 	img = new
-	if ready: 
+	if ready:
 		trect.texture = img
-			
+
 
 
