@@ -24,13 +24,13 @@ func start():
 	timer.set_one_shot(true)
 	timer.start()
 
-	
-	
+
+
 func _process(delta):
 	if laser_active:
 		laserpointer.set_position(get_local_mouse_position())
-		
-		
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	var valid_event: bool = (
 		event is InputEventMouseButton or event is InputEventScreenTouch
@@ -69,7 +69,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		laser_active = true
 
 
-		
+
 func goto_main():
 	get_tree().change_scene(start_scene)
 

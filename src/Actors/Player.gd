@@ -25,7 +25,7 @@ func is_hit(button, tap_position):
 	var ss = button.rect_scale * button.rect_size
 	return b.x >= s.x and b.x <= s.x + ss.x and b.y >= s.y and b.y <= s.y + ss.y
 
-func _input(event):	
+func _input(event):
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		var epos = event.position
 		if epos.x < 450 + 150 \
@@ -34,9 +34,9 @@ func _input(event):
 				get_tree().set_input_as_handled()
 	if event is InputEventScreenTouch and not ever_touched:
 		set_touch(true)
-	elif event.is_action('toggle_drawmode'):			
+	elif event.is_action('toggle_drawmode'):
 		get_tree().set_input_as_handled()
-			
+
 func _ready():
 	# Static types are necessary here to avoid warnings.
 	var camera: Camera2D = $Camera

@@ -8,8 +8,6 @@ onready var button_right: Button =$TouchButtonRight
 onready var button_fscreen: Button = $TouchButtonFullscreen
 onready var flashTimer : Timer = $FlashTimer
 
-enum Directions {PREVIOUS = -1, NEXT = 1}
-
 var flash_state = false
 
 func _ready() -> void:
@@ -25,7 +23,7 @@ func _on_touch_button_touched(button) -> void:
 	event.pressed = true
 	match button:
 		button_left:
-			event.action = 'ui_left' 
+			event.action = 'ui_left'
 		button_right:
 			event.action ='ui_right'
 		button_fscreen:
