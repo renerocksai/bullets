@@ -55,7 +55,6 @@ tracks/0/keys = {
 }
 
 [node name="Thankyou" type="Node2D"]
-modulate = Color( 1, 1, 1, 0.588235 )
 script = ExtResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -94,8 +93,8 @@ mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 custom_constants/line_separation = 0
 bbcode_enabled = true
-bbcode_text = "[color=#cd0f2d][/color]
-[color=black][/color]"
+bbcode_text = "[color=#ffcd0f2d][/color]
+[color=#ff993366][/color]"
 text = "
 "
 __meta__ = {
@@ -111,7 +110,7 @@ mouse_filter = 2
 custom_fonts/bold_font = SubResource( 3 )
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
-bbcode_text = "[color=black][/color]"
+bbcode_text = "[color=#ff000000][/color]"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
