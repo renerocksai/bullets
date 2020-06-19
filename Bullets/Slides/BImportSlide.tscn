@@ -4,6 +4,7 @@
 [ext_resource path="res://Bullets/Slides/BImportSlide.gd" type="Script" id=2]
 
 [node name="ImportSlide" instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 1 )
 script = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]

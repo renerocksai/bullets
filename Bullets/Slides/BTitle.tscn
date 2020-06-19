@@ -38,7 +38,6 @@ tracks/0/keys = {
 }
 
 [node name="Title" type="Node2D"]
-modulate = Color( 1, 1, 1, 0.588235 )
 script = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -60,7 +59,7 @@ margin_bottom = 723.0
 mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[color=black][/color]"
+bbcode_text = "[color=#ff000000][/color]"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -74,8 +73,8 @@ margin_bottom = 1006.0
 mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[color=#cd0f2d][/color]
-[color=black][/color]"
+bbcode_text = "[color=#ffcd0f2d][/color]
+[color=#ff993366][/color]"
 text = "
 "
 __meta__ = {

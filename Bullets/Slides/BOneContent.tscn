@@ -55,7 +55,6 @@ tracks/0/keys = {
 }
 
 [node name="OneContent" type="Node2D"]
-modulate = Color( 1, 1, 1, 0.588235 )
 script = ExtResource( 5 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
