@@ -28,11 +28,9 @@ func _on_touch_button_touched(button) -> void:
 			event.action ='ui_right'
 		button_fscreen:
 			event.action = 'toggle_fullscreen'
-	print(event.action)
 	Input.parse_input_event(event)
 
 func flash_controls(position):
-	print('>>> FLASH <<<')
 	for child in get_children():
 		if child is Timer:
 			continue

@@ -47,7 +47,6 @@ func updateSubtitle(s):
 			'authors_color': authors_color.to_html(),
 			'authors': Authors.to_upper(),
 			})
-		print(lblSecond.bbcode_text)
 
 func set_slide_number(_n):
 	if creditsPlayer != null:

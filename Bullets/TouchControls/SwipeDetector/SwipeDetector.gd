@@ -31,7 +31,6 @@ func _input(event):
 	ever_touched = true
 	if event.pressed:
 		if (event.position.y < ignore_y)  and (event.position.x < 350 or event.position.x > 1920 - 350):
-			print('Swiped at ', event.position)
 			var newEvent: = InputEventAction.new()
 			newEvent.pressed = true
 			newEvent.action = 'ui_left' if event.position.x < 350 else 'ui_right'
@@ -48,15 +47,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	else:
 		if not timer.is_stopped():
 			if event.position.y < ignore_y and event.position.y > 150:
-				print('end swipe')
 				if not _end_detection(event.position):
 					emit_signal("silly_tap_release", event.position)
 		elif event.position.x > 350 and event.position.x < 1920 - 350 and event.position.y > 150:
 			# show the touch controls
-			print('SHOULD FLASH')
 			emit_signal("silly_tap_release", event.position)
 		elif event.position.y < 150:
-			print('should fullscreen')
 			var newEvent: = InputEventAction.new()
 			newEvent.pressed = true
 			newEvent.action = 'toggle_fullscreen'
@@ -81,7 +77,6 @@ func _end_detection(position: Vector2) -> bool:
 	var event: = InputEventAction.new()
 	event.pressed = true
 	event.action = 'ui_left' if direction.x > 0 else 'ui_right'
-	print(event.action)
 	Input.parse_input_event(event)
 	return true
 

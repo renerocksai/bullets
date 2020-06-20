@@ -77,7 +77,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		or event.is_action('toggle_drawmode')
 		or event.is_action('clear_drawing')
 	)
-	print('SLIDES >>> ', event)
 	if not valid_event:
 		return
 
@@ -94,7 +93,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().change_scene("res://Bullets/Slides/bootmenu.tscn")
 	elif event.is_action_pressed('cycle_laserpointer_sizes'):
 		laserpointer_size -= .25
-		print(laserpointer.scale)
 		if laserpointer_size < .25:
 			laserpointer_size = 1.0
 		laserpointer.scale = Vector2(laserpointer_size, laserpointer_size)
@@ -108,11 +106,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed('toggle_drawmode'):
 		drawmode = not drawmode
 		if drawmode:
-			print('entering drawmode')
 			touchcontrols.hide()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
-			print('leaving drawmode')
 			mousehidetimer.start()
 			touchcontrols.show()
 	elif event.is_action_pressed("clear_drawing"):
