@@ -4,6 +4,7 @@ extends RichTextLabel
 export(String, MULTILINE) var content setget updateContent
 
 
+export var text_size:float = 36 setget updateTextSize
 export var text_color = Color.black setget updateTextColor
 export var bullet_symbol = '>' setget updateBulletSymbol
 export var bullet_bold = false setget updateBulletBold
@@ -19,6 +20,7 @@ func _ready():
 	updateAll()
 
 func updateAll():
+	Utils.resizeFontsFor(self, text_size)
 	updateContent(text)
 
 
@@ -68,3 +70,6 @@ func updateBulletItalic(f):
 	bullet_italic = f
 	updateAll()
 
+func updateTextSize(s):
+	text_size = s
+	updateAll()
