@@ -8,9 +8,9 @@ onready var creditsPlayer = $AnimationPlayer
 export var Title :String setget updateTitle
 export var Subtitle :String setget updateSubtitle
 export var Authors:String setget updateAuthors
-export var title_size:float = 100 setget updateTitleSize
+export var title_size:float = 53 setget updateTitleSize
 export var title_color = Color.black setget updateTitleColor
-export var subtitle_size:float = 45 setget updateSubtitleSize
+export var subtitle_size:float = 41 setget updateSubtitleSize
 export var subtitle_color = Color('#cd0f2d') setget updateSubtitleColor
 export var authors_color = Color('#993366') setget updateAuthorsColor
 
