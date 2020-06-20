@@ -53,6 +53,11 @@ _global_script_classes=[ {
 "class": "Slide",
 "language": "GDScript",
 "path": "res://Bullets/Slide.gd"
+}, {
+"base": "Node",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://Bullets/components/Utils.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
@@ -63,7 +68,8 @@ _global_script_class_icons={
 "Player": "",
 "RichTextMatrix": "",
 "RichTextPulse": "",
-"Slide": ""
+"Slide": "",
+"Utils": ""
 }
 
 [application]
@@ -72,6 +78,10 @@ config/name="Demo1"
 run/main_scene="res://Bullets/Slides/bootmenu.tscn"
 boot_splash/image="res://Bullets/img/bulletloader.png"
 config/icon="res://icon.png"
+
+[autoload]
+
+Utils="*res://Bullets/components/Utils.gd"
 
 [display]
 
