@@ -2,6 +2,8 @@ extends Reference
 class_name Utils
 
 static func resizeFontsFor(control:Control, size:float) -> void:
+	if control == null:
+		return
 	resizeFontFor(control, size, 'normal_font')
 	resizeFontFor(control, size, 'bold_font')
 	resizeFontFor(control, size, 'italic_font')

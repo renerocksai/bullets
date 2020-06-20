@@ -21,8 +21,8 @@ func _ready():
 	updateAll()
 
 func updateAll():
-	updateTitleSize(title_size)
-	updateSubtitleSize(subtitle_size)
+	Utils.resizeFontsFor(lblTitle, title_size)
+	Utils.resizeFontsFor(lblSecond, subtitle_size)
 	updateTitle(Title)
 	updateAuthors(Authors)
 
@@ -62,7 +62,10 @@ func updateAuthorsColor(c):
 	updateAll()
 
 func updateTitleSize(s):
-	Utils.resizeFontsFor(lblTitle, s)
+	title_size = s
+	updateAll()
 
 func updateSubtitleSize(s):
-	Utils.resizeFontsFor(lblSecond, s)
+	subtitle_size = s
+	updateAll()
+
