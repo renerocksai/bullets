@@ -1,5 +1,4 @@
 tool
-#extends Node2D
 extends Slide
 
 onready var lblTitle = $RichTextLabel
@@ -9,8 +8,9 @@ export var Title :String setget updateTitle
 export var Subtitle :String setget updateSubtitle
 export var Authors:String setget updateAuthors
 
-export var title_size = 100
+export var title_size:float = 100 setget updateTitleSize
 export var title_color = Color.black setget updateTitleColor
+export var subtitle_size:float = 45 setget updateSubtitleSize
 export var subtitle_color = Color('#cd0f2d') setget updateSubtitleColor
 export var authors_color = Color('#993366') setget updateAuthorsColor
 
@@ -21,6 +21,8 @@ func _ready():
 	updateAll()
 
 func updateAll():
+	updateTitleSize(title_size)
+	updateSubtitleSize(subtitle_size)
 	updateTitle(Title)
 	updateAuthors(Authors)
 
@@ -58,3 +60,9 @@ func updateSubtitleColor(c):
 func updateAuthorsColor(c):
 	authors_color = c
 	updateAll()
+
+func updateTitleSize(s):
+	Utils.resizeFontsFor(lblTitle, s)
+
+func updateSubtitleSize(s):
+	Utils.resizeFontsFor(lblSecond, s)

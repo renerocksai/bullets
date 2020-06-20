@@ -54,7 +54,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bullets/Slide.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "Utils",
 "language": "GDScript",
 "path": "res://Bullets/components/Utils.gd"
@@ -78,10 +78,6 @@ config/name="Demo1"
 run/main_scene="res://Bullets/Slides/bootmenu.tscn"
 boot_splash/image="res://Bullets/img/bulletloader.png"
 config/icon="res://icon.png"
-
-[autoload]
-
-Utils="*res://Bullets/components/Utils.gd"
 
 [display]
 
