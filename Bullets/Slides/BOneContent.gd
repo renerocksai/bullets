@@ -93,10 +93,9 @@ func updateSources(s):
 
 func set_slide_number(n):
 	pagenumLabel.bbcode_text = '[color=#{pagenumber_color}]{n}[/color]'.format({
-		'pagenumber_color': pagenumber_color,
+		'pagenumber_color': pagenumber_color.to_html(),
 		'n': n,
 		})
-
 
 func updateBulletSymbol(symbol):
 	bullet_symbol = symbol

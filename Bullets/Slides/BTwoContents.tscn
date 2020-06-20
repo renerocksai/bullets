@@ -140,7 +140,7 @@ margin_bottom = 1061.27
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "2"
+bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
