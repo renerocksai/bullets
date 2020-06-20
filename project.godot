@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Slide",
 "language": "GDScript",
 "path": "res://Bullets/Slide.gd"
+}, {
+"base": "Reference",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://Bullets/components/Utils.gd"
 } ]
 _global_script_class_icons={
 "RichTextMatrix": "",
 "RichTextPulse": "",
-"Slide": ""
+"Slide": "",
+"Utils": ""
 }
 
 [application]

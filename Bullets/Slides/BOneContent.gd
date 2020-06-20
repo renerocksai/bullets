@@ -5,13 +5,18 @@ export var title:String setget updateTitle
 export(String, MULTILINE) var text setget updateContent
 export var sources:String setget updateSources
 
+export var title_size:float = 52 setget updateTitleSize
 export var title_color = Color.black setget updateTitleColor
+export var text_size:float = 36 setget updateTextSize
 export var text_color = Color.black setget updateTextColor
+export var sources_size:float = 20 setget updateSourcesSize
 export var sources_color = Color.gray setget updateSourcesColor
 export var bullet_symbol = '>' setget updateBulletSymbol
 export var bullet_bold = false setget updateBulletBold
 export var bullet_italic = false setget updateBulletItalic
 export var bullet_color = Color("#cd0f2d") setget updateBulletColor
+export var pagenumber_size:float = 20 setget updatePageNumberSize
+export var pagenumber_color = Color.black setget updatePageNumberColor
 
 onready var titleLabel: = $TitleLabel
 onready var contentLabel: = $ContentLabel
@@ -28,6 +33,10 @@ func _ready():
 	updateAll()
 
 func updateAll():
+	Utils.resizeFontsFor(titleLabel, title_size)
+	Utils.resizeFontsFor(contentLabel, text_size)
+	Utils.resizeFontsFor(sourceLabel, sources_size)
+	Utils.resizeFontsFor(pagenumLabel, pagenumber_size)
 	updateTitle(title)
 	updateContent(text)
 	updateSources(sources)
@@ -83,8 +92,10 @@ func updateSources(s):
 
 
 func set_slide_number(n):
-	pagenumLabel.bbcode_text = str(n)
-
+	pagenumLabel.bbcode_text = '[color=#{pagenumber_color}]{n}[/color]'.format({
+		'pagenumber_color': pagenumber_color.to_html(),
+		'n': n,
+		})
 
 func updateBulletSymbol(symbol):
 	bullet_symbol = symbol
@@ -99,6 +110,9 @@ func updateTextColor(c):
 func updateSourcesColor(c):
 	sources_color = c
 	updateAll()
+func updatePageNumberColor(c):
+	pagenumber_color = c
+
 func updateBulletColor(c):
 	bullet_color = c
 	updateAll()
@@ -107,5 +121,21 @@ func updateBulletBold(f):
 	updateAll()
 func updateBulletItalic(f):
 	bullet_italic = f
+	updateAll()
+
+func updateTitleSize(s):
+	title_size = s
+	updateAll()
+
+func updateTextSize(s):
+	text_size = s
+	updateAll()
+
+func updateSourcesSize(s):
+	sources_size = s
+	updateAll()
+
+func updatePageNumberSize(s):
+	pagenumber_size = s
 	updateAll()
 

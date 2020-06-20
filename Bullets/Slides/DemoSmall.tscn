@@ -140,15 +140,16 @@ script = ExtResource( 3 )
 
 [node name="Slides" type="Node2D" parent="."]
 script = ExtResource( 1 )
-skip_animation = false
-slide_number_start = 1
-mouse_hide_timeout = 1.5
 
 [node name="Title" parent="Slides" instance=ExtResource( 2 )]
-visible = false
 Title = "[color=#cd0f2d]BÛLLETS[/color] - Slide Show meets Game Engine"
 Subtitle = "A short introduction"
 Authors = "Rene Schallner"
+title_size = 100.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 45.0
+subtitle_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+authors_color = Color( 0.6, 0.2, 0.4, 1 )
 
 [node name="Chapter1" parent="Slides" instance=ExtResource( 5 )]
 visible = false
@@ -174,6 +175,19 @@ text = "
     complex, interactive animations, with sound effects -
     or even embed Tetris into your slides.
    "
+sources = ""
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="icon" type="Sprite" parent="Slides/Whatis"]
 position = Vector2( 1713.63, 231.003 )
@@ -207,6 +221,19 @@ text = "- You can share Bûllets presentations either as native
 
 - It is also a hack
 "
+sources = ""
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="GitHub-Mark-64px" type="Sprite" parent="Slides/Whatis2"]
 position = Vector2( 1695.78, 456.493 )
@@ -254,6 +281,19 @@ text = "- [b]Because![/b] Exploring the idea space where game engines meet Power
 	- There is no \"laser pointer\" when presenting from a browser.
 	- Office formats cannot really be \"diffed\", and are not suitable for version control, e.g. on GitHub.
 	- More often than not, editing a presentation ends up in a  fiddling-with-formatting nightmare."
+sources = ""
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="ppt" type="Sprite" parent="Slides/Why"]
 position = Vector2( 1758.75, 124.95 )
@@ -263,7 +303,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -358,6 +398,19 @@ text = "- You create your presentations in the powerful
 - If you need a PDF, you run the presentation and hit
     <P>. A series of PNG files is generated that you can 
     turn into a PDF with the provided in-browser tool"
+sources = ""
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="godotscr1" type="Sprite" parent="Slides/SlideshowsRcode"]
 position = Vector2( 1454.52, 425.111 )
@@ -468,6 +521,19 @@ textRight = "
 		-You can [b]draw[/b] on your slides while presenting
 			- Try it out,  [wave][b][color=#cd0f2d]press <D> for Drawing![/color][/b][/wave]
 			- Press [b]<C>[/b] to clear your scribbles"
+sources = ""
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="bulletsscreen" type="Sprite" parent="Slides/Presenting"]
 position = Vector2( 1428.87, 390.582 )
@@ -484,6 +550,11 @@ visible = false
 Title = "[b]BÛLLETS[/b] - Slide Show meets Game Engine"
 Subtitle = "A Short Introduction"
 Authors = "Rene Schallner"
+title_size = 100.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 45.0
+subtitle_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+authors_color = Color( 0.6, 0.2, 0.4, 1 )
 
 [node name="ContentLabel" type="RichTextLabel" parent="Slides/Thankyou"]
 margin_left = 1380.0
@@ -541,7 +612,7 @@ anims/credits_up = SubResource( 12 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 22
+frame = 8
 
 [node name="CursorAutoHideTimer" type="Timer" parent="Slides"]
 wait_time = 1.5

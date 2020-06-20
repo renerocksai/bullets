@@ -9,8 +9,11 @@ export var ChapterNum :String setget updateChapter
 export var Title :String setget updateTitle
 export var Subtitle :String setget updateSubtitle
 
+export var chapter_num_size:float = 300 setget updateChapterNumSize
 export var chapter_num_color = Color('#cd0f2d') setget updateChapterNumColor
+export var title_size:float = 72 setget updateTitleSize
 export var title_color = Color.black setget updateTitleColor
+export var subtitle_size:float = 36 setget updateSubtitleSize
 export var subtitle_color = Color('#993366') setget updateSubtitleColor
 
 var ready = false
@@ -20,6 +23,9 @@ func _ready():
 	updateAll()
 
 func updateAll():
+	Utils.resizeFontsFor(lblTitle, title_size)
+	Utils.resizeFontsFor(lblSecond, subtitle_size)
+	Utils.resizeFontsFor(lblNumber, chapter_num_size)
 	updateChapter(ChapterNum)
 	updateTitle(Title)
 	updateSubtitle(Subtitle)
@@ -59,4 +65,16 @@ func updateSubtitleColor(c):
 	updateAll()
 func updateChapterNumColor(c):
 	chapter_num_color = c
+	updateAll()
+
+func updateTitleSize(s):
+	title_size = s
+	updateAll()
+
+func updateSubtitleSize(s):
+	subtitle_size = s
+	updateAll()
+
+func updateChapterNumSize(s):
+	chapter_num_size = s
 	updateAll()

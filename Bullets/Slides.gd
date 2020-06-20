@@ -8,8 +8,6 @@ Controls the currently displayed Slide.
 const animation_speed_in: = 0.5
 const animation_speed_out: = 50
 
-enum Directions {PREVIOUS = -1, CURRENT = 0, NEXT = 1}
-
 export var skip_animation: = false
 export var slide_number_start := 1
 export var mouse_hide_timeout := 1.5
@@ -42,7 +40,7 @@ func _ready() -> void:
 	else:
 		for slide in slide_nodes:
 			remove_child(slide)
-	
+
 	# connect
 	swipedetector.connect("silly_tap_release", touchcontrols, "flash_controls")
 	mousehidetimer.connect("timeout", self, "_on_mousehide_timeout")
@@ -54,21 +52,21 @@ func _ready() -> void:
 func _on_mousehide_timeout():
 	if not drawmode:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
+
 func _get_configuration_warning() -> String:
 	return "%s needs Slide nodes as its children to work" % name if not slide_nodes else ""
 
 var click_direction = 0
 
 var presstime = 0
-			
+
 func _unhandled_input(event: InputEvent) -> void:
 	var valid_event: bool = (
-		event is InputEventMouseButton 
+		event is InputEventMouseButton
 		or event is InputEventMouseMotion
 		or event.is_action('ui_accept')
-		or event.is_action('ui_right') 
-		or event.is_action('ui_left') 
+		or event.is_action('ui_right')
+		or event.is_action('ui_left')
 		or event.is_action('ui_page_down')
 		or event.is_action('ui_page_up')
 		or event.is_action('quit')
@@ -79,7 +77,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		or event.is_action('toggle_drawmode')
 		or event.is_action('clear_drawing')
 	)
-	print('SLIDES >>> ', event)
 	if not valid_event:
 		return
 
@@ -96,7 +93,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().change_scene("res://Bullets/Slides/bootmenu.tscn")
 	elif event.is_action_pressed('cycle_laserpointer_sizes'):
 		laserpointer_size -= .25
-		print(laserpointer.scale)
 		if laserpointer_size < .25:
 			laserpointer_size = 1.0
 		laserpointer.scale = Vector2(laserpointer_size, laserpointer_size)
@@ -111,7 +107,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		drawmode = not drawmode
 		if drawmode:
 			touchcontrols.hide()
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)			
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			mousehidetimer.start()
 			touchcontrols.show()
@@ -187,12 +183,12 @@ func _display(slide_index : int) -> void:
 	slide_current = slide_nodes[slide_index]
 
 	slide_current.cancel_animation()
-	
+
 	if previous_slide and false:
 		if previous_slide.play('FadeOut', animation_speed_out, skip_animation):
 			if not skip_animation:
 				yield(previous_slide, "animation_finished")
-		
+
 	add_child(slide_current)
 	slide_current.visible = true
 	slide_current.set_slide_number(slide_index + slide_number_start)
@@ -204,7 +200,7 @@ func _display(slide_index : int) -> void:
 	if previous_slide:
 		remove_child(previous_slide)
 	set_process_unhandled_input(true)
-	
+
 func alert(text: String, title: String='Message') -> void:
 	var dialog = AcceptDialog.new()
 	dialog.dialog_text = text

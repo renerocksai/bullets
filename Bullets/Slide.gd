@@ -26,7 +26,6 @@ func play(anim_name: String, speed: = 0.5, skip_animation=false) -> bool:
 	if anim_player == null:
 		return false
 	assert(anim_player and anim_name in anim_player.get_animation_list())
-	print('speed', speed)
 	set_process_unhandled_input(true)
 	anim_player.playback_speed = speed * 2
 	anim_player.play(anim_name)
