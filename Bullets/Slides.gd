@@ -153,9 +153,30 @@ func set_index_active(value : int) -> void:
 		_display(index_active)
 
 
+func download_pdf():
+	JavaScript.eval('console.log("download_pdf");')
+	skip_animation = true
+	get_tree().paused = true
+	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
+	for slide in slide_nodes:
+		# Need to wait two frames to ensure the screen capture works
+		yield(get_tree(), "idle_frame")
+		yield(get_tree(), "idle_frame")
+
+		var img: = get_viewport().get_texture().get_data()
+		img.flip_y()
+		print(Utils.Img2Js(img))
+		# JavaScript.eval('window.alert("%s)' % Utils.Img2DataUrl(img))
+		self.index_active += 1
+	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ALWAYS)
+	get_tree().paused = false
+	skip_animation = false
+
+
 func save_as_png(output_folder: String) -> void:
-	if OS.has_feature('JavaScript'):
+	if OS.has_feature('JavaScript') or true:
 		alert("This feature is not available in the web version.")
+		download_pdf()
 		return
 	skip_animation = true
 	get_tree().paused = true
@@ -170,6 +191,8 @@ func save_as_png(output_folder: String) -> void:
 		img.flip_y()
 		var path: = output_folder.plus_file(str(id).pad_zeros(2) + '-' + slide.name + '.png')
 		img.save_png(path)
+		print('format:', img.get_format())
+		break
 		self.index_active += 1
 		id += 1
 	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ALWAYS)
