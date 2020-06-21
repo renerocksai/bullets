@@ -27,8 +27,10 @@ This software is so **fresh**, it's currently in usable alpha!
 
 - Using plain text with optional easy markup for 
     content makes slide creation a breeze
-    - ![](docs/edittext.png)
-
+    - this is how you enter bullets
+    - [](docs/edittext.png)
+    - and to the right you see how you can customize the appearance of typical slide elements like title, page numbers, etc.
+    - ![](Bullets/img/godotscr2.png)
 - If you know how to code, you can create the most 
     complex, interactive animations, with sound effects -
     or even embed a full game into your slides.
@@ -39,9 +41,11 @@ This software is so **fresh**, it's currently in usable alpha!
     - Like this [first demo](https://renerocksai.github.io/bullets/bullets.html)!
 
 - PDF export is supported, too
-    - Bûllets can create PNG images from your slides
-    - a small browser tool converts the PNG slides to PDF
-    - the conversion happens locally in the browser, no upload is required
+    - Web-exported Bûllets can directly create PDF and download presentations from your slides - right in the browser!
+        - All you have to do is: press `<P>`
+    - Native Bûllets executables can create PNG images from your slides
+        - a small browser tool converts the PNG slides to PDF
+        - the conversion happens locally in the browser, no upload is required
 
 - Bûllets presentations are version control friendly and 
     allow for GitHub collaboration
@@ -62,6 +66,18 @@ This software is so **fresh**, it's currently in usable alpha!
 It only takes 15 minutes, including downloading Godot. Watch it on [youtube](https://www.youtube.com/watch?v=PSlo6nRRmZM)!
 
 ### How to export to PDF
+
+#### The easy way: from the web exoport
+- Run your presentation in the browser, after a web export
+- Go to the first slide
+- Press `<P>`
+- You're done!
+    - Bûllets will iterate over all slides and create PDF pages in the background
+    - At the last slide, the PDF download will start automatically
+    
+Note: The conversion will happen purely in your browser via JavaScript. Your slides will not be uploaded to any server for conversion.
+
+#### The native way
 - Run your presentation from the Godot Editor (not the web version).
 - Press the `<P>` key
 - The slideshow will now iterate over all slides and create a .PNG image for each
