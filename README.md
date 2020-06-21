@@ -21,7 +21,7 @@ This software is so **fresh**, it's currently in usable alpha!
     **Godot game engine**
 
 - It helps you create beautiful presentations on all 
-    platforms (Windows, Mac, Linux) that are 100% 
+    platforms (Windows, Mac, Linux, and the web) that are 100% 
     self-contained  and will look and feel the same on all 
     platforms
 
