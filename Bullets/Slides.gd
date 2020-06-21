@@ -143,6 +143,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func initialize() -> void:
 	if not slide_nodes:
 		return
+	if OS.has_feature('JavaScript'):
+		# this is bloody important! if left to true, screenshots will show wrong colors!!!
+		get_viewport().set_hdr(false)
 	_display(0)
 
 
@@ -154,10 +157,12 @@ func set_index_active(value : int) -> void:
 
 
 func download_pdf():
-	JavaScript.eval('console.log("download_pdf");')
 	skip_animation = true
 	get_tree().paused = true
 	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
+	var howmany = len(slide_nodes)
+	JavaScript.eval('setMaxPage(%d);' % howmany)
+	JavaScript.eval('startPdf();')
 	for slide in slide_nodes:
 		# Need to wait two frames to ensure the screen capture works
 		yield(get_tree(), "idle_frame")
@@ -165,8 +170,9 @@ func download_pdf():
 
 		var img: = get_viewport().get_texture().get_data()
 		img.flip_y()
-		print(Utils.Img2Js(img))
-		# JavaScript.eval('window.alert("%s)' % Utils.Img2DataUrl(img))
+		img.resize(1920, 1080, Image.INTERPOLATE_LANCZOS)
+		var base64raw = Utils.Img2Base64(img)
+		JavaScript.eval('addPage("%s")' % base64raw)
 		self.index_active += 1
 	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ALWAYS)
 	get_tree().paused = false
@@ -174,8 +180,7 @@ func download_pdf():
 
 
 func save_as_png(output_folder: String) -> void:
-	if OS.has_feature('JavaScript') or true:
-		alert("This feature is not available in the web version.")
+	if OS.has_feature('JavaScript') or false:
 		download_pdf()
 		return
 	skip_animation = true
@@ -191,7 +196,7 @@ func save_as_png(output_folder: String) -> void:
 		img.flip_y()
 		var path: = output_folder.plus_file(str(id).pad_zeros(2) + '-' + slide.name + '.png')
 		img.save_png(path)
-		print('format:', img.get_format())
+
 		break
 		self.index_active += 1
 		id += 1
