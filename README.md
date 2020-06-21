@@ -77,7 +77,7 @@ It only takes 15 minutes, including downloading Godot. Watch it on [youtube](htt
     
 Note: The conversion will happen purely in your browser via JavaScript. Your slides will not be uploaded to any server for conversion.
 
-Technical note: Initially I had added a version that would transfer a snapshot of each slide as a base64-encoded Array of pixels to JavaScript for PDF creation via a HTML5 canvas. The amount of data to transfer was huge. I abandoned this approach in favor of transferring a base64-encoded PNG image. However, rendering PNGs into buffers is only supported from Godot 3.2.2 onwards, which is currently available only as a release candidate. As soon as it comes out (any day now!), this will work with the standard, stable Godot from its download page. In the meantime you can fall back to the native approach below.
+*Technical note:* Initially I had added a version that would transfer a snapshot of each slide as a base64-encoded array of pixels to JavaScript for PDF creation via a HTML5 canvas. The amount of data to transfer was huge. I abandoned this approach in favor of transferring a base64-encoded PNG image. However, rendering PNGs into buffers is only supported from Godot 3.2.2 onwards, which is currently available only as a release candidate. As soon as it comes out (any day now!), this will work with the standard, stable Godot from its download page. In the meantime you can fall back to the native approach below.
 
 #### The native way
 - Run your presentation from the Godot Editor (not the web version).
