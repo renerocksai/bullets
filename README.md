@@ -27,8 +27,8 @@ This software is so **fresh**, it's currently in usable alpha!
 
 - Using plain text with optional easy markup for 
     content makes slide creation a breeze
-    - this is how you enter bullets
-    - [](docs/edittext.png)
+    - this is how you enter bullet lists
+    - ![](docs/edittext.png)
     - and to the right you see how you can customize the appearance of typical slide elements like title, page numbers, etc.
     - ![](Bullets/img/godotscr2.png)
 - If you know how to code, you can create the most 
