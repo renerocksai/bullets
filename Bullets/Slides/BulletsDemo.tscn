@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/Slides/BTitle.tscn" type="PackedScene" id=2]
@@ -41,6 +41,7 @@
 [ext_resource path="res://Bullets/components/DrawLayer.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Bullets/Slides/BTwoContents.tscn" type="PackedScene" id=40]
 [ext_resource path="res://Bullets/img/drawmode.png" type="Texture" id=41]
+[ext_resource path="res://Bullets/img/godotscr2.png" type="Texture" id=42]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -170,11 +171,23 @@ visible = false
 Title = "[color=#cd0f2d]BÛLLETS[/color] - Slide Show meets Game Engine"
 Subtitle = "A short introduction"
 Authors = "Rene Schallner"
+title_size = 100.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 45.0
+subtitle_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+authors_color = Color( 0.6, 0.2, 0.4, 1 )
 
 [node name="Chapter1" parent="Slides" instance=ExtResource( 5 )]
 visible = false
 ChapterNum = "1"
 Title = "What is a ... Bûllets?"
+Subtitle = ""
+chapter_num_size = 300.0
+chapter_num_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+title_size = 72.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 36.0
+subtitle_color = Color( 0.6, 0.2, 0.4, 1 )
 
 [node name="Whatis" parent="Slides" instance=ExtResource( 6 )]
 visible = false
@@ -254,6 +267,12 @@ visible = false
 ChapterNum = "2"
 Title = "Why ... Bûllets?"
 Subtitle = "... and what is the point?"
+chapter_num_size = 300.0
+chapter_num_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+title_size = 72.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 36.0
+subtitle_color = Color( 0.6, 0.2, 0.4, 1 )
 
 [node name="Why" parent="Slides" instance=ExtResource( 6 )]
 visible = false
@@ -284,7 +303,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 4
+frame = 3
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -298,6 +317,12 @@ script = ExtResource( 18 )
 ChapterNum = "3"
 Title = "How is Bûllets different?"
 Subtitle = "Slideshows are code, slideshows are programs"
+chapter_num_size = 300.0
+chapter_num_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+title_size = 72.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 36.0
+subtitle_color = Color( 0.6, 0.2, 0.4, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/Chapter3"]
 margin_right = 1920.0
@@ -390,6 +415,14 @@ position = Vector2( -24.6328, 962.287 )
 scale = Vector2( 1.67248, 1.67248 )
 texture = ExtResource( 21 )
 
+[node name="SlideshowsRcode2" parent="Slides" instance=ExtResource( 6 )]
+title = "Godot Editor with custom slide properties"
+
+[node name="godotscr2" type="Sprite" parent="Slides/SlideshowsRcode2"]
+position = Vector2( 972.466, 590.409 )
+scale = Vector2( 0.935427, 0.855655 )
+texture = ExtResource( 42 )
+
 [node name="Chapter4" type="Node2D" parent="Slides"]
 visible = false
 modulate = Color( 1, 1, 1, 0.588235 )
@@ -397,6 +430,12 @@ script = ExtResource( 18 )
 ChapterNum = "4"
 Title = "Presenting with Bûllets"
 Subtitle = "Slideshows are programs!"
+chapter_num_size = 300.0
+chapter_num_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+title_size = 72.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 36.0
+subtitle_color = Color( 0.6, 0.2, 0.4, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Slides/Chapter4"]
 margin_right = 1920.0
@@ -489,6 +528,19 @@ textRight = "
 		-You can [b]draw[/b] on your slides while presenting
 			- Try it out,  [wave][b][color=#cd0f2d]press <D> for Drawing![/color][/b][/wave]
 			- Press [b]<C>[/b] to clear your scribbles"
+sources = ""
+title_size = 52.0
+title_color = Color( 0, 0, 0, 1 )
+text_size = 36.0
+text_color = Color( 0, 0, 0, 1 )
+sources_size = 20.0
+sources_color = Color( 0.75, 0.75, 0.75, 1 )
+bullet_symbol = ">"
+bullet_bold = false
+bullet_italic = false
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+pagenumber_size = 20.0
+pagenumber_color = Color( 0, 0, 0, 1 )
 
 [node name="bulletsscreen" type="Sprite" parent="Slides/Presenting"]
 position = Vector2( 1428.87, 390.582 )
@@ -506,6 +558,12 @@ position = Vector2( 0, -1 )
 ChapterNum = "5"
 Title = "Capability Demo"
 Subtitle = "Game Time!"
+chapter_num_size = 300.0
+chapter_num_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+title_size = 72.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 36.0
+subtitle_color = Color( 0.6, 0.2, 0.4, 1 )
 
 [node name="GameInstructions" parent="Slides" instance=ExtResource( 6 )]
 visible = false
@@ -643,6 +701,11 @@ visible = false
 Title = "[b]BÛLLETS[/b] - Slide Show meets Game Engine"
 Subtitle = "A Short Introduction"
 Authors = "Rene Schallner"
+title_size = 53.0
+title_color = Color( 0, 0, 0, 1 )
+subtitle_size = 41.0
+subtitle_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+authors_color = Color( 0.6, 0.2, 0.4, 1 )
 
 [node name="ContentLabel" type="RichTextLabel" parent="Slides/Thankyou"]
 margin_left = 1380.0
@@ -700,7 +763,7 @@ anims/credits_up = SubResource( 15 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 28
+frame = 27
 
 [node name="CursorAutoHideTimer" type="Timer" parent="Slides"]
 wait_time = 1.5
@@ -709,6 +772,7 @@ one_shot = true
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
 [node name="TouchControls" parent="." instance=ExtResource( 35 )]
+visible = false
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
