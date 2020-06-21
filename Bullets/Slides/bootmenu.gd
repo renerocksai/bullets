@@ -62,7 +62,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed('ui_right') or event.is_action_pressed('ui_accept') or event.is_action_pressed('ui_page_down'):
 		start()
 	elif event.is_action_pressed('to_png'):
-		alert('Please start the presentation first!')
 		get_tree().set_input_as_handled()
 	elif event.is_action_pressed('toggle_laserpointer'):
 		if laser_active:

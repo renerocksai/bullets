@@ -196,8 +196,6 @@ func save_as_png(output_folder: String) -> void:
 		img.flip_y()
 		var path: = output_folder.plus_file(str(id).pad_zeros(2) + '-' + slide.name + '.png')
 		img.save_png(path)
-
-		break
 		self.index_active += 1
 		id += 1
 	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ALWAYS)
