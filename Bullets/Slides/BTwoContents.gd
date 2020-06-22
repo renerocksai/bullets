@@ -7,6 +7,7 @@ export(String, MULTILINE) var textLeft setget updateLeft
 export(String, MULTILINE) var textRight setget updateRight
 export var sources:String setget updateSources
 
+export var page_number: String = 'auto' setget set_slide_number
 export var title_size:float = 52 setget updateTitleSize
 export var title_color = Color.black setget updateTitleColor
 export var text_size:float = 36 setget updateTextSize
@@ -104,10 +105,20 @@ func format_content(s):
 	return s
 
 func set_slide_number(n):
-	pagenumLabel.bbcode_text = '[color=#{pagenumber_color}]{n}[/color]'.format({
-		'pagenumber_color': pagenumber_color.to_html(),
-		'n': n,
-		})
+	if Engine.editor_hint or first:
+		page_number = str(n)
+		first = false
+	elif 'auto' in page_number and pagenumLabel != null:
+		pagenumLabel.bbcode_text = '[color=#{pagenumber_color}]{n}[/color]'.format({
+			'pagenumber_color': pagenumber_color.to_html(),
+			'n': n,
+			})
+	else:
+		if pagenumLabel != null:
+			pagenumLabel.bbcode_text = '[color=#{pagenumber_color}]{n}[/color]'.format({
+				'pagenumber_color': pagenumber_color.to_html(),
+				'n': page_number,
+				})
 
 
 func updateBulletSymbol(symbol):
