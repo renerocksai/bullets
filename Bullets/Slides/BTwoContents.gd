@@ -27,6 +27,8 @@ onready var content2: = $ContentLabel2
 onready var sourceLabel: = $SourceInfoLabel
 onready var pagenumLabel: = $PageNumber
 
+var first: = true
+
 var regex = RegEx.new()
 var ready = false
 
