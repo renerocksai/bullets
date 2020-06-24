@@ -79,6 +79,10 @@ run/main_scene="res://Bullets/Slides/bootmenu.tscn"
 boot_splash/image="res://Bullets/img/bulletloader.png"
 config/icon="res://icon.png"
 
+[autoload]
+
+Server="*res://Bullets/Server.gd"
+
 [display]
 
 window/size/width=1920
@@ -178,6 +182,11 @@ toggle_drawmode={
 clear_drawing={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":67,"unicode":0,"echo":false,"script":null)
+ ]
+}
+input_multiplayer={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":77,"unicode":0,"echo":false,"script":null)
  ]
 }
 

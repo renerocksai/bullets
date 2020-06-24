@@ -13,10 +13,16 @@ export var slide_number_start := 1
 export var mouse_hide_timeout := 1.5
 
 onready var laserpointer = $LaserPointer
+onready var laserpointer2 = $LaserPointer2
+onready var laserpointer3 = $LaserPointer3
+
+var my_laserpointer
+
 onready var touchcontrols = $"../TouchControls"
 onready var swipedetector = $"../SwipeDetector"
 onready var mousehidetimer = $CursorAutoHideTimer
 onready var canvas = $"../DrawLayer"
+
 
 var index_active: = 0 setget set_index_active
 
@@ -27,9 +33,11 @@ var laserpointer_size = 1
 var drawmode = false
 var keep_drawing = false
 
+var multiplayer_mode = false
 
 func _ready() -> void:
-	laserpointer.hide()
+	my_laserpointer = laserpointer
+	my_laserpointer.hide()
 	for slide in get_children():
 		if not slide is Slide:
 			continue
@@ -45,8 +53,52 @@ func _ready() -> void:
 	swipedetector.connect("silly_tap_release", touchcontrols, "flash_controls")
 	mousehidetimer.connect("timeout", self, "_on_mousehide_timeout")
 	mousehidetimer.wait_time = mouse_hide_timeout
+	Server.connect("Change_Slide", self, "nw_change_slides")
+	Server.connect("Connect_Failed", self, "nw_connect_failed")
+	Server.connect("Room_Full", self, "nw_room_full")
+	Server.connect("Update_Player", self, "nw_update_player")
+	Server.connect("Welcome_Player", self, "nw_welcome")
+	
 	if not Engine.editor_hint:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+### Server functions
+func nw_change_slides(slide_number):
+	print('Slides: change slide ', slide_number)
+	set_index_active(slide_number, true)
+	
+func nw_welcome(player_number):
+	print('Slides: welcome ', player_number)
+	if player_number == 0:
+		my_laserpointer = laserpointer
+	elif player_number == 1:
+		my_laserpointer = laserpointer2
+	elif player_number == 2:
+		my_laserpointer = laserpointer3
+
+func nw_room_full():
+	print('Slides: room full')
+
+func nw_connect_failed():
+	print('Slides: connect failed')
+	
+func nw_update_player(player_number, pos, draw, laser):
+	print('Slides: update player %d %s %d', player_number, str(pos), str(draw))
+	var affected_laserpointer
+	if player_number == 0:
+		affected_laserpointer = laserpointer
+	elif player_number == 1:
+		affected_laserpointer = laserpointer2
+	elif player_number == 2:
+		affected_laserpointer = laserpointer3
+	if laser and not affected_laserpointer.is_visible():
+		affected_laserpointer.show()
+	elif not laser and affected_laserpointer.is_visible():
+		affected_laserpointer.hide()
+	affected_laserpointer.position = pos
+	
+
+### end of Server functions
 
 
 func _on_mousehide_timeout():
@@ -76,6 +128,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		or event.is_action('cycle_laserpointer_sizes')
 		or event.is_action('toggle_drawmode')
 		or event.is_action('clear_drawing')
+		or event.is_action('input_multiplayer')
 	)
 	if not valid_event:
 		return
@@ -95,13 +148,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		laserpointer_size -= .25
 		if laserpointer_size < .25:
 			laserpointer_size = 1.0
-		laserpointer.scale = Vector2(laserpointer_size, laserpointer_size)
+		my_laserpointer.scale = Vector2(laserpointer_size, laserpointer_size)
 	elif event.is_action_pressed('toggle_laserpointer'):
-		if laserpointer.is_visible():
-			laserpointer.hide()
+		if my_laserpointer.is_visible():
+			my_laserpointer.hide()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
-			laserpointer.set_visible(true)
+			my_laserpointer.set_visible(true)
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	elif event.is_action_pressed('toggle_drawmode'):
 		drawmode = not drawmode
@@ -113,6 +166,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			touchcontrols.show()
 	elif event.is_action_pressed("clear_drawing"):
 		canvas.clear()
+	elif event.is_action_pressed("input_multiplayer"):
+		multiplayer_mode = !multiplayer_mode
+		if multiplayer_mode:
+			Server.start_multiplayer()
+		else:
+			Server.stop_multiplayer()
 
 	if event is InputEventMouseButton:
 		if event.pressed:
@@ -136,8 +195,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			canvas.draw(event.position)
 		if not Engine.editor_hint:
 			mousehidetimer.start()
-			if not laserpointer.is_visible():
+			if not my_laserpointer.is_visible():
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			if my_laserpointer.is_visible() or drawmode:
+				Server.send_update_player(event.position, drawmode, my_laserpointer.is_visible())
 
 
 func initialize() -> void:
@@ -149,11 +210,13 @@ func initialize() -> void:
 	_display(0)
 
 
-func set_index_active(value : int) -> void:
+func set_index_active(value : int, from_network=false) -> void:
 	var index_previous: = index_active
 	index_active = clamp(value, 0, max(slide_nodes.size() - 1, 0))
 	if index_active != index_previous:
 		_display(index_active)
+	if multiplayer_mode and not from_network:
+		Server.send_change_slide(index_active)
 
 
 func download_pdf():
