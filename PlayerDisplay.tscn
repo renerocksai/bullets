@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Bullets/fonts/BootsplashFontBold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://PlayerDisplay.gd" type="Script" id=2]
+
+[node name="playerdisplay" type="RichTextLabel"]
+margin_left = 360.0
+margin_top = 270.0
+margin_right = 1560.0
+margin_bottom = 870.0
+rect_clip_content = false
+focus_mode = 2
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/default_color = Color( 0.937255, 0.0196078, 0.0196078, 1 )
+custom_colors/selection_color = Color( 0.219608, 0.243137, 0.247059, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]You are
+Player 1[/center]"
+text = "You are
+Player 1"
+scroll_active = false
+selection_enabled = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0.501961, 0.501961, 0.501961, 0.290196 )
+show_behind_parent = true
+margin_right = 1200.0
+margin_bottom = 600.0
+color = Color( 0.894118, 0.882353, 0.882353, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true

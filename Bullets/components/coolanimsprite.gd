@@ -2,7 +2,7 @@ extends AnimatedSprite
 
 var follow_mouse = true
 func _ready():
-	pass 
+	pass
 
 func _process(delta):
 	if follow_mouse:

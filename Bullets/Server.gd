@@ -2,10 +2,11 @@ extends Node
 
 const PORT=9000
 
-var host: WebSocketClient = null 
+var host: WebSocketClient = null
 var player_number = -1
 
 signal Update_Player(player_number, pos, draw, laser)
+signal Introduce_Player(player_number, pos, draw, laser)
 signal Welcome_Player(player_number)
 signal Change_Slide(slide_number)
 signal Connect_Failed
@@ -16,7 +17,7 @@ func _ready():
 
 func start_multiplayer() -> void:
 	print('Network start')
-	var url = "ws://192.168.2.64:" + str(PORT) 
+	var url = "ws://192.168.2.64:" + str(PORT)
 	host = WebSocketClient.new();
 	var error = host.connect_to_url(url, PoolStringArray(), true);
 	get_tree().set_network_peer(host);
@@ -29,7 +30,7 @@ func stop_multiplayer():
 		print('disconnecting...')
 		if host.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTED:
 			host.disconnect_from_host()
-	
+
 
 func _connected():
 	pass
@@ -54,7 +55,6 @@ func send_update_player(pos, draw, laser):
 		return
 	if host.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTED:
 		if player_number > -1:
-			print('Sending update player %d %s %s %s' % [player_number, pos, str(draw), str(laser)])
 			rpc_id(1, 'update_player', pos, draw, laser)
 
 func send_change_slide(slide_number):
@@ -63,7 +63,7 @@ func send_change_slide(slide_number):
 	if host.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTED:
 		if player_number > -1:
 			print('Sending change slide %d' % slide_number)
-			rpc_id(1, 'change_slide', slide_number)	
+			rpc_id(1, 'change_slide', slide_number)
 
 remote func room_welcome(player_number):
 	self.player_number = player_number
@@ -80,4 +80,6 @@ remote func change_slide(slide_number):
 remote func update_player(player_number, pos, draw, laser):
 	emit_signal('Update_Player', player_number, pos, draw, laser)
 
+remote func introduce_player(player_number, pos, draw, laser):
+	emit_signal('Introduce_Player', player_number, pos, draw, laser)
 
