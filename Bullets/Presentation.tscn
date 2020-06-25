@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/components/DrawLayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Bullets/Presentation.gd" type="Script" id=3]
 [ext_resource path="res://Bullets/components/AnimSpriteFollowMouse.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PlayerDisplay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Bullets/joindialog.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Bullets/img/laser2.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://Bullets/img/laser3.tres" type="SpriteFrames" id=8]
 [ext_resource path="res://Bullets/TouchControls/TouchControls/TouchControls.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Bullets/TouchControls/SwipeDetector/SwipeDetector.tscn" type="PackedScene" id=38]
 
@@ -20,7 +24,25 @@ one_shot = true
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 11
+frame = 29
+
+[node name="LaserPointer2" parent="Slides" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 935.903, 577.104 )
+z_index = 11
+frames = ExtResource( 7 )
+animation = "default"
+frame = 10
+
+[node name="LaserPointer3" parent="Slides" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 935.903, 577.104 )
+z_index = 11
+frames = ExtResource( 8 )
+animation = "default"
+frame = 12
+
+[node name="playerdisplay" parent="Slides" instance=ExtResource( 5 )]
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
@@ -31,3 +53,5 @@ margin_bottom = 1080.0
 mouse_filter = 2
 
 [node name="DrawLayer" parent="." instance=ExtResource( 2 )]
+
+[node name="JoinDialog" parent="." instance=ExtResource( 6 )]

@@ -9,7 +9,7 @@ func _ready() -> void:
 	timer.connect("timeout", self, "timeout")
 
 func start():
-	timer.start(1.5)
+	timer.start(0.7)
 	show()
 
 

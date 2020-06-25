@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Bullets/joindialog.gd" type="Script" id=1]
+[ext_resource path="res://Bullets/fonts/contentfont_regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Bullets/fonts/contentfont_bold.tres" type="DynamicFont" id=3]
+
+[node name="JoinDialog" type="WindowDialog"]
+visible = true
+margin_left = 787.0
+margin_top = 309.0
+margin_right = 1503.0
+margin_bottom = 496.0
+window_title = "Join Multiplayer Server"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 142.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 2 )
+text = "Server:"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 161.0
+margin_top = 19.0
+margin_right = 704.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.305882, 0.52549, 0.94902, 1 )
+text = "ws://192.168.2.64:9000"
+align = 2
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OK" type="Button" parent="."]
+margin_left = 470.683
+margin_top = 98.7401
+margin_right = 671.683
+margin_bottom = 153.74
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0666667, 0.776471, 0.0745098, 1 )
+text = "JOIN!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="."]
+margin_left = 44.151
+margin_top = 100.0
+margin_right = 245.151
+margin_bottom = 155.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.960784, 0.215686, 0.215686, 1 )
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}

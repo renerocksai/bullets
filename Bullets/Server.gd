@@ -1,12 +1,11 @@
 extends Node
 
-const PORT=9000
-
 var host: WebSocketClient = null
 var player_number = -1
 
 signal Update_Player(player_number, pos, draw, laser)
 signal Introduce_Player(player_number, pos, draw, laser)
+signal Unintroduce_Player(player_number, pos, draw, laser)
 signal Welcome_Player(player_number)
 signal Change_Slide(slide_number)
 signal Connect_Failed
@@ -15,13 +14,12 @@ signal Room_Full
 func _ready():
 	pass
 
-func start_multiplayer() -> void:
+func start_multiplayer(url) -> void:
 	print('Network start')
-	var url = "ws://192.168.2.64:" + str(PORT)
 	host = WebSocketClient.new();
 	var error = host.connect_to_url(url, PoolStringArray(), true);
 	get_tree().set_network_peer(host);
-	get_tree().connect("connection_failed", self, "_close_network")
+	get_tree().connect("connection_failed", self, "connect_failed")
 	get_tree().connect("connected_to_server", self, "_connected")
 
 func stop_multiplayer():
@@ -83,3 +81,5 @@ remote func update_player(player_number, pos, draw, laser):
 remote func introduce_player(player_number, pos, draw, laser):
 	emit_signal('Introduce_Player', player_number, pos, draw, laser)
 
+remote func unintroduce_player(player_number, pos, draw, laser):
+	emit_signal('Unintroduce_Player', player_number, pos, draw, laser)

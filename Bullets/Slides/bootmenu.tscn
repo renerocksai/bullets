@@ -148,9 +148,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 691.0
-margin_top = 573.0
+margin_top = 546.0
 margin_right = 1389.0
-margin_bottom = 889.0
+margin_bottom = 862.0
 mouse_filter = 2
 custom_fonts/bold_font = SubResource( 5 )
 custom_fonts/normal_font = SubResource( 6 )
@@ -181,9 +181,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 873.0
-margin_top = 573.0
+margin_top = 546.0
 margin_right = 1571.0
-margin_bottom = 889.0
+margin_bottom = 962.0
 mouse_filter = 2
 custom_fonts/bold_font = SubResource( 5 )
 custom_fonts/normal_font = SubResource( 6 )
@@ -202,7 +202,8 @@ text = " -->
 <L>
 <D>
 <H>
-<P>"
+<P>
+<M>"
 scroll_active = false
 override_selected_font_color = true
 custom_effects = [ SubResource( 1 ) ]
@@ -216,9 +217,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 963.0
-margin_top = 573.0
+margin_top = 546.0
 margin_right = 1661.0
-margin_bottom = 889.0
+margin_bottom = 904.0
 mouse_filter = 2
 custom_fonts/bold_font = SubResource( 5 )
 custom_fonts/normal_font = SubResource( 6 )
@@ -237,7 +238,8 @@ toggle fullscreen
 toggle laserpointer 
 toggle drawmode, <C> to clear
 back to this screen 
-PNG export "
+PDF / PNG export 
+Multiplayer mode"
 scroll_active = false
 override_selected_font_color = true
 custom_effects = [ SubResource( 1 ) ]
@@ -251,9 +253,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 1266.42
-margin_top = 573.0
+margin_top = 546.0
 margin_right = 1964.42
-margin_bottom = 889.0
+margin_bottom = 862.0
 mouse_filter = 2
 custom_fonts/bold_font = SubResource( 5 )
 custom_fonts/normal_font = SubResource( 6 )
@@ -308,5 +310,5 @@ visible = false
 position = Vector2( 1327.99, 984.132 )
 frames = ExtResource( 6 )
 animation = "coolanim"
-frame = 5
+frame = 12
 playing = true
