@@ -5,6 +5,7 @@ export var title:String setget updateTitle
 export(String, MULTILINE) var text setget updateContent
 export var sources:String setget updateSources
 
+export var page_number: String = 'auto' setget set_slide_number
 export var title_size:float = 52 setget updateTitleSize
 export var title_color = Color.black setget updateTitleColor
 export var text_size:float = 36 setget updateTextSize
@@ -23,6 +24,7 @@ onready var contentLabel: = $ContentLabel
 onready var sourceLabel: = $SourceInfoLabel
 onready var pagenumLabel: = $PageNumber
 
+var first: = true
 
 var regex = RegEx.new()
 var ready = false
@@ -92,10 +94,20 @@ func updateSources(s):
 
 
 func set_slide_number(n):
-	pagenumLabel.bbcode_text = '[color=#{pagenumber_color}]{n}[/color]'.format({
-		'pagenumber_color': pagenumber_color.to_html(),
-		'n': n,
-		})
+	if Engine.editor_hint or first:
+		page_number = str(n)
+		first = false
+	elif 'auto' in page_number and pagenumLabel != null:
+		pagenumLabel.bbcode_text = '[color=#{pagenumber_color}]{n}[/color]'.format({
+			'pagenumber_color': pagenumber_color.to_html(),
+			'n': n,
+			})
+	else:
+		if pagenumLabel != null:
+			pagenumLabel.bbcode_text = '[color=#{pagenumber_color}]{n}[/color]'.format({
+				'pagenumber_color': pagenumber_color.to_html(),
+				'n': page_number,
+				})
 
 func updateBulletSymbol(symbol):
 	bullet_symbol = symbol

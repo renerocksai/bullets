@@ -5,6 +5,7 @@ export(String, FILE, "*.tscn") var start_scene
 var will_launch_from_editor = false
 onready var statuslabel = $RichTextLabel3
 onready var laserpointer = $LaserPointer
+onready var instructions = $RichTextLabel7
 var timer
 
 var laser_active = false
@@ -13,9 +14,13 @@ var laser_active = false
 func _ready():
 	if Engine.is_editor_hint():
 		will_launch_from_editor = true
+	if OS.has_feature('JavaScript'):
+		instructions.bbcode_text = instructions.bbcode_text.replace('PNG export', 'PDF download')
+		print(instructions.bbcode_text)
 	timer = Timer.new()
 	timer.connect("timeout", self, "goto_main")
 	add_child(timer)
+
 
 func start():
 	# statuslabel.bbcode_text = '[center][color=#cd0f2d]> > > [/color] [color=black][matrix clean=.6 dirty=.3 span=50]working on it ...[/matrix][/color][/center]'
@@ -40,6 +45,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		or event.is_action('quit')
 		or event.is_action('toggle_fullscreen')
 		or event.is_action('toggle_laserpointer')
+		or event.is_action('to_png')
 	)
 
 	if not valid_event:
@@ -55,6 +61,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().set_input_as_handled()
 	elif event.is_action_pressed('ui_right') or event.is_action_pressed('ui_accept') or event.is_action_pressed('ui_page_down'):
 		start()
+	elif event.is_action_pressed('to_png'):
+		get_tree().set_input_as_handled()
 	elif event.is_action_pressed('toggle_laserpointer'):
 		if laser_active:
 			if laserpointer.is_visible():

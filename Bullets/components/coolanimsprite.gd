@@ -1,9 +1,11 @@
 extends AnimatedSprite
 
+var follow_mouse = true
 func _ready():
-	pass 
+	pass
 
 func _process(delta):
-	position = get_global_mouse_position()
+	if follow_mouse:
+		position = get_global_mouse_position()
 
 
