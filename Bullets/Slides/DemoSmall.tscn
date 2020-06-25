@@ -171,6 +171,9 @@ script = ExtResource( 3 )
 
 [node name="Slides" type="Node2D" parent="."]
 script = ExtResource( 1 )
+skip_animation = false
+slide_number_start = 1
+mouse_hide_timeout = 1.5
 
 [node name="Title" parent="Slides" instance=ExtResource( 2 )]
 visible = false
@@ -613,6 +616,7 @@ custom_fonts/normal_font = SubResource( 16 )
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
 [node name="TouchControls" parent="." instance=ExtResource( 35 )]
+visible = false
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
