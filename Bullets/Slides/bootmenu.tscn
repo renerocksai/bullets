@@ -195,7 +195,8 @@ bbcode_text = "[b][color=#993366] --> [/color][/b]
 [b][color=#993366]<L>[/color][/b]
 [b][color=#993366]<D>[/color][/b]
 [b][color=#993366]<H>[/color][/b]
-[b][color=#993366]<P>[/color][/b]"
+[b][color=#993366]<P>[/color][/b]
+[b][color=#993366]<M>[/color][/b]"
 text = " --> 
 <-- 
 <F>
@@ -231,14 +232,15 @@ toggle fullscreen
 toggle laserpointer 
 toggle drawmode, <C> to clear
 back to this screen 
-PNG export "
+PNG export 
+Multiplayer mode"
 text = "next slide
 previous slide
 toggle fullscreen 
 toggle laserpointer 
 toggle drawmode, <C> to clear
 back to this screen 
-PDF / PNG export 
+PNG export 
 Multiplayer mode"
 scroll_active = false
 override_selected_font_color = true
@@ -310,5 +312,5 @@ visible = false
 position = Vector2( 1327.99, 984.132 )
 frames = ExtResource( 6 )
 animation = "coolanim"
-frame = 12
+frame = 21
 playing = true
