@@ -92,13 +92,15 @@ func playerdisplay_timeout():
 		remove_child(playerdisplay)
 
 ### Server functions
-func onJoinPressed(url):
-	Server.start_multiplayer(url)
-
+func onJoinPressed(url, room_name):
+	Server.start_multiplayer(url, room_name)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # no artifact cursor pls
+	
 func onCancelPressed():
 	multiplayer_mode = false
 	connectDlg.hide()
-
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # no artifact cursor pls
+	
 func nw_change_slides(slide_number):
 	set_index_active(slide_number, true)
 

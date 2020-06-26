@@ -11,16 +11,21 @@ signal Change_Slide(slide_number)
 signal Connect_Failed
 signal Room_Full
 
+var room_name: String
+var was_connected = false
+
 func _ready():
 	pass
 
-func start_multiplayer(url) -> void:
+func start_multiplayer(url, room_name) -> void:
+	self.room_name = room_name
 	print('Network start')
+	was_connected = false
+	get_tree().connect("connection_failed", self, "connect_failed")
+	get_tree().connect("connected_to_server", self, "_connected")
 	host = WebSocketClient.new();
 	var error = host.connect_to_url(url, PoolStringArray(), true);
 	get_tree().set_network_peer(host);
-	get_tree().connect("connection_failed", self, "connect_failed")
-	get_tree().connect("connected_to_server", self, "_connected")
 
 func stop_multiplayer():
 	print('stop_multiplayer')
@@ -31,11 +36,13 @@ func stop_multiplayer():
 
 
 func _connected():
-	pass
+	was_connected = true
+	enter_room(room_name)
 
 func connect_failed():
 	_close_network()
-	emit_signal('Connect_Failed')
+	if not was_connected:
+		emit_signal('Connect_Failed')
 
 func _close_network():
 	get_tree().set_network_peer(null)
@@ -47,6 +54,13 @@ func poll():
 	if (host.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTED ||
 		host.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTING):
 		host.poll()
+
+func enter_room(room_name):
+	if host == null:
+		return
+	if host.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTED:
+		rpc_id(1, 'enter_room', room_name)
+
 
 func send_update_player(pos, draw, laser):
 	if host == null:
