@@ -56,7 +56,16 @@ This software is so **fresh**, it's currently in usable alpha!
 	    - ![](docs/laserpoint.png)
 	- You can **draw on slides**, too!
 	    - ![](docs/drawmode.png)
-- It is a proof-of-concept and a work in progress
+- In **Multiplayer mode** up to 3 presenters can control the same presentation simultaneously!
+	- each presenter gets a different laserpointer color
+	- each presenter gets a different drawing color
+	- you only need to agree on a "room" when joining:
+	    - ![](Bullets/img/multi3.png)
+	- and a running [bullets-server](https://github.com/renerocksai/bullets-server) to connect to
+	    - then all up to 3 of you can control the presentation, interact with it, point your lasers, draw, in your window and all updates get instantly relayed to all other players in the same room :sunglasses:!
+	- ![](Bullets/img/trial.png)
+
+- Bûllets is a proof-of-concept and a work in progress
 
 - It is also a hack
 
