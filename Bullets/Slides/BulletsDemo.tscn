@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/Slides/BTitle.tscn" type="PackedScene" id=2]
@@ -44,9 +44,13 @@
 [ext_resource path="res://Bullets/img/godotscr2.png" type="Texture" id=42]
 [ext_resource path="res://Bullets/img/laser2.tres" type="SpriteFrames" id=43]
 [ext_resource path="res://Bullets/img/laser3.tres" type="SpriteFrames" id=44]
-[ext_resource path="res://PlayerDisplay.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Bullets/PlayerDisplay.tscn" type="PackedScene" id=45]
 [ext_resource path="res://Bullets/joindialog.tscn" type="PackedScene" id=46]
 [ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Bold.TTF" type="DynamicFontData" id=47]
+[ext_resource path="res://Bullets/img/trial.png" type="Texture" id=48]
+[ext_resource path="res://Bullets/components/borderedimg.tscn" type="PackedScene" id=49]
+[ext_resource path="res://Bullets/img/multi3.png" type="Texture" id=50]
+
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -219,19 +223,20 @@ region_rect = Rect2( 0, 0, 700, 450 )
 [node name="Whatis2" parent="Slides" instance=ExtResource( 6 )]
 visible = false
 title = "What is Bûllets?"
-text = "- You can share Bûllets presentations either as native 
-    programs or publish them to the web
+text = "- You can share Bûllets presentations either as native programs or publish them to the web
+	- PNG export and conversion to PDF are supported, too
 
-- PNG export and conversion to PDF are supported, too
-
-- Bûllets presentations are version control friendly and 
-    allow for GitHub collaboration
+- Bûllets presentations are version control friendly and allow for GitHub collaboration
 
 - And yes, it works with your favorite wireless clicker!
 	- Even if that happens to be your XBOX controller     
 	- It [b]even comes with a laser pointer![/b]
 	- Try it out,  [wave][b][color=#cd0f2d]press <L> for Laser![/color][/b][/wave]
 	- Press <SHIFT> + <L> to cycle through its  sizes
+
+- You [b]can draw on slides[/b], too! (<D> to enter and leave draw mode, <C> to clear)
+
+- Bûllets presentations allow [b]up to 3 presenters[/b] in [b]Multi-Player[/b] mode!
 
 - It is a proof-of-concept and a work in progress
 
@@ -281,10 +286,11 @@ text = "- [b]Because![/b] Exploring the idea space where game engines meet Power
 			* level 2
 		* second...[/color][/i]
 	    should just work! Like it does in Outlook. But it doesn't. Because it's PowerPoint.
-	- Animations in PowerPoint pale - in contrast to what modern graphics engines can do.
-	- There is no \"laser pointer\" when presenting from a browser.
-	- Office formats cannot really be \"diffed\", and are not suitable for version control, e.g. on GitHub.
-	- More often than not, editing a presentation ends up in a  fiddling-with-formatting nightmare."
+	- [b]Animations[/b] in PowerPoint pale - in contrast to what modern graphics engines can do.
+	- There is [b]no \"laser pointer\"[/b] when presenting from a browser.
+	- Office formats [b]cannot be \"diffed\"[/b], and are not suitable for version control, e.g. on GitHub.
+	- More often than not, editing a presentation ends up in a  fiddling-with-formatting nightmare.
+	- Powerpoint can't do[b] Multi-Player[/b]"
 
 [node name="ppt" type="Sprite" parent="Slides/Why"]
 position = Vector2( 1758.75, 124.95 )
@@ -294,7 +300,7 @@ texture = ExtResource( 13 )
 position = Vector2( 1771.63, 139.675 )
 scale = Vector2( 7.37292, 5.72032 )
 frames = SubResource( 9 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="smiley2" type="Sprite" parent="Slides/Why"]
@@ -522,6 +528,40 @@ position = Vector2( 1430.9, 402.609 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 41 )
 
+[node name="Multiplayer" parent="Slides" instance=ExtResource( 40 )]
+position = Vector2( 0, -1 )
+title = "The case for multi-player"
+textLeft = "[u]Imagine:[/u]
+> You are in a team, presenting your progress via Zoom 
+> Your colleague shares her screen with the audience
+> Now it's your turn to present your part:
+	- You want to advance to the next few slides
+	- You want to interact, use your laserpointer, draw, 
+	    play audio and video
+	- but all you have, is a browser!
+	
+> Enter [b]Multiplayer Mode[/b]! Just press <M>
+	> Agree on a \"room\" name
+	> Up to 3 players can enter the same room!
+	> Different-colored laserpointers!
+	> Different drawing-colors!
+
+> If you ain't seen Multiplayer mode, you ain't seen 
+    nothing yet!"
+bullet_color = Color( 0.803922, 0.0588235, 0.176471, 1 )
+
+[node name="multiplayer" type="Sprite" parent="Slides/Multiplayer"]
+position = Vector2( 1424.8, 454.903 )
+scale = Vector2( 0.716843, 0.716843 )
+texture = ExtResource( 48 )
+
+[node name="Border" parent="Slides/Multiplayer" instance=ExtResource( 49 )]
+margin_left = 1216.96
+margin_top = 761.661
+margin_right = 1619.96
+margin_bottom = 1005.66
+img = ExtResource( 50 )
+
 [node name="Chapter5Game" parent="Slides" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 0, -1 )
@@ -724,7 +764,7 @@ anims/credits_up = SubResource( 15 )
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 29
+frame = 18
 
 [node name="LaserPointer2" parent="Slides" instance=ExtResource( 4 )]
 visible = false
@@ -732,7 +772,7 @@ position = Vector2( 935.903, 577.104 )
 z_index = 11
 frames = ExtResource( 43 )
 animation = "default"
-frame = 23
+frame = 27
 
 [node name="LaserPointer3" parent="Slides" instance=ExtResource( 4 )]
 visible = false
@@ -740,13 +780,14 @@ position = Vector2( 935.903, 577.104 )
 z_index = 11
 frames = ExtResource( 44 )
 animation = "default"
-frame = 19
+frame = 23
 
 [node name="CursorAutoHideTimer" type="Timer" parent="Slides"]
 wait_time = 1.5
 one_shot = true
 
 [node name="playerdisplay" parent="Slides" instance=ExtResource( 45 )]
+visible = false
 custom_fonts/normal_font = SubResource( 16 )
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]

@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Bold.TTF" type="DynamicFontData" id=1]
-[ext_resource path="res://PlayerDisplay.gd" type="Script" id=2]
+[ext_resource path="res://Bullets/PlayerDisplay.gd" type="Script" id=2]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 250
@@ -20,8 +21,6 @@ custom_colors/selection_color = Color( 0.219608, 0.243137, 0.247059, 1 )
 bbcode_enabled = true
 bbcode_text = "[center]You are
 Player 1[/center]"
-text = "You are
-Player 1"
 scroll_active = false
 selection_enabled = true
 script = ExtResource( 2 )

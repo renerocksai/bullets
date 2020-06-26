@@ -4,12 +4,13 @@
 [ext_resource path="res://Bullets/components/DrawLayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Bullets/Presentation.gd" type="Script" id=3]
 [ext_resource path="res://Bullets/components/AnimSpriteFollowMouse.tscn" type="PackedScene" id=4]
-[ext_resource path="res://PlayerDisplay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Bullets/PlayerDisplay.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Bullets/joindialog.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Bullets/img/laser2.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://Bullets/img/laser3.tres" type="SpriteFrames" id=8]
 [ext_resource path="res://Bullets/TouchControls/TouchControls/TouchControls.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Bullets/TouchControls/SwipeDetector/SwipeDetector.tscn" type="PackedScene" id=38]
+
 
 [node name="BulletsDemoPresentation" type="Node2D"]
 script = ExtResource( 3 )
