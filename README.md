@@ -6,7 +6,10 @@
 
 ### Check out the [demo presentation](https://renerocksai.github.io/bullets/bullets.html)!
 
-### See how you can start playing with it on [youtube](https://www.youtube.com/watch?v=PSlo6nRRmZM)!
+### See how you can start playing with it on [youtube](https://www.youtube.com/watch?v=PSlo6nRRmZM)! 
+Also playing: 
+- [**Multiplayer Mode**](https://youtu.be/Z10a3eewbVU) - the next innovation in online presentations!
+- [PDF export](https://youtu.be/PikFFpMJDkg) - watch a presentation convert itself to PDF and download itself in the browser.
 
 This software is so **fresh**, it's currently in usable alpha!
 
@@ -64,6 +67,7 @@ This software is so **fresh**, it's currently in usable alpha!
 	- and a running [bullets-server](https://github.com/renerocksai/bullets-server) to connect to
 	    - then all up to 3 of you can control the presentation, interact with it, point your lasers, draw, in your window and all updates get instantly relayed to all other players in the same room :sunglasses:!
 	- ![](Bullets/img/trial.png)
+	- Check it out on [youtube](https://youtu.be/Z10a3eewbVU)
 
 - Bûllets is a proof-of-concept and a work in progress
 
