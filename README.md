@@ -105,4 +105,45 @@ See how that works on [youtube](https://youtu.be/PikFFpMJDkg) (1:20)
 - Done, the PDF will be "downloaded" as `result.pdf` instantly
 
 Note: The conversion will happen purely in your browser via JavaScript. Your slides will not be uploaded to any server for conversion.
-	
+
+### How to run your own multiplayer server
+
+Running your own multiplayer server is easy. Unless you're playing with Docker, you need a linux system.
+
+- Go to [its project page](https://github.com/renerocksai/bullets-server)
+- Clone or download the project
+- Download the **server** edition of Godot:
+    - go to [godotengine.org](https://godotengine.org)
+    - click on 'Downloads'
+    - click on 'download repository'
+    - go to the latest release, e.g. 3.2.2
+    - download [Godot_v3.3.3-stable_linux_server.64.zip](https://downloads.tuxfamily.org/godotengine/3.2.2/Godot_v3.2.2-stable_linux_server.64.zip), for the 3.2.2 version (your version may differ)
+    - unzip the server
+    - put it somewhere where you can start it conveniently (e.g. $HOME/bin)
+
+Just run the Godot server in your multiplayer server directory. It will start listening on port 9000 - so make sure your port forwardings and firewalls are OK with that.
+
+#### A note on HTTPS
+If you're hosting your presentations on a site with HTTPS enabled, which you should, browsers will not allow your presentations to contact a multiplayer server that uses unencrypted websocket connections. So in that case you need to set up the multiplayer server to use encrypted websockets. For that you need SSL certificates and keys!
+
+**Note**: Luckily enough, **any** secure server will do. This is super handy if you host your presentations on GitHub pages. You can host them there but run the multiplayer server on some other server where you have access to the SSL certificate. Check out Google cloud compute, AWS, etc. They all have free contingents for running super small linux server VMs.
+
+So, you only ever need to run 1 server - and can use it for all your presentations! It is up to you and your users to make sure that you choose unique room names for your presentations when connecting to the server. To not let things get out of hand, I hardcoded a limit of 30 simultaneous connections into the server. You can change that to your liking, the server hardly consumes any CPU or memory resources anyway.
+
+Until the multiplayer server code gets configuration support, you just need to add 2 lines of code above the following line:
+
+```gdscript
+	var err = server.listen(PORT, PoolStringArray(), true)
+```
+
+Change that to:
+
+```gdscript
+        server.private_key = load("res://privkey.key")
+        server.ssl_certificate = load("res://fullchain.crt");
+	var err = server.listen(PORT, PoolStringArray(), true)
+```
+
+That's it! Just make sure the files `privkey.key` and `fullchain.crt` are also in the multiplayer server directory. They usually come with Letsencrypt but are named  with the `.pem` extension. Rename the 2 files so they have the `.key` and `.crt` extension so that Godot server knows how to process them.
+
+**Note for clients**: Your server connection string changes from `ws://my-server:9000` to `wss://my-server:9000`. Note the extra `s` in `wss://`.
