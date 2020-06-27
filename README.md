@@ -65,8 +65,9 @@ This software is so **fresh**, it's currently in usable alpha!
 	- each presenter gets a different drawing color
 	- you only need to agree on a "room" when joining:
 	    - ![](Bullets/img/multi3.png)
-	- and a running [bullets-server](https://github.com/renerocksai/bullets-server) to connect to
-	    - then all up to 3 of you can control the presentation, interact with it, point your lasers, draw, in your window and all updates get instantly relayed to all other players in the same room :sunglasses:!
+	- and a running [bullets-server](https://github.com/renerocksai/bullets-server) to connect to. 
+	    - see [How to run your own multiplayer-server](#how-to-run-your-own-multiplayer-server) for details on running your own!
+	    - then all up to 3 of you can control the presentation, interact with it, point your lasers, and draw in your window -- and all updates get instantly relayed to all other players in the same room :sunglasses:!
 	- ![](Bullets/img/trial.png)
 	- Check it out on [youtube](https://youtu.be/Z10a3eewbVU)
 
