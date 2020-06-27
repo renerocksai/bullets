@@ -111,7 +111,9 @@ Note: The conversion will happen purely in your browser via JavaScript. Your sli
 
 Running your own multiplayer server is easy. Unless you're playing with Docker, you need a linux system.
 
-- Go to [its project page](https://github.com/renerocksai/bullets-server)
+You only ever need to run 1 server - and can use it for all your presentations! It is up to you and your users to make sure that you choose unique room names for your presentations when connecting to the server. To not let things get out of hand, I hardcoded a limit of 30 simultaneous connections into the server. You can change that to your liking, the server hardly consumes any CPU or memory resources anyway.
+
+- Go to [the bullets-server project page](https://github.com/renerocksai/bullets-server)
 - Clone or download the project
 - Download the **server** edition of Godot:
     - go to [godotengine.org](https://godotengine.org)
@@ -124,6 +126,16 @@ Running your own multiplayer server is easy. Unless you're playing with Docker, 
 
 Just run the Godot server in your multiplayer server directory. It will start listening on port 9000 - so make sure your port forwardings and firewalls are OK with that.
 
+Example:
+
+```bash
+$ cd bullets-server
+$ Godot_v3.2.2-stable_linux_headless.64 --port=9000
+```
+
+The commandline argument `--port=xxxx` allows you to specify a different port; 9000 is the default in which case the argument can be omitted.
+
+
 #### A note on HTTPS
 If you're hosting your presentations on a site with HTTPS enabled, which you should, browsers will not allow your presentations to contact a multiplayer server that uses unencrypted websocket connections. So in that case you need to set up the multiplayer server to use encrypted websockets. For that you need SSL certificates and keys!
 
@@ -131,20 +143,16 @@ If you're hosting your presentations on a site with HTTPS enabled, which you sho
 
 So, you only ever need to run 1 server - and can use it for all your presentations! It is up to you and your users to make sure that you choose unique room names for your presentations when connecting to the server. To not let things get out of hand, I hardcoded a limit of 30 simultaneous connections into the server. You can change that to your liking, the server hardly consumes any CPU or memory resources anyway.
 
-Until the multiplayer server code gets configuration support, you just need to add 2 lines of code above the following line:
+If you're using Letsencrypt, the files `privkey.pem` and `fullchain.pem` are what you need. They're typically found at `/etc/letsencrypt/live/my-site`, where `my-site` stands for the name of your site. Rename the 2 files so they have the `.key` and `.crt` extension or else the Godot server will not know how to process them.
 
-```gdscript
-	var err = server.listen(PORT, PoolStringArray(), true)
+Once you have your key and certificate files handy, you start the multiplayer server like this, in your multiplayer server directory:
+
+```bash
+$ cd bullets-server
+$ Godot_v3.2.2-stable_linux_headless.64 --keyfile=privkey.key --certfile=fullchain.crt
 ```
 
-Change that to:
+The above line also shows the defaults for keyfile and certfile. If the files cannot be found, a warning will be printed to the console and SSL support will not be available. The commandline argument `--port=xxxx` allows you to specify a different port; 9000 is the default in which case the argument can be omitted.
 
-```gdscript
-        server.private_key = load("res://privkey.key")
-        server.ssl_certificate = load("res://fullchain.crt");
-	var err = server.listen(PORT, PoolStringArray(), true)
-```
 
-That's it! Just make sure the files `privkey.key` and `fullchain.crt` are also in the multiplayer server directory. They usually come with Letsencrypt but are named  with the `.pem` extension. Rename the 2 files so they have the `.key` and `.crt` extension so that Godot server knows how to process them.
-
-**Note for clients**: Your server connection string changes from `ws://my-server:9000` to `wss://my-server:9000`. Note the extra `s` in `wss://`.
+**Note for clients**: Your server connection string changes from **`ws://`**`my-server:9000` to **`wss://`**`my-server:9000`. Note the extra `s` in `wss://`.
