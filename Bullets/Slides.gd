@@ -68,13 +68,28 @@ func _ready() -> void:
 	Server.connect("Introduce_Player", self, "nw_introduce_player")
 	Server.connect("Unintroduce_Player", self, "nw_unintroduce_player")
 	Server.connect("Welcome_Player", self, "nw_welcome")
+	Server.connect("Remote_Click", self, "onRemoteClick")
 	playerdisplay.connect("timeout", self, "playerdisplay_timeout")
 	connectDlg.connect("join_server", self, "onJoinPressed")
 	connectDlg.connect("canceled", self, "onCancelPressed")
 	gotoDlg.connect("change_slide", self, "onChangeSlideSignal")
 
+
 	if not Engine.editor_hint:
+		# our own event system to allow things like audio buttons to emit
+		# signals without us needing have a reference to them
+		EventManager.listen('click', funcref(self, "sendRemoteClick"))
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+func sendRemoteClick(nodePath: String):
+	Server.send_click(nodePath)
+
+func onRemoteClick(nodePath: String):
+	var clickthing = get_node_or_null(nodePath)
+	if clickthing == null:
+		print('Error: cannot click on ', nodePath)
+	else:
+		clickthing._pressed(true)
 
 func onChangeSlideSignal(slide_number):
 	set_index_active(slide_number - 1)

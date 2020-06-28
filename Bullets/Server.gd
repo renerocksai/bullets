@@ -10,6 +10,7 @@ signal Welcome_Player(player_number)
 signal Change_Slide(slide_number)
 signal Connect_Failed
 signal Room_Full
+signal Remote_Click(node_path)
 
 var room_name: String
 var was_connected = false
@@ -76,6 +77,18 @@ func send_change_slide(slide_number):
 		if player_number > -1:
 			print('Sending change slide %d' % slide_number)
 			rpc_id(1, 'change_slide', slide_number)
+
+func send_click(node_path):
+	if host == null:
+		return
+	if host.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTED:
+		if player_number > -1:
+			print('Sending click on %s' % node_path)
+			rpc_id(1, 'click', node_path)
+
+remote func clicked(node_path):
+	emit_signal('Remote_Click', node_path)
+	print('Received click on %s' % node_path)
 
 remote func room_welcome(player_number):
 	self.player_number = player_number
