@@ -6,15 +6,15 @@
 [ext_resource path="res://Bullets/components/matrix.gd" type="Script" id=4]
 [ext_resource path="res://Bullets/helpdialog.gd" type="Script" id=5]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 42
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=2]
 size = 42
 font_data = ExtResource( 2 )
 
-[sub_resource type="RichTextEffect" id=1]
+[sub_resource type="RichTextEffect" id=3]
 script = ExtResource( 4 )
 
 [node name="helpdialog" type="WindowDialog"]
@@ -23,10 +23,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -764.5
+margin_left = -764.0
 margin_top = -345.0
-margin_right = 764.5
-margin_bottom = 345.0
+margin_right = 765.0
+margin_bottom = 405.0
 window_title = "Help / Keyboard shortcuts"
 script = ExtResource( 5 )
 __meta__ = {
@@ -55,29 +55,33 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -572.5
-margin_top = -304.5
+margin_top = -329.5
 margin_right = 125.5
-margin_bottom = 487.5
+margin_bottom = 462.5
 mouse_filter = 2
-custom_fonts/bold_font = SubResource( 5 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0.803922, 0.0588235, 0.12549, 1 )
 bbcode_enabled = true
 bbcode_text = "[b][color=grey]<SPACE>[/color][color=grey],[/color][/b]
 
 
 
+[b][color=grey]<SHIFT>[/color][color=grey] +[/color][/b]
 
+[b][color=grey]<?>[/color][color=grey],[/color][/b]
 "
 text = "<SPACE>,
 
 
 
+<SHIFT> +
 
+<?>,
 "
 scroll_active = false
 override_selected_font_color = true
-custom_effects = [ SubResource( 1 ) ]
+custom_effects = [ SubResource( 3 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -88,17 +92,18 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -390.5
-margin_top = -304.5
+margin_top = -329.5
 margin_right = 307.5
-margin_bottom = 488.5
+margin_bottom = 463.5
 mouse_filter = 2
-custom_fonts/bold_font = SubResource( 5 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0.6, 0.2, 0.4, 1 )
 bbcode_enabled = true
 bbcode_text = "[b][color=grey] --> [/color][/b]
 [b][color=grey]<-- [/color][/b]
 [b][color=grey]<F>[/color][/b]
+[b][color=grey]<L>[/color][/b]
 [b][color=grey]<L>[/color][/b]
 [b][color=grey]<D>[/color][/b]
 [b][color=grey]<H>[/color][/b]
@@ -112,6 +117,7 @@ text = " -->
 <-- 
 <F>
 <L>
+<L>
 <D>
 <H>
 <P>
@@ -122,7 +128,7 @@ text = " -->
 <G>"
 scroll_active = false
 override_selected_font_color = true
-custom_effects = [ SubResource( 1 ) ]
+custom_effects = [ SubResource( 3 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -133,18 +139,19 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -300.5
-margin_top = -304.5
+margin_top = -329.5
 margin_right = 397.5
-margin_bottom = 385.5
+margin_bottom = 360.5
 mouse_filter = 2
-custom_fonts/bold_font = SubResource( 5 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0.956863, 0.960784, 0.976471, 1 )
 bbcode_enabled = true
 bbcode_text = "[b]next slide[/b]
 [b]previous slide[/b]
 toggle [b]F[/b]ullscreen 
-toggle [b]L[/b]aserpointer 
+toggle [b]L[/b]aserpointer
+cycle [b]L[/b]aserpointer size
 toggle [b]D[/b]rawmode, <C> to clear
 [b]H[/b]elp 
 [b]P[/b]DF / PNG export 
@@ -156,7 +163,8 @@ go to last slide
 text = "next slide
 previous slide
 toggle Fullscreen 
-toggle Laserpointer 
+toggle Laserpointer
+cycle Laserpointer size
 toggle Drawmode, <C> to clear
 Help 
 PDF / PNG export 
@@ -167,7 +175,7 @@ go to last slide
 Goto slide..."
 scroll_active = false
 override_selected_font_color = true
-custom_effects = [ SubResource( 1 ) ]
+custom_effects = [ SubResource( 3 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -178,12 +186,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 124.939
-margin_top = -304.906
+margin_top = -329.906
 margin_right = 822.939
-margin_bottom = 11.0936
+margin_bottom = -13.9064
 mouse_filter = 2
-custom_fonts/bold_font = SubResource( 5 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0.6, 0.2, 0.4, 1 )
 bbcode_enabled = true
 bbcode_text = "[b][color=grey]>  tap right border[/color][/b] [color=grey]/ swipe left[/color]
@@ -196,7 +204,7 @@ text = ">  tap right border / swipe left
 "
 scroll_active = false
 override_selected_font_color = true
-custom_effects = [ SubResource( 1 ) ]
+custom_effects = [ SubResource( 3 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
