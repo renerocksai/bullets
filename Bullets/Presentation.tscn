@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Bullets/Slides.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/components/DrawLayer.tscn" type="PackedScene" id=2]
@@ -8,9 +8,12 @@
 [ext_resource path="res://Bullets/joindialog.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Bullets/img/laser2.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://Bullets/img/laser3.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://Bullets/helpdialog.gd" type="Script" id=9]
+[ext_resource path="res://Bullets/gotodialog.gd" type="Script" id=10]
+[ext_resource path="res://Bullets/gotodialog.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Bullets/helpdialog.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Bullets/TouchControls/TouchControls/TouchControls.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Bullets/TouchControls/SwipeDetector/SwipeDetector.tscn" type="PackedScene" id=38]
-
 
 [node name="BulletsDemoPresentation" type="Node2D"]
 script = ExtResource( 3 )
@@ -25,7 +28,7 @@ one_shot = true
 visible = false
 position = Vector2( 935.903, 577.104 )
 z_index = 11
-frame = 29
+frame = 16
 
 [node name="LaserPointer2" parent="Slides" instance=ExtResource( 4 )]
 visible = false
@@ -33,7 +36,7 @@ position = Vector2( 935.903, 577.104 )
 z_index = 11
 frames = ExtResource( 7 )
 animation = "default"
-frame = 10
+frame = 21
 
 [node name="LaserPointer3" parent="Slides" instance=ExtResource( 4 )]
 visible = false
@@ -41,9 +44,11 @@ position = Vector2( 935.903, 577.104 )
 z_index = 11
 frames = ExtResource( 8 )
 animation = "default"
-frame = 12
+frame = 23
 
 [node name="playerdisplay" parent="Slides" instance=ExtResource( 5 )]
+text = "You are
+Player 1"
 
 [node name="SwipeDetector" parent="." instance=ExtResource( 38 )]
 
@@ -56,3 +61,34 @@ mouse_filter = 2
 [node name="DrawLayer" parent="." instance=ExtResource( 2 )]
 
 [node name="JoinDialog" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="helpdialog" type="WindowDialog" parent="." instance=ExtResource( 12 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 222.311
+margin_top = 1122.71
+margin_right = 1751.31
+margin_bottom = 1812.71
+window_title = "Help / Keyboard shortcuts"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gotodialog" type="WindowDialog" parent="." instance=ExtResource( 11 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 657.535
+margin_top = 1249.94
+margin_right = 1373.54
+margin_bottom = 1401.94
+window_title = "Join Multiplayer Server"
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

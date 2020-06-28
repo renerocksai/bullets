@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Bullets/gotodialog.gd" type="Script" id=1]
+[ext_resource path="res://Bullets/fonts/contentfont_regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Bullets/fonts/contentfont_bold.tres" type="DynamicFont" id=3]
+
+[node name="gotodialog" type="WindowDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -358.0
+margin_top = -76.0
+margin_right = 358.0
+margin_bottom = 76.0
+window_title = "Join Multiplayer Server"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 47.0
+margin_top = 24.0
+margin_right = 214.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 2 )
+text = "Go to Slide:"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 287.0
+margin_top = 19.0
+margin_right = 691.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.305882, 0.52549, 0.94902, 1 )
+text = "0"
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OK" type="Button" parent="."]
+margin_left = 470.683
+margin_top = 81.74
+margin_right = 671.683
+margin_bottom = 136.74
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0666667, 0.776471, 0.0745098, 1 )
+text = "Go to Slide"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="."]
+margin_left = 44.151
+margin_top = 83.0
+margin_right = 245.151
+margin_bottom = 138.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.960784, 0.215686, 0.215686, 1 )
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}

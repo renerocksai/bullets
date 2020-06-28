@@ -14,16 +14,16 @@
 [sub_resource type="RichTextEffect" id=1]
 script = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=7]
 size = 50
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=8]
 size = 75
 extra_spacing_top = 10
 font_data = ExtResource( 3 )
 
-[sub_resource type="RichTextEffect" id=4]
+[sub_resource type="RichTextEffect" id=9]
 script = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -34,7 +34,7 @@ font_data = ExtResource( 5 )
 size = 42
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=10]
 size = 32
 extra_spacing_top = 10
 font_data = ExtResource( 3 )
@@ -84,7 +84,7 @@ margin_top = 402.0
 margin_right = 1699.0
 margin_bottom = 542.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 7 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
 bbcode_text = "[color=red]^
@@ -108,14 +108,14 @@ margin_bottom = 1025.0
 rect_clip_content = false
 mouse_filter = 2
 custom_styles/normal = ExtResource( 9 )
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 8 )
 custom_colors/default_color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
 bbcode_enabled = true
 bbcode_text = "[center][color=#cd0f2d]> > > [/color] [pulse width=-10.0 freq=3.0]click to start[/pulse][/center]"
 text = "> > >  click to start"
 scroll_active = false
 override_selected_font_color = true
-custom_effects = [ SubResource( 1 ), SubResource( 4 ) ]
+custom_effects = [ SubResource( 1 ), SubResource( 9 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -130,7 +130,7 @@ margin_top = 920.0
 margin_right = 1920.0
 margin_bottom = 1020.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 8 )
 custom_colors/default_color = Color( 0.537255, 0.564706, 0.564706, 1 )
 bbcode_enabled = true
 bbcode_text = "[center][color=#cd0f2d]> > >   LOADING THE BÛLLETS[/color] "
@@ -161,12 +161,14 @@ bbcode_text = "[b][color=#993366]<SPACE>[/color][color=grey],[/color][/b]
 
 
 
+         [b][color=#993366]<?>[/color][color=grey],[/color][/b]
 "
 text = "<SPACE>,
 
 
 
 
+         <?>,
 "
 scroll_active = false
 override_selected_font_color = true
@@ -231,16 +233,16 @@ bbcode_text = "[b]next slide[/b]
 toggle fullscreen 
 toggle laserpointer 
 toggle drawmode, <C> to clear
-back to this screen 
-PNG export 
+help 
+PDF / PNG export 
 Multiplayer mode"
 text = "next slide
 previous slide
 toggle fullscreen 
 toggle laserpointer 
 toggle drawmode, <C> to clear
-back to this screen 
-PNG export 
+help 
+PDF / PNG export 
 Multiplayer mode"
 scroll_active = false
 override_selected_font_color = true
@@ -291,7 +293,7 @@ margin_top = 99.0
 margin_right = 1109.0
 margin_bottom = 199.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 10 )
 custom_colors/default_color = Color( 0.537255, 0.564706, 0.564706, 1 )
 bbcode_enabled = true
 bbcode_text = "[color=#404040][url=https://renerocksai.github.com/bullets]github.com/renerocksai/bullets[/url][/color]"
@@ -312,5 +314,5 @@ visible = false
 position = Vector2( 1327.99, 984.132 )
 frames = ExtResource( 6 )
 animation = "coolanim"
-frame = 24
+frame = 12
 playing = true

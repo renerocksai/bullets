@@ -1,0 +1,202 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Bold.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Bullets/fonts/calibri font sv/Calibri Light.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Bullets/fonts/contentfont_bold.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Bullets/components/matrix.gd" type="Script" id=4]
+[ext_resource path="res://Bullets/helpdialog.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=5]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 42
+font_data = ExtResource( 2 )
+
+[sub_resource type="RichTextEffect" id=1]
+script = ExtResource( 4 )
+
+[node name="helpdialog" type="WindowDialog"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -764.5
+margin_top = -345.0
+margin_right = 764.5
+margin_bottom = 345.0
+window_title = "Help / Keyboard shortcuts"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OK" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.5
+margin_top = -79.0
+margin_right = 100.5
+margin_bottom = -24.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0666667, 0.776471, 0.0745098, 1 )
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -572.5
+margin_top = -304.5
+margin_right = 125.5
+margin_bottom = 487.5
+mouse_filter = 2
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 0.803922, 0.0588235, 0.12549, 1 )
+bbcode_enabled = true
+bbcode_text = "[b][color=grey]<SPACE>[/color][color=grey],[/color][/b]
+
+
+
+
+"
+text = "<SPACE>,
+
+
+
+
+"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -390.5
+margin_top = -304.5
+margin_right = 307.5
+margin_bottom = 488.5
+mouse_filter = 2
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 0.6, 0.2, 0.4, 1 )
+bbcode_enabled = true
+bbcode_text = "[b][color=grey] --> [/color][/b]
+[b][color=grey]<-- [/color][/b]
+[b][color=grey]<F>[/color][/b]
+[b][color=grey]<L>[/color][/b]
+[b][color=grey]<D>[/color][/b]
+[b][color=grey]<H>[/color][/b]
+[b][color=grey]<P>[/color][/b]
+[b][color=grey]<M>[/color][/b]
+
+[b][color=grey]<1>[/color][/b]
+[b][color=grey]<0>[/color][/b]
+[b][color=grey]<G>[/color][/b]"
+text = " --> 
+<-- 
+<F>
+<L>
+<D>
+<H>
+<P>
+<M>
+
+<1>
+<0>
+<G>"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.5
+margin_top = -304.5
+margin_right = 397.5
+margin_bottom = 385.5
+mouse_filter = 2
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 0.956863, 0.960784, 0.976471, 1 )
+bbcode_enabled = true
+bbcode_text = "[b]next slide[/b]
+[b]previous slide[/b]
+toggle [b]F[/b]ullscreen 
+toggle [b]L[/b]aserpointer 
+toggle [b]D[/b]rawmode, <C> to clear
+[b]H[/b]elp 
+[b]P[/b]DF / PNG export 
+toggle [b]M[/b]ultiplayer mode
+
+go to 1st slide
+go to last slide
+[b]G[/b]oto slide..."
+text = "next slide
+previous slide
+toggle Fullscreen 
+toggle Laserpointer 
+toggle Drawmode, <C> to clear
+Help 
+PDF / PNG export 
+toggle Multiplayer mode
+
+go to 1st slide
+go to last slide
+Goto slide..."
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 124.939
+margin_top = -304.906
+margin_right = 822.939
+margin_bottom = 11.0936
+mouse_filter = 2
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 0.6, 0.2, 0.4, 1 )
+bbcode_enabled = true
+bbcode_text = "[b][color=grey]>  tap right border[/color][/b] [color=grey]/ swipe left[/color]
+[b][color=grey]>  tap left border [/color] [/b][color=grey]/ swipe right
+[b][color=grey]>  tap upper border [/color] [/b][color=grey][/color]
+"
+text = ">  tap right border / swipe left
+>  tap left border  / swipe right
+>  tap upper border  
+"
+scroll_active = false
+override_selected_font_color = true
+custom_effects = [ SubResource( 1 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
