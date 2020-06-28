@@ -26,6 +26,8 @@ onready var canvas = $"../DrawLayer"
 
 onready var playerdisplay = $playerdisplay
 onready var connectDlg = $"../JoinDialog"
+onready var helpDlg = $"../helpdialog"
+onready var gotoDlg = $"../gotodialog"
 
 var index_active: = 0 setget set_index_active
 
@@ -69,10 +71,14 @@ func _ready() -> void:
 	playerdisplay.connect("timeout", self, "playerdisplay_timeout")
 	connectDlg.connect("join_server", self, "onJoinPressed")
 	connectDlg.connect("canceled", self, "onCancelPressed")
+	gotoDlg.connect("change_slide", self, "onChangeSlideSignal")
 
 	if not Engine.editor_hint:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
+func onChangeSlideSignal(slide_number):
+	set_index_active(slide_number - 1)
+	
 var playerdisplay_stack = []
 func playerdisplay_show(what) -> void:
 	if playerdisplay.is_visible():
@@ -184,6 +190,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		or event.is_action('toggle_drawmode')
 		or event.is_action('clear_drawing')
 		or event.is_action('input_multiplayer')
+		or event.is_action("goto_slide")
+		or event.is_action("goto_slide_1")
+		or event.is_action("goto_last_slide")
 	)
 	if not valid_event:
 		return
@@ -192,13 +201,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		self.index_active += 1
 	elif event.is_action_pressed('ui_left')  or event.is_action_pressed('ui_page_up'):
 		self.index_active -= 1
+	elif event.is_action_pressed("goto_slide_1"):
+		set_index_active(0)
+	elif event.is_action_pressed("goto_last_slide"):
+		set_index_active(1000)
 	elif event.is_action('quit'):
 		get_tree().quit()
 	elif event.is_action_pressed('to_png'):
 		save_as_png('.')
+	elif event.is_action_pressed("goto_slide"):
+		gotoDlg.popup_centered()
 	elif event.is_action_pressed('go_home'):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().change_scene("res://Bullets/Slides/bootmenu.tscn")
+		# get_tree().change_scene("res://Bullets/Slides/bootmenu.tscn")
+		helpDlg.popup_centered()
 	elif event.is_action_pressed('cycle_laserpointer_sizes'):
 		laserpointer_size -= .25
 		if laserpointer_size < .25:

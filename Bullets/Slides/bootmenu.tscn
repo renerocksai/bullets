@@ -161,12 +161,14 @@ bbcode_text = "[b][color=#993366]<SPACE>[/color][color=grey],[/color][/b]
 
 
 
+         [b][color=#993366]<?>[/color][color=grey],[/color][/b]
 "
 text = "<SPACE>,
 
 
 
 
+         <?>,
 "
 scroll_active = false
 override_selected_font_color = true
@@ -231,16 +233,16 @@ bbcode_text = "[b]next slide[/b]
 toggle fullscreen 
 toggle laserpointer 
 toggle drawmode, <C> to clear
-back to this screen 
-PNG export 
+help 
+PDF / PNG export 
 Multiplayer mode"
 text = "next slide
 previous slide
 toggle fullscreen 
 toggle laserpointer 
 toggle drawmode, <C> to clear
-back to this screen 
-PNG export 
+help 
+PDF / PNG export 
 Multiplayer mode"
 scroll_active = false
 override_selected_font_color = true
@@ -312,5 +314,5 @@ visible = false
 position = Vector2( 1327.99, 984.132 )
 frames = ExtResource( 6 )
 animation = "coolanim"
-frame = 3
+frame = 19
 playing = true
