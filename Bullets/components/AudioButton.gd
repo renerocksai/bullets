@@ -27,7 +27,7 @@ func _input(event):
 			if is_hit(b): 
 				get_tree().set_input_as_handled()
 
-func _pressed():
+func _pressed(remotely=false):
 	print('playing ', wav)
 	if audio != null:
 		if audiostreamplayer.is_playing():
@@ -35,4 +35,7 @@ func _pressed():
 		else:
 			audiostreamplayer.stream = audio
 			audiostreamplayer.play()
+	if not remotely:
+		EventManager.sendEvent('click', get_path())
+	
 
