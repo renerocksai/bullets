@@ -79,19 +79,32 @@ func _ready() -> void:
 func onChangeSlideSignal(slide_number):
 	set_index_active(slide_number - 1)
 	
+func debug_log(what):
+	var time = OS.get_ticks_msec()
+	var seconds: int = time / 1000
+	var milli = time - seconds * 1000
+	print('%03d.%03d - %s' % [seconds, milli, what])
+
+# Multiplayer info display
 var playerdisplay_stack = []
 func playerdisplay_show(what) -> void:
+	debug_log('playerdisplay_show("%s")' % what)
 	if playerdisplay.is_visible():
+		debug_log('    (queued)')
 		playerdisplay_stack.append(what)
 	else:
 		playerdisplay.bbcode_text = '[center]' + what
-		add_child(playerdisplay)
+		debug_log('    displayed!')
+		if not is_a_parent_of(playerdisplay):
+			add_child(playerdisplay)
 		playerdisplay.start()
 
 func playerdisplay_timeout():
+	debug_log('playerdisplay_timeout()')
 	var next = playerdisplay_stack.pop_front()
 	if next != null:
 		playerdisplay.bbcode_text = '[center]' + next
+		debug_log('    un-queued: %s' % next)
 		playerdisplay.start()
 	else:
 		playerdisplay.hide()
@@ -347,6 +360,10 @@ func _display(slide_index : int) -> void:
 	var previous_slide = slide_current
 	slide_current = slide_nodes[slide_index]
 
+	if previous_slide == slide_current:
+		set_process_unhandled_input(true)
+		return
+
 	slide_current.cancel_animation()
 
 	if previous_slide and false:
@@ -355,6 +372,9 @@ func _display(slide_index : int) -> void:
 				yield(previous_slide, "animation_finished")
 
 	add_child(slide_current)
+	if is_a_parent_of(playerdisplay):
+		remove_child(playerdisplay)
+	add_child(playerdisplay)
 	slide_current.visible = true
 	slide_current.set_slide_number(slide_index + slide_number_start)
 
