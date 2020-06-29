@@ -56,7 +56,7 @@ func _ready() -> void:
 			remove_child(slide)
 		remove_child(playerdisplay)
 		playerdisplay.hide()
-		
+
 	# connect
 	swipedetector.connect("silly_tap_release", touchcontrols, "flash_controls")
 	mousehidetimer.connect("timeout", self, "_on_mousehide_timeout")
@@ -93,7 +93,7 @@ func onRemoteClick(nodePath: String):
 
 func onChangeSlideSignal(slide_number):
 	set_index_active(slide_number - 1)
-	
+
 func debug_log(what):
 	var time = OS.get_ticks_msec()
 	var seconds: int = time / 1000
@@ -129,12 +129,12 @@ func playerdisplay_timeout():
 func onJoinPressed(url, room_name):
 	Server.start_multiplayer(url, room_name)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # no artifact cursor pls
-	
+
 func onCancelPressed():
 	multiplayer_mode = false
 	connectDlg.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # no artifact cursor pls
-	
+
 func nw_change_slides(slide_number):
 	set_index_active(slide_number, true)
 

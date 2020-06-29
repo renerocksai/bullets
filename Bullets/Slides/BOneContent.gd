@@ -97,7 +97,7 @@ func set_slide_number(n):
 	if Engine.editor_hint or first:
 		page_number = str(n)
 		first = false
-	elif 'auto' in page_number and pagenumLabel != null:
+	if 'auto' in page_number and pagenumLabel != null:
 		pagenumLabel.bbcode_text = '[color=#{pagenumber_color}]{n}[/color]'.format({
 			'pagenumber_color': pagenumber_color.to_html(),
 			'n': n,
