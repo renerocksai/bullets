@@ -110,6 +110,11 @@ Note: The conversion will happen purely in your browser via JavaScript. Your sli
 
 ### How to run your own multiplayer server
 
+#### USE DOCKER !!!
+
+**See [bullet-server on GitHub](https://github.com/renerocksai/bullets-server) for instructions about how to automatically build and deploy a bullets-server docker image, and how to run it on your server.**
+
+#### The manual approach
 Running your own multiplayer server is easy. Unless you're playing with Docker, you need a linux system.
 
 You only ever need to run 1 server - and can use it for all your presentations! It is up to you and your users to make sure that you choose unique room names for your presentations when connecting to the server. To not let things get out of hand, I hardcoded a limit of 30 simultaneous connections into the server. You can change that to your liking, the server hardly consumes any CPU or memory resources anyway.
